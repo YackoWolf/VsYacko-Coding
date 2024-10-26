@@ -7,9 +7,9 @@ import states.editors.MasterEditorMenu;
 import options.OptionsState;
 
 enum MainMenuColumn {
-	LEFT;
-	CENTER;
-	RIGHT;
+    LEFT;
+    CENTER;
+    RIGHT;
 }
 
 class MainMenuState extends MusicBeatState
@@ -36,6 +36,9 @@ class MainMenuState extends MusicBeatState
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
+	// New variables for background and foreground images
+	var backgroundImage:FlxSprite;
+	var foregroundImage:FlxSprite;
 
 	override function create()
 	{
@@ -52,13 +55,26 @@ class MainMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
 		var yScroll:Float = 0.25;
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
-		bg.antialiasing = ClientPrefs.data.antialiasing;
-		bg.scrollFactor.set(0, yScroll);
-		bg.setGraphicSize(Std.int(bg.width * 1.175));
-		bg.updateHitbox();
-		bg.screenCenter();
-		add(bg);
+		// Background image with random selection
+		backgroundImage = new FlxSprite(-80).loadGraphic(Paths.image('backgrounds/bg' + FlxG.random.int(0, 5)));
+		backgroundImage.antialiasing = ClientPrefs.data.antialiasing;
+		backgroundImage.scrollFactor.set(0, yScroll);
+		backgroundImage.setGraphicSize(Std.int(backgroundImage.width * 1.235));
+		backgroundImage.updateHitbox();
+		backgroundImage.screenCenter();
+		add(backgroundImage);
+	
+		// Foreground image positioning (adjust coordinates as needed)
+		foregroundImage = new FlxSprite(0, 0); // Adjust coordinates as needed
+		foregroundImage.loadGraphic(Paths.image('BarOptions')); // Adjust the image path
+		//foregroundImage.scale.set(1280, 720); // Duplica el tamaño en ambas direcciones (Kevinia, porfavor ayudame en esto, YA LO ARREGLE XD)
+		foregroundImage.scrollFactor.set(0, 0); // Esto hace que el objeto se quede fijo
+		add(foregroundImage);
+	
+		var intRandom:Int = FlxG.random.int(0, 5);
+	
+		// supongo que el BG ya fue creado previamente en el state
+		// bg.loadGraphic(Paths.image('backgrounds/bg' + intRandom));
 
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
@@ -87,8 +103,7 @@ class MainMenuState extends MusicBeatState
 			leftItem = createMenuItem(leftOption, 60, 490);
 		if (rightOption != null)
 		{
-			rightItem = createMenuItem(rightOption, FlxG.width - 60, 490);
-			rightItem.x -= rightItem.width;
+		rightItem = createMenuItem(rightOption, FlxG.width - 60, 490);
 		}
 
 		var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
