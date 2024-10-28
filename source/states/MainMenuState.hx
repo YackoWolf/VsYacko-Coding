@@ -106,7 +106,11 @@ class MainMenuState extends MusicBeatState
 		rightItem = createMenuItem(rightOption, FlxG.width - 60, 490);
 		}
 
-		var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Vs Yacko v" + psychEngineVersion, 12);
+		var modVer:FlxText = new FlxText(12, FlxG.height - 64, 0, "VsYacko v" + psychEngineVersion, 12);
+		modVer.scrollFactor.set();
+		modVer.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		add(modVer);
+		var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
 		psychVer.scrollFactor.set();
 		psychVer.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(psychVer);
@@ -144,17 +148,24 @@ class MainMenuState extends MusicBeatState
 		menuItem.antialiasing = ClientPrefs.data.antialiasing;
 		menuItem.scrollFactor.set();
 		menuItems.add(menuItem);
+
+		var offset:Int = 0;
+		for (i in 0...3)  // Assuming 4 possible conditions
+		{
 	        switch (i)
-                {
-                case 0:
-                    menuItem.x += 110;
-                case 1:
-                    menuItem.x += 200;
-                case 2:
-                    menuItem.x += 249;
-                case 3:
-                    menuItem.x += 300;
-                }   
+    		{
+      			case 0:
+				  offset = 110;
+				  break;
+				case 1:
+				  offset = 200;
+				  break;
+				// Add more cases for other conditions
+				default:
+				  break;
+			}
+		}
+		menuItem.x += offset;
 		return menuItem;
 	}
 
