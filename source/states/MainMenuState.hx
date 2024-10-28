@@ -144,6 +144,17 @@ class MainMenuState extends MusicBeatState
 		menuItem.antialiasing = ClientPrefs.data.antialiasing;
 		menuItem.scrollFactor.set();
 		menuItems.add(menuItem);
+	        switch (i)
+                {
+                case 0:
+                    menuItem.x += 110;
+                case 1:
+                    menuItem.x += 200;
+                case 2:
+                    menuItem.x += 249;
+                case 3:
+                    menuItem.x += 300;
+                }   
 		return menuItem;
 	}
 
