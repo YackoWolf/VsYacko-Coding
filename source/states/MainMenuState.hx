@@ -11,6 +11,19 @@ enum MainMenuColumn {
     CENTER;
     RIGHT;
 }
+enum GameModes {
+    STORY_MODE;
+    FREEPLAY;
+    AWARDS;
+    OPTIONS;
+}
+
+var gameModes:Array<GameModes> = [
+    GameModes.STORY_MODE,
+    GameModes.FREEPLAY,
+    GameModes.AWARDS,
+    GameModes.OPTIONS
+];
 
 class MainMenuState extends MusicBeatState
 {
@@ -27,11 +40,11 @@ class MainMenuState extends MusicBeatState
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
-		#if MODS_ALLOWED 'mods', #end
-		'credits'
+		'achievements'
+		//#if MODS_ALLOWED 'mods', #end
 	];
-
-	var leftOption:String = #if ACHIEVEMENTS_ALLOWED 'achievements' #else null #end;
+	
+	var leftOption:String = 'credits';
 	var rightOption:String = 'options';
 
 	var magenta:FlxSprite;
@@ -95,15 +108,16 @@ class MainMenuState extends MusicBeatState
 		for (num => option in optionShit)
 		{
 			var item:FlxSprite = createMenuItem(option, 0, (num * 140) + 90);
-			item.y += (4 - optionShit.length) * 70; // Offsets for when you have anything other than 4 items
+			item.y += (4 - optionShit.length) * -35; // Offsets for when you have anything other than 4 items
 			item.screenCenter(X);
+			item.x += 370;
 		}
 
 		if (leftOption != null)
-			leftItem = createMenuItem(leftOption, 60, 490);
+			leftItem = createMenuItem(leftOption, 930, 510);
 		if (rightOption != null)
 		{
-		rightItem = createMenuItem(rightOption, FlxG.width - 60, 490);
+		rightItem = createMenuItem(rightOption, FlxG.width - 60, 510);
 		}
 
 		var modVer:FlxText = new FlxText(12, FlxG.height - 64, 0, "VsYacko v" + psychEngineVersion, 12);
@@ -148,24 +162,28 @@ class MainMenuState extends MusicBeatState
 		menuItem.antialiasing = ClientPrefs.data.antialiasing;
 		menuItem.scrollFactor.set();
 		menuItems.add(menuItem);
-
 		var offset:Int = 0;
-		for (i in 0...3)  // Assuming 4 possible conditions
-		{
-	        switch (i)
-    		{
-      			case 0:
-				  offset = 110;
+        for (i in 0...3)  // Assuming 4 possible conditions
+        {
+            switch (gameModes[i]) {
+				case GameModes.STORY_MODE:
+					offset = -110;
+					break;  
+				case GameModes.FREEPLAY:
+                  offset = 380;
+                  break;
+				case GameModes.AWARDS:
+				  offset = 250;
 				  break;
-				case 1:
-				  offset = 200;
+				case GameModes.OPTIONS:
+				  offset = 250;
 				  break;
-				// Add more cases for other conditions
-				default:
-				  break;
-			}
-		}
-		menuItem.x += offset;
+                // Add more cases for other conditions
+                default:
+                  break;
+            }
+        }
+        menuItem.x += offset;
 		return menuItem;
 	}
 
