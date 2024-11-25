@@ -1,0 +1,55 @@
+{
+	"animations": [
+		{
+			"offsets": [-588, -615],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": false,
+			"name": "noxfaker idle"
+		},
+		{
+			"offsets": [-592, -615],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "noxfaker right"
+		},
+		{
+			"offsets": [-588, -615],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "noxfaker up"
+		},
+		{
+			"offsets": [-556, -615],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "noxfaker left"
+		},
+		{
+			"offsets": [-578, -615],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "noxfaker down"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "characters/noxfaker",
+	"position": [-630, -460],
+	"healthicon": "scrimbo",
+	"flip_x": false,
+	"healthbar_colors": [60, 60, 255],
+	"camera_position": [420, 530],
+	"sing_duration": 4,
+	"scale": 1.5,
+	"_editor_isPlayer": false
+}

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="noxfang.png">
+<SubTexture name="noxfang idle0000" x="311" y="0" width="316" height="474" frameX="-109" frameY="-33" frameWidth="590" frameHeight="540" />
+<SubTexture name="noxfang down0000" x="374" y="507" width="347" height="384" frameX="-93" frameY="-123" frameWidth="590" frameHeight="540" />
+<SubTexture name="noxfang up0000" x="0" y="0" width="311" height="507" frameX="-93" frameY="0" frameWidth="590" frameHeight="540" />
+<SubTexture name="noxfang left0000" x="0" y="507" width="374" height="419" frameX="-13" frameY="-88" frameWidth="590" frameHeight="540" />
+<SubTexture name="noxfang right0000" x="627" y="0" width="431" height="452" frameX="-151" frameY="-55" frameWidth="590" frameHeight="540" />
+</TextureAtlas>

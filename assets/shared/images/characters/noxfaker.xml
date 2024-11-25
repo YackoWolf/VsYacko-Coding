@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="noxfaker.png">
+<SubTexture name="noxfaker down0000" x="338" y="520" width="380" height="447" frameX="-20" frameY="-82" frameWidth="400" frameHeight="560" />
+<SubTexture name="noxfaker up0000" x="0" y="0" width="328" height="520" frameX="-32" frameY="-10" frameWidth="400" frameHeight="560" />
+<SubTexture name="noxfaker right0000" x="328" y="0" width="350" height="489" frameX="-41" frameY="-40" frameWidth="400" frameHeight="560" />
+<SubTexture name="noxfaker left0000" x="678" y="0" width="379" height="478" frameX="-21" frameY="-51" frameWidth="400" frameHeight="560" />
+<SubTexture name="noxfaker idle0000" x="0" y="520" width="338" height="478" frameX="-41" frameY="-51" frameWidth="400" frameHeight="560" />
+</TextureAtlas>
