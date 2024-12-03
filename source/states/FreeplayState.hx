@@ -3,6 +3,7 @@ package states;
 import backend.WeekData;
 import backend.Highscore;
 import backend.Song;
+import backend.CoolUtil;
 
 import objects.HealthIcon;
 import objects.MusicPlayer;
@@ -16,6 +17,8 @@ import flixel.util.FlxDestroyUtil;
 import openfl.utils.Assets;
 
 import haxe.Json;
+
+import flixel.animation.FlxAnimation;
 
 class FreeplayState extends MusicBeatState
 {
@@ -40,6 +43,11 @@ class FreeplayState extends MusicBeatState
 
 	private var iconArray:Array<HealthIcon> = [];
 
+	var disco:FlxSprite = new FlxSprite();
+	var cover:FlxSprite;
+	var cuadro:FlxSprite;
+	var bg3:FlxSprite;
+	var bg2:FlxSprite;
 	var bg:FlxSprite;
 	var intendedColor:Int;
 
@@ -51,6 +59,8 @@ class FreeplayState extends MusicBeatState
 	var bottomBG:FlxSprite;
 
 	var player:MusicPlayer;
+
+	var creditsText:FlxText;
 
 	override function create()
 	{
@@ -103,17 +113,25 @@ class FreeplayState extends MusicBeatState
 		}
 		Mods.loadTopMod();
 
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		bg = new FlxSprite().loadGraphic(Paths.image("MenuStuff/freeplay/freeplay/bg"));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		add(bg);
 		bg.screenCenter();
+
+		disco.frames = Paths.getSparrowAtlas('MenuStuff/freeplay/freeplay/disk');
+		disco.animation.addByPrefix('idle', 'disk', 30, true);
+		disco.x =0;
+		disco.y =420;
+		add(disco);
+		disco.animation.play("idle");
+		disco.updateHitbox();
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
 
 		for (i in 0...songs.length)
 		{
-			var songText:Alphabet = new Alphabet(90, 320, songs[i].songName, true);
+			var songText:Alphabet = new Alphabet(20, 320, songs[i].songName, true);
 			songText.targetY = i;
 			grpSongs.add(songText);
 
@@ -137,17 +155,44 @@ class FreeplayState extends MusicBeatState
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
 			// songText.screenCenter(X);
 		}
+
+		bg2 = new FlxSprite().loadGraphic(Paths.image("MenuStuff/freeplay/freeplay/creditosBar"));
+		bg2.antialiasing = ClientPrefs.data.antialiasing;
+		add(bg2);
+		bg2.screenCenter();
+
+		bg3 = new FlxSprite().loadGraphic(Paths.image("MenuStuff/freeplay/freeplay/menu"));
+		bg3.antialiasing = ClientPrefs.data.antialiasing;
+		add(bg3);
+		bg3.screenCenter();
+		
+		cover = new FlxSprite();
+		cover.antialiasing = ClientPrefs.data.antialiasing;
+		cover.scale.x = 0.5; // Reduce el ancho a la mitad
+		cover.scale.y = 0.5; // Reduce el alto a la mitad
+		cover.x=449.5;
+		cover.y= -99.5;
+		add(cover);
+
+		cuadro = new FlxSprite().loadGraphic(Paths.image("MenuStuff/freeplay/freeplay/cuadro"));
+		cuadro.antialiasing = ClientPrefs.data.antialiasing;
+		cuadro.x = 700;
+		cuadro.y = 30;
+		add(cuadro);
+
 		WeekData.setDirectoryFromWeek();
 
-		scoreText = new FlxText(FlxG.width * 0.7, 5, 0, "", 32);
-		scoreText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, RIGHT);
+		scoreText = new FlxText(FlxG.width * 0.7, 500, 400, "", 105);
+		scoreText.setFormat(Paths.font("Barlow-ExtraBoldItalic.ttf"), 32, FlxColor.WHITE, RIGHT);
+		scoreText.alignment = CENTER;
 
-		scoreBG = new FlxSprite(scoreText.x - 6, 0).makeGraphic(1, 66, 0xFF000000);
+		scoreBG = new FlxSprite(scoreText.x - 200, 0).makeGraphic(1, 66, 0xFF000000);
 		scoreBG.alpha = 0.6;
 		add(scoreBG);
 
-		diffText = new FlxText(scoreText.x, scoreText.y + 36, 0, "", 24);
+		diffText = new FlxText(FlxG.width / 2 - 800, 400, 450, "", 80);
 		diffText.font = scoreText.font;
+		diffText.alignment = CENTER;
 		add(diffText);
 
 		add(scoreText);
@@ -174,6 +219,9 @@ class FreeplayState extends MusicBeatState
 		bottomBG = new FlxSprite(0, FlxG.height - 26).makeGraphic(FlxG.width, 26, 0xFF000000);
 		bottomBG.alpha = 0.6;
 		add(bottomBG);
+
+		creditsText = new FlxText(200, 400, FlxG.width, "", 30);
+		add(creditsText);
 
 		var leText:String = Language.getPhrase("freeplay_tip", "Press SPACE to listen to the Song / Press CTRL to open the Gameplay Changers Menu / Press RESET to Reset your Score and Accuracy.");
 		bottomString = leText;
@@ -243,7 +291,7 @@ class FreeplayState extends MusicBeatState
 
 		if (!player.playingMusic)
 		{
-			scoreText.text = Language.getPhrase('personal_best', 'PERSONAL BEST: {1} ({2}%)', [lerpScore, ratingSplit.join('.')]);
+			scoreText.text = Language.getPhrase('SCORE', 'SCORE: {1} ({2}%)', [lerpScore, ratingSplit.join('.')]);
 			positionHighscore();
 			
 			if(songs.length > 1)
@@ -481,6 +529,23 @@ class FreeplayState extends MusicBeatState
 		opponentVocals = FlxDestroyUtil.destroy(opponentVocals);
 	}
 
+	function grabCreditsList(folder:String):Array<String>
+	{
+		var credits:Array<String> = [];
+		var creditsFile:Array<String> = CoolUtil.coolTextFile(Paths.getSharedPath('data/credits-persong.txt'));
+		if (folder != null && folder.length > 0) creditsFile = CoolUtil.coolTextFile(folder + '/data/credits-person.txt');
+	
+		if (credits.length > 0)
+		{
+			for (credit in creditsFile)
+			{
+			credits.push(credit.trim());
+			}
+		}
+	
+		return credits;
+	}
+
 	function changeDiff(change:Int = 0)
 	{
 		if (player.playingMusic)
@@ -547,6 +612,11 @@ class FreeplayState extends MusicBeatState
 			curDifficulty = Math.round(Math.max(0, Difficulty.defaultList.indexOf(Difficulty.getDefault())));
 		else
 			curDifficulty = 0;
+			
+		cover.loadGraphic(Paths.image('MenuStuff/freeplay/freeplay/art/${Paths.formatToSongPath(songs[curSelected].songName)}'));
+
+		var creditsString:String = grabCreditsList(Mods.currentModDirectory)[curSelected];
+		creditsText.text = Language.getPhrase("CREDITS: {1}", [creditsString]);
 
 		changeDiff();
 		_updateSongLastDifficulty();
@@ -557,11 +627,11 @@ class FreeplayState extends MusicBeatState
 
 	private function positionHighscore()
 	{
-		scoreText.x = FlxG.width - scoreText.width - 6;
+		scoreText.x = FlxG.width - scoreText.width - 70;
 		scoreBG.scale.x = FlxG.width - scoreText.x + 6;
 		scoreBG.x = FlxG.width - (scoreBG.scale.x / 2);
-		diffText.x = Std.int(scoreBG.x + (scoreBG.width / 2));
-		diffText.x -= diffText.width / 2;
+		diffText.x = Std.int(scoreBG.x + (scoreBG.width / 80));
+		diffText.x -= diffText.width - 180;
 	}
 
 	var _drawDistance:Int = 4;
