@@ -183,15 +183,15 @@ class FreeplayState extends MusicBeatState
 		WeekData.setDirectoryFromWeek();
 
 		scoreText = new FlxText(FlxG.width * 0.7, 500, 400, "", 105);
-		scoreText.setFormat(Paths.font("Barlow-ExtraBoldItalic.ttf"), 32, FlxColor.WHITE, RIGHT);
+		scoreText.setFormat(Paths.font("Barlow-ExtraBoldItalic.ttf"), 40, FlxColor.WHITE, RIGHT);
 		scoreText.alignment = CENTER;
 
 		scoreBG = new FlxSprite(scoreText.x - 200, 0).makeGraphic(1, 66, 0xFF000000);
-		scoreBG.alpha = 0.6;
+		scoreBG.alpha = 0;
 		add(scoreBG);
 
-		diffText = new FlxText(FlxG.width / 2 - 800, 400, 450, "", 80);
-		diffText.font = scoreText.font;
+		diffText = new FlxText(FlxG.width / 2 - 800, 410, 550, "", 80);
+		diffText.setFormat(Paths.font("NiseSegaSonic.ttf"), 70, FlxColor.WHITE, RIGHT);
 		diffText.alignment = CENTER;
 		add(diffText);
 
@@ -532,20 +532,19 @@ class FreeplayState extends MusicBeatState
 	function grabCreditsList(folder:String):Array<String>
 	{
 		var credits:Array<String> = [];
-		var creditsFile:Array<String> = CoolUtil.coolTextFile(Paths.getSharedPath('data/credits-persong.txt'));
-		if (folder != null && folder.length > 0) creditsFile = CoolUtil.coolTextFile(folder + '/data/credits-person.txt');
-	
-		if (credits.length > 0)
-		{
-			for (credit in creditsFile)
+		var creditsFile:Array<String> = CoolUtil.coolTextFile(Paths.getPath('data/credits-persong.txt'));
+	  
+		if (creditsFile.length > 0)
 			{
-			credits.push(credit.trim());
+				for (credit in creditsFile)
+				{
+				credits.push(credit.trim());
+				}
 			}
-		}
-	
+	  
 		return credits;
 	}
-
+	  
 	function changeDiff(change:Int = 0)
 	{
 		if (player.playingMusic)
@@ -616,7 +615,10 @@ class FreeplayState extends MusicBeatState
 		cover.loadGraphic(Paths.image('MenuStuff/freeplay/freeplay/art/${Paths.formatToSongPath(songs[curSelected].songName)}'));
 
 		var creditsString:String = grabCreditsList(Mods.currentModDirectory)[curSelected];
-		creditsText.text = Language.getPhrase("CREDITS: {1}", [creditsString]);
+		creditsText.text = Language.getPhrase("Credit_text", "CREDITS: {1}", [creditsString]);
+		creditsText.setFormat(Paths.font("NiseSegaSonic.ttf"), 40, FlxColor.WHITE);
+		creditsText.x = 20;
+		creditsText.y = 30;
 
 		changeDiff();
 		_updateSongLastDifficulty();
@@ -627,11 +629,11 @@ class FreeplayState extends MusicBeatState
 
 	private function positionHighscore()
 	{
-		scoreText.x = FlxG.width - scoreText.width - 70;
+		scoreText.x = FlxG.width - scoreText.width - 90;
 		scoreBG.scale.x = FlxG.width - scoreText.x + 6;
 		scoreBG.x = FlxG.width - (scoreBG.scale.x / 2);
 		diffText.x = Std.int(scoreBG.x + (scoreBG.width / 80));
-		diffText.x -= diffText.width - 180;
+		diffText.x -= diffText.width - 235;
 	}
 
 	var _drawDistance:Int = 4;
