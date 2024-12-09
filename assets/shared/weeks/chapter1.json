@@ -1,0 +1,27 @@
+{
+	"songs": [
+		[
+			"a-bark",
+			"yacko",
+			[
+				26,
+				253,
+				253
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"difficulties": "",
+	"weekCharacters": [
+		"yacko",
+		"bf",
+		"gf"
+	],
+	"storyName": "Your New Week",
+	"weekName": "Custom Week",
+	"hideStoryMode": false,
+	"weekBefore": "chapter1",
+	"startUnlocked": true
+}

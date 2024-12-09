@@ -15,9 +15,14 @@ class PauseSubState extends MusicBeatSubstate
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
 	var menuItems:Array<String> = [];
-	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty', 'Options', 'Exit to menu'];
+	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Options', 'Exit to menu',];
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
+	var moveX:Float;
+
+	var cuadro:FlxSprite;
+	var names:FlxSprite;
+	var pase:FlxSprite;
 
 	var pauseMusic:FlxSound;
 	var practiceText:FlxText;
@@ -76,10 +81,29 @@ class PauseSubState extends MusicBeatSubstate
 		bg.scrollFactor.set();
 		add(bg);
 
-		var levelInfo:FlxText = new FlxText(20, 15, 0, PlayState.SONG.song, 32);
-		levelInfo.scrollFactor.set();
-		levelInfo.setFormat(Paths.font("vcr.ttf"), 32);
-		levelInfo.updateHitbox();
+		cuadro = new FlxSprite().loadGraphic(Paths.image("MenuStuff/PauseMenu/box"));
+		cuadro.antialiasing = ClientPrefs.data.antialiasing;
+		add(cuadro);
+		cuadro.screenCenter();
+
+		pase = new FlxSprite().loadGraphic(Paths.image("MenuStuff/PauseMenu/cuadro"));
+		pase.antialiasing = ClientPrefs.data.antialiasing;
+		add(pase);
+		pase.screenCenter();
+
+		names = new FlxSprite().loadGraphic(Paths.image("MenuStuff/PauseMenu/sigmas"));
+		names.antialiasing = ClientPrefs.data.antialiasing;
+		add(names);
+		names.screenCenter();
+		
+		moveX = 0;
+
+		var levelInfo:FlxText = new FlxText(0,FlxG.height,0,PlayState.SONG.song.replace('-',' '), 16);
+		levelInfo.setFormat(Paths.font("NiseSegaSonic.ttf"), 40);
+		levelInfo.alpha = -100;
+		FlxTween.tween(levelInfo, { y: 190, alpha: 100 }, 0.35, { ease: FlxEase.quartOut });
+		levelInfo.screenCenter(X);
+		levelInfo.x += moveX;
 		add(levelInfo);
 
 		var levelDifficulty:FlxText = new FlxText(20, 15 + 32, 0, Difficulty.getString().toUpperCase(), 32);
@@ -113,14 +137,11 @@ class PauseSubState extends MusicBeatSubstate
 
 		blueballedTxt.alpha = 0;
 		levelDifficulty.alpha = 0;
-		levelInfo.alpha = 0;
 
-		levelInfo.x = FlxG.width - (levelInfo.width + 20);
 		levelDifficulty.x = FlxG.width - (levelDifficulty.width + 20);
 		blueballedTxt.x = FlxG.width - (blueballedTxt.width + 20);
 
 		FlxTween.tween(bg, {alpha: 0.6}, 0.4, {ease: FlxEase.quartInOut});
-		FlxTween.tween(levelInfo, {alpha: 1, y: 20}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
 		FlxTween.tween(levelDifficulty, {alpha: 1, y: levelDifficulty.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
 		FlxTween.tween(blueballedTxt, {alpha: 1, y: blueballedTxt.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
 
@@ -394,30 +415,27 @@ class PauseSubState extends MusicBeatSubstate
 	function regenMenu():Void {
 		for (i in 0...grpMenuShit.members.length)
 		{
-			var obj:Alphabet = grpMenuShit.members[0];
+			var obj = grpMenuShit.members[0];
 			obj.kill();
 			grpMenuShit.remove(obj, true);
 			obj.destroy();
 		}
 
-		for (num => str in menuItems) {
-			var item = new Alphabet(90, 320, Language.getPhrase('pause_$str', str), true);
-			item.isMenuItem = true;
-			item.targetY = num;
-			grpMenuShit.add(item);
+		var spacing:Float = 90;
+		var str:String = "Skip Time";
 
-			if(str == 'Skip Time')
-			{
-				skipTimeText = new FlxText(0, 0, 0, '', 64);
-				skipTimeText.setFormat(Paths.font("vcr.ttf"), 64, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-				skipTimeText.scrollFactor.set();
-				skipTimeText.borderSize = 2;
-				skipTimeTracker = item;
-				add(skipTimeText);
+		var normalItems:Array<String> = ['Resume', 'Restart Song', 'Options', 'Exit to menu'];
+		var totalHeightNormal:Float = normalItems.length * spacing;
+		var startYNormal:Float = FlxG.height / 2 - totalHeightNormal / 2;
+		var xNormal:Float = 443;
 
-				updateSkipTextStuff();
-				updateSkipTimeText();
-			}
+		for (i in 0...normalItems.length) {
+			var itemNormal:Dynamic = new FlxSprite(xNormal, startYNormal + (i * spacing));
+			itemNormal.loadGraphic(Paths.image("MenuStuff/PauseMenu/" + normalItems[i].toLowerCase().replace(" ", "_")));
+			itemNormal.scrollFactor.set();
+			itemNormal.y += 100;
+			grpMenuShit.add(itemNormal);
+			FlxTween.tween(itemNormal, {y: itemNormal.y - 20}, 0.35, {ease: FlxEase.backOut, startDelay: (i * 0.1)});
 		}
 		curSelected = 0;
 		changeSelection();

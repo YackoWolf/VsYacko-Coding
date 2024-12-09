@@ -13,6 +13,7 @@ import substates.ResetScoreSubState;
 
 import flixel.math.FlxMath;
 import flixel.util.FlxDestroyUtil;
+import flixel.addons.display.FlxBackdrop; 
 
 import openfl.utils.Assets;
 
@@ -113,8 +114,13 @@ class FreeplayState extends MusicBeatState
 		}
 		Mods.loadTopMod();
 
-		bg = new FlxSprite().loadGraphic(Paths.image("MenuStuff/freeplay/freeplay/bg"));
+		bg = new FlxBackdrop().loadGraphic(Paths.image("MenuStuff/freeplay/freeplay/bg"));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
+		bg.updateHitbox();
+		bg.scrollFactor.set();
+		bg.velocity.y = -40;
+		bg.velocity.x = -40;
+		bg.active = true;
 		add(bg);
 		bg.screenCenter();
 
