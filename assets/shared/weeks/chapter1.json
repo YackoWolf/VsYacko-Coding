@@ -1,4 +1,16 @@
 {
+	"storyName": "el juego empieza ahora",
+	"difficulties": "",
+	"hideFreeplay": false,
+	"weekBackground": "chapterone",
+	"weekBefore": "chapterone",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"yacko",
+		"bf",
+		"gf"
+	],
+	"hideStoryMode": false,
 	"songs": [
 		[
 			"a-bark",
@@ -10,18 +22,6 @@
 			]
 		]
 	],
-	"hiddenUntilUnlocked": false,
-	"hideFreeplay": false,
-	"weekBackground": "stage",
-	"difficulties": "",
-	"weekCharacters": [
-		"yacko",
-		"bf",
-		"gf"
-	],
-	"storyName": "Your New Week",
-	"weekName": "Custom Week",
-	"hideStoryMode": false,
-	"weekBefore": "chapter1",
-	"startUnlocked": true
+	"weekName": "chapterone",
+	"hiddenUntilUnlocked": false
 }

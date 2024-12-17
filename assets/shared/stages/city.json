@@ -1,0 +1,145 @@
+{
+	"camera_boyfriend": [
+		-100,
+		-550
+	],
+	"_editorMeta": {
+		"boyfriend": "bf",
+		"gf": "gf",
+		"dad": "dad"
+	},
+	"preload": {
+		"images/stage_light": 2,
+		"images/stagecurtains": 2,
+		"images/stagefront": 3,
+		"images/stageback": 3
+	},
+	"girlfriend": [
+		381,
+		80
+	],
+	"stageUI": "",
+	"boyfriend": [
+		1266,
+		100
+	],
+	"objects": [
+		{
+			"x": -2454,
+			"y": -1610,
+			"scale": [
+				1.5,
+				1.5
+			],
+			"image": "theHunt/fog",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "sprite4",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"x": -2456,
+			"y": -1612,
+			"scale": [
+				1.5,
+				1.5
+			],
+			"image": "theHunt/torre",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "sprite3",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"x": -2457,
+			"y": -1610,
+			"scale": [
+				1.5,
+				1.5
+			],
+			"image": "theHunt/ciudad",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "sprite2",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"x": -2456,
+			"y": -1608,
+			"scale": [
+				1.5,
+				1.5
+			],
+			"image": "theHunt/floor",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "sprite1",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+  			"shader": "scroll",
+  			"shaderParams": {
+    		"xSpeed": 2.4
+  			},
+			"type": "sprite"
+		},
+		{
+			"type": "gf"
+		},
+		{
+			"type": "dad"
+		},
+		{
+			"type": "boyfriend"
+		}
+	],
+	"camera_girlfriend": [
+		0,
+		0
+	],
+	"defaultZoom": 0.3,
+	"camera_speed": 1,
+	"directory": "week1",
+	"opponent": [
+		-473,
+		104
+	],
+	"camera_opponent": [
+		-100,
+		-550
+	],
+	"hide_girlfriend": true
+}

@@ -6,6 +6,7 @@ import backend.Song;
 
 import flixel.group.FlxGroup;
 import flixel.graphics.FlxGraphic;
+import flixel.animation.FlxAnimation;
 
 import objects.MenuItem;
 import objects.MenuCharacter;
@@ -25,6 +26,7 @@ class StoryMenuState extends MusicBeatState
 	var curDifficulty:Int = 1;
 
 	var txtWeekTitle:FlxText;
+	var dificultin:FlxSprite;
 	var bgSprite:FlxSprite;
 
 	private static var curWeek:Int = 0;
@@ -35,6 +37,7 @@ class StoryMenuState extends MusicBeatState
 	var grpWeekCharacters:FlxTypedGroup<MenuCharacter>;
 
 	var grpLocks:FlxTypedGroup<FlxSprite>;
+	var sigma:FlxSprite = new FlxSprite();
 
 	var difficultySelectors:FlxGroup;
 	var sprDifficulty:FlxSprite;
@@ -79,6 +82,21 @@ class StoryMenuState extends MusicBeatState
 		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
 		var bgYellow:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 386, 0xFFF9CF51);
 		bgSprite = new FlxSprite(0, 56);
+		add(bgYellow);
+		add(bgSprite);
+		add(grpWeekCharacters);
+
+		dificultin = new FlxSprite().loadGraphic(Paths.image("MenuStuff/StoryMode/dificultin"));
+		dificultin.antialiasing = ClientPrefs.data.antialiasing;
+		add(dificultin);
+		dificultin.screenCenter();
+
+		sigma.frames = Paths.getSparrowAtlas('MenuStuff/StoryMode/tamboxo');
+		sigma.animation.addByPrefix('idle', 'tamboxo', 4, true);
+		add(sigma);
+		sigma.animation.play("idle");
+		sigma.updateHitbox();
+		sigma.screenCenter();
 
 		grpWeekText = new FlxTypedGroup<MenuItem>();
 		add(grpWeekText);
@@ -101,14 +119,13 @@ class StoryMenuState extends MusicBeatState
 			{
 				loadedWeeks.push(weekFile);
 				WeekData.setDirectoryFromWeek(weekFile);
-				var weekThing:MenuItem = new MenuItem(0, bgSprite.y + 396, WeekData.weeksList[i]);
+				var weekThing:MenuItem = new MenuItem(780, bgSprite.y + 396, WeekData.weeksList[i]);
 				weekThing.y += ((weekThing.height + 20) * num);
 				weekThing.ID = num;
 				weekThing.targetY = itemTargetY;
 				itemTargetY += Math.max(weekThing.height, 110) + 10;
 				grpWeekText.add(weekThing);
 
-				weekThing.screenCenter(X);
 				// weekThing.updateHitbox();
 
 				// Needs an offset thingie
@@ -138,7 +155,7 @@ class StoryMenuState extends MusicBeatState
 		difficultySelectors = new FlxGroup();
 		add(difficultySelectors);
 
-		leftArrow = new FlxSprite(850, grpWeekText.members[0].y + 10);
+		leftArrow = new FlxSprite(100, grpWeekText.members[0].y + 140);
 		leftArrow.antialiasing = ClientPrefs.data.antialiasing;
 		leftArrow.frames = ui_tex;
 		leftArrow.animation.addByPrefix('idle', "arrow left");
@@ -165,20 +182,16 @@ class StoryMenuState extends MusicBeatState
 		rightArrow.animation.play('idle');
 		difficultySelectors.add(rightArrow);
 
-		add(bgYellow);
-		add(bgSprite);
-		add(grpWeekCharacters);
-
 		var tracksSprite:FlxSprite = new FlxSprite(FlxG.width * 0.07 + 100, bgSprite.y + 425).loadGraphic(Paths.image('Menu_Tracks'));
 		tracksSprite.antialiasing = ClientPrefs.data.antialiasing;
 		tracksSprite.x -= tracksSprite.width/2;
-		add(tracksSprite);
+		//add(tracksSprite);
 
 		txtTracklist = new FlxText(FlxG.width * 0.05, tracksSprite.y + 60, 0, "", 32);
 		txtTracklist.alignment = CENTER;
 		txtTracklist.font = Paths.font("vcr.ttf");
 		txtTracklist.color = 0xFFe55777;
-		add(txtTracklist);
+		//add(txtTracklist);
 		add(scoreText);
 		add(txtWeekTitle);
 

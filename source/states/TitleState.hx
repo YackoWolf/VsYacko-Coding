@@ -7,6 +7,7 @@ import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.graphics.frames.FlxFrame;
 import flixel.group.FlxGroup;
 import flixel.input.gamepad.FlxGamepad;
+import flixel.addons.display.FlxBackdrop;
 import haxe.Json;
 
 import openfl.Assets;
@@ -142,6 +143,8 @@ class TitleState extends MusicBeatState
 		#end
 	}
 
+	var skibidi:FlxSprite;
+	var port:FlxSprite;
 	var logoBl:FlxSprite;
 	var gfDance:FlxSprite;
 	var danceLeft:Bool = false;
@@ -157,6 +160,23 @@ class TitleState extends MusicBeatState
 		loadJsonData();
 		#if TITLE_SCREEN_EASTER_EGG easterEggData(); #end
 		Conductor.bpm = musicBPM;
+
+		skibidi = new FlxBackdrop().loadGraphic(Paths.image("bgInicio"));
+		skibidi.antialiasing = ClientPrefs.data.antialiasing;
+		skibidi.updateHitbox();
+		skibidi.scrollFactor.set();
+		skibidi.velocity.y = -40;
+		skibidi.velocity.x = -40;
+		skibidi.active = true;
+		add(skibidi);
+		skibidi.screenCenter();
+
+		port = new FlxSprite().loadGraphic(Paths.image("portadeishon"));
+		port.antialiasing = ClientPrefs.data.antialiasing;
+		port.screenCenter(X);
+		port.y = 80;
+		add(port);
+		FlxTween.tween(port, { y: port.y - 80 }, 1.8, { ease: FlxEase.backOut });
 
 		logoBl = new FlxSprite(logoPosition.x, logoPosition.y);
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
@@ -211,6 +231,7 @@ class TitleState extends MusicBeatState
 		}
 		titleText.animation.play('idle');
 		titleText.updateHitbox();
+		FlxTween.tween(titleText, { y: titleText.y + 20 }, 2, { ease: FlxEase.backOut });
 
 		var logo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('logo'));
 		logo.antialiasing = ClientPrefs.data.antialiasing;
@@ -403,8 +424,8 @@ class TitleState extends MusicBeatState
 				
 				timer = FlxEase.quadInOut(timer);
 				
-				titleText.color = FlxColor.interpolate(titleTextColors[0], titleTextColors[1], timer);
-				titleText.alpha = FlxMath.lerp(titleTextAlphas[0], titleTextAlphas[1], timer);
+				//titleText.color = FlxColor.interpolate(titleTextColors[0], titleTextColors[1], timer);
+				//titleText.alpha = FlxMath.lerp(titleTextAlphas[0], titleTextAlphas[1], timer);
 			}
 			
 			if(pressedEnter)
