@@ -171,7 +171,7 @@ class TitleState extends MusicBeatState
 		add(skibidi);
 		skibidi.screenCenter();
 
-		port = new FlxSprite().loadGraphic(Paths.image("portadeishon"));
+		port = new FlxSprite(-80).loadGraphic(Paths.image('InicoBGs/portadeishon' + FlxG.random.int(0, 6)));
 		port.antialiasing = ClientPrefs.data.antialiasing;
 		port.screenCenter(X);
 		port.y = 80;
