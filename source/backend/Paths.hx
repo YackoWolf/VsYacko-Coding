@@ -134,7 +134,7 @@ class Paths
 			}
 		}
 	}
-	
+
 	inline static function destroyGraphic(graphic:FlxGraphic)
 	{
 		// free some gpu memory

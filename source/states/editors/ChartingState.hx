@@ -248,7 +248,7 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 		if(chartEditorSave.data.autoSave != null) autoSaveCap = chartEditorSave.data.autoSave;
 		if(chartEditorSave.data.backupLimit != null) backupLimit = chartEditorSave.data.backupLimit;
 		if(chartEditorSave.data.vortex != null) vortexEnabled = chartEditorSave.data.vortex;
-		
+
 		if(chartEditorSave.data.customBgColor == null) chartEditorSave.data.customBgColor = '303030';
 		if(chartEditorSave.data.customGridColors == null || chartEditorSave.data.customGridColors.length < 2)
 			chartEditorSave.data.customGridColors = ['DFDFDF', 'BFBFBF'];
@@ -3221,7 +3221,7 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 				prepareReload();
 				showOutput('Opened chart "${diff ? curdiff : cur}" successfully!');
 			}
-
+					
 			if(!ignoreProgressCheckBox.checked) openSubState(new Prompt('Warning: Any unsaved progress\nwill be lost.', func));
 			else func();
 		}, 80);
@@ -4436,7 +4436,7 @@ class ChartingState extends MusicBeatState implements PsychUIEventHandler.PsychU
 					btn.x += 180;
 					btn.cameras = state.cameras;
 					state.add(btn);
-					
+
 					btnY += 60;
 					var btn:PsychUIButton = new PsychUIButton(0, btnY, 'Custom', changeTheme.bind(CUSTOM));
 					btn.screenCenter(X);

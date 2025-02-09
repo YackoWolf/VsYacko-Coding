@@ -1627,7 +1627,7 @@ class PlayState extends MusicBeatState
 
 	override public function onFocusLost():Void
 	{
-	if (!paused)
+		if (!paused)
 		{
 			#if DISCORD_ALLOWED
 			if (health > 0 && autoUpdateRPC) DiscordClient.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
@@ -3141,7 +3141,7 @@ class PlayState extends MusicBeatState
 		if(note != null) {
 			var strum:StrumNote = playerStrums.members[note.noteData];
 			if(strum != null)
-				spawnNoteSplash(note, strum);
+				spawnNoteSplash(strum.x, strum.y, note.noteData, note, strum);
 		}
 	}
 
@@ -3188,7 +3188,7 @@ class PlayState extends MusicBeatState
 			videoCutscene = null;
 		}
 		#end
-	
+
 		FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
 		FlxG.stage.removeEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
 
