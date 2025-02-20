@@ -14,14 +14,14 @@ enum MainMenuColumn {
 enum GameModes {
     STORY_MODE;
     FREEPLAY;
-    AWARDS;
+    MODS;
     OPTIONS;
 }
 
 var gameModes:Array<GameModes> = [
     GameModes.STORY_MODE,
     GameModes.FREEPLAY,
-    GameModes.AWARDS,
+    GameModes.MODS,
     GameModes.OPTIONS
 ];
 
@@ -40,7 +40,7 @@ class MainMenuState extends MusicBeatState
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
-		'achievements'
+		'mods'
 		//#if MODS_ALLOWED 'mods', #end
 	];
 	
@@ -50,8 +50,9 @@ class MainMenuState extends MusicBeatState
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 	// New variables for background and foreground images
-	var backgroundImage:FlxSprite;
-	var foregroundImage:FlxSprite;
+	//var backgroundImage:FlxSprite;
+	var backgroundImage:FlxSprite = new FlxSprite();
+	var foregroundImage:FlxSprite = new FlxSprite();
 
 	static var showOutdatedWarning:Bool = true;
 	override function create()
@@ -71,6 +72,14 @@ class MainMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
 		var yScroll:Float = 0.25;
+
+		foregroundImage.frames = Paths.getSparrowAtlas('MenuStuff/MainMenu/PantallaSprite/pantalla');
+		foregroundImage.animation.addByPrefix('pantalla', 'pantalla', 24, true);
+		add(foregroundImage);
+		foregroundImage.animation.play("pantalla");
+		foregroundImage.updateHitbox();
+		foregroundImage.screenCenter();
+
 		// Background image with random selection
 		backgroundImage = new FlxSprite(-80).loadGraphic(Paths.image('backgrounds/bg' + FlxG.random.int(0, 5)));
 		backgroundImage.antialiasing = ClientPrefs.data.antialiasing;
@@ -78,14 +87,7 @@ class MainMenuState extends MusicBeatState
 		backgroundImage.setGraphicSize(Std.int(backgroundImage.width * 1.235));
 		backgroundImage.updateHitbox();
 		backgroundImage.screenCenter();
-		add(backgroundImage);
-	
-		// Foreground image positioning (adjust coordinates as needed)
-		foregroundImage = new FlxSprite(0, 0); // Adjust coordinates as needed
-		foregroundImage.loadGraphic(Paths.image('BarOptions')); // Adjust the image path
-		//foregroundImage.scale.set(1280, 720); // Duplica el tamaño en ambas direcciones (Kevinia, porfavor ayudame en esto, YA LO ARREGLE XD)
-		foregroundImage.scrollFactor.set(0, 0); // Esto hace que el objeto se quede fijo
-		add(foregroundImage);
+
 	
 		var intRandom:Int = FlxG.random.int(0, 5);
 	
@@ -181,7 +183,7 @@ class MainMenuState extends MusicBeatState
 				case GameModes.FREEPLAY:
                   offset = 380;
                   break;
-				case GameModes.AWARDS:
+				case GameModes.MODS:
 				  offset = 250;
 				  break;
 				case GameModes.OPTIONS:
