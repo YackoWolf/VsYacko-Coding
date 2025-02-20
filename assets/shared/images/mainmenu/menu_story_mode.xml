@@ -2,16 +2,16 @@
 <TextureAtlas imagePath="menu_story_mode.png">
 	<!-- Created with Adobe Animate version 22.0.5.191 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="story_mode idle0000" x="0" y="0" width="516" height="133"/>
-	<SubTexture name="story_mode idle0001" x="0" y="0" width="516" height="133"/>
-	<SubTexture name="story_mode idle0002" x="0" y="0" width="516" height="133"/>
-	<SubTexture name="story_mode idle0003" x="0" y="0" width="516" height="133"/>
-	<SubTexture name="story_mode idle0004" x="0" y="0" width="516" height="133"/>
-	<SubTexture name="story_mode idle0005" x="0" y="0" width="516" height="133"/>
-	<SubTexture name="story_mode idle0006" x="0" y="0" width="516" height="133"/>
-	<SubTexture name="story_mode idle0007" x="0" y="0" width="516" height="133"/>
-	<SubTexture name="story_mode idle0008" x="0" y="0" width="516" height="133"/>
-	<SubTexture name="story_mode selected0000" x="0" y="133" width="516" height="135"/>
-	<SubTexture name="story_mode selected0001" x="0" y="133" width="516" height="135"/>
-	<SubTexture name="story_mode selected0002" x="0" y="133" width="516" height="135"/>
+	<SubTexture name="story_mode idle0000" x="0" y="0" width="210" height="88"/>
+	<SubTexture name="story_mode idle0001" x="0" y="0" width="210" height="88"/>
+	<SubTexture name="story_mode idle0002" x="0" y="0" width="210" height="88"/>
+	<SubTexture name="story_mode idle0003" x="0" y="0" width="210" height="88"/>
+	<SubTexture name="story_mode idle0004" x="0" y="0" width="210" height="88"/>
+	<SubTexture name="story_mode idle0005" x="0" y="0" width="210" height="88"/>
+	<SubTexture name="story_mode idle0006" x="0" y="0" width="210" height="88"/>
+	<SubTexture name="story_mode idle0007" x="0" y="0" width="210" height="88"/>
+	<SubTexture name="story_mode idle0008" x="0" y="0" width="210" height="88"/>
+	<SubTexture name="story_mode selected0000" x="0" y="88" width="214" height="89"/>
+	<SubTexture name="story_mode selected0001" x="0" y="88" width="214" height="89"/>
+	<SubTexture name="story_mode selected0002" x="0" y="88" width="214" height="89"/>
 </TextureAtlas>

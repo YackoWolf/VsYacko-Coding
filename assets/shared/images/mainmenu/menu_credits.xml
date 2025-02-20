@@ -2,22 +2,16 @@
 <TextureAtlas imagePath="menu_credits.png">
 	<!-- Created with Adobe Animate version 22.0.5.191 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="credits idle0000" x="0" y="0" width="206" height="137"/>
-	<SubTexture name="credits idle0001" x="0" y="0" width="206" height="137"/>
-	<SubTexture name="credits idle0002" x="0" y="0" width="206" height="137"/>
-	<SubTexture name="credits idle0003" x="0" y="0" width="206" height="137"/>
-	<SubTexture name="credits idle0004" x="0" y="0" width="206" height="137"/>
-	<SubTexture name="credits idle0005" x="0" y="0" width="206" height="137"/>
-	<SubTexture name="credits idle0006" x="0" y="0" width="206" height="137"/>
-	<SubTexture name="credits idle0007" x="0" y="0" width="206" height="137"/>
-	<SubTexture name="credits idle0008" x="0" y="0" width="206" height="137"/>
-	<SubTexture name="credits selected0000" x="206" y="0" width="205" height="154"/>
-	<SubTexture name="credits selected0001" x="206" y="0" width="205" height="154"/>
-	<SubTexture name="credits selected0002" x="206" y="0" width="205" height="154"/>
-	<SubTexture name="credits selected0003" x="206" y="0" width="205" height="154"/>
-	<SubTexture name="credits selected0004" x="206" y="0" width="205" height="154"/>
-	<SubTexture name="credits selected0005" x="206" y="0" width="205" height="154"/>
-	<SubTexture name="credits selected0006" x="206" y="0" width="205" height="154"/>
-	<SubTexture name="credits selected0007" x="206" y="0" width="205" height="154"/>
-	<SubTexture name="credits selected0008" x="206" y="0" width="205" height="154"/>
+	<SubTexture name="credits idle0000" x="0" y="0" width="96" height="76"/>
+	<SubTexture name="credits idle0001" x="0" y="0" width="96" height="76"/>
+	<SubTexture name="credits idle0002" x="0" y="0" width="96" height="76"/>
+	<SubTexture name="credits idle0003" x="0" y="0" width="96" height="76"/>
+	<SubTexture name="credits idle0004" x="0" y="0" width="96" height="76"/>
+	<SubTexture name="credits idle0005" x="0" y="0" width="96" height="76"/>
+	<SubTexture name="credits idle0006" x="0" y="0" width="96" height="76"/>
+	<SubTexture name="credits idle0007" x="0" y="0" width="96" height="76"/>
+	<SubTexture name="credits idle0008" x="0" y="0" width="96" height="76"/>
+	<SubTexture name="credits selected0000" x="96" y="0" width="92" height="88"/>
+	<SubTexture name="credits selected0001" x="96" y="0" width="92" height="88"/>
+	<SubTexture name="credits selected0002" x="96" y="0" width="92" height="88"/>
 </TextureAtlas>

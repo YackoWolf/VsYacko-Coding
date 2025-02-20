@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="FNF_main_menu_assets.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="credits basic0000" x="874" y="222" width="596" height="215"/>
+	<SubTexture name="credits basic0001" x="874" y="437" width="596" height="215"/>
+	<SubTexture name="credits basic0002" x="0" y="444" width="596" height="215"/>
+	<SubTexture name="credits basic0003" x="596" y="652" width="596" height="215"/>
+	<SubTexture name="credits basic0004" x="0" y="659" width="596" height="215"/>
+	<SubTexture name="credits basic0005" x="1192" y="652" width="596" height="215"/>
+	<SubTexture name="credits basic0006" x="596" y="867" width="596" height="215"/>
+	<SubTexture name="credits basic0007" x="0" y="874" width="596" height="215"/>
+	<SubTexture name="credits basic0008" x="1192" y="867" width="596" height="215"/>
+	<SubTexture name="credits white0000" x="0" y="0" width="874" height="222"/>
+	<SubTexture name="credits white0001" x="874" y="0" width="874" height="222"/>
+	<SubTexture name="credits white0002" x="0" y="222" width="874" height="222"/>
+</TextureAtlas>
