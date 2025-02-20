@@ -81,12 +81,25 @@ class MainMenuState extends MusicBeatState
 		foregroundImage.screenCenter();
 
 		// Background image with random selection
-		backgroundImage = new FlxSprite(-80).loadGraphic(Paths.image('backgrounds/bg' + FlxG.random.int(0, 5)));
-		backgroundImage.antialiasing = ClientPrefs.data.antialiasing;
+		var intRandom:Int = FlxG.random.int(0, 1);
+        var nombreFondo:String = "bg" + intRandom;
+
+        switch (nombreFondo)
+        {
+            case "bg0":
+                backgroundImage.frames = Paths.getSparrowAtlas('MenuStuff/MainMenu/backgrounds/bg0'); // Ruta al atlas de sprites de bg0
+                backgroundImage.animation.addByPrefix('bg0', 'bg0', 24, true); // Nombre de la animación y prefijo de los frames
+            case "bg1":
+                backgroundImage.frames = Paths.getSparrowAtlas('MenuStuff/MainMenu/backgrounds/bg1'); // Ruta al atlas de sprites de bg1
+                backgroundImage.animation.addByPrefix('bg1', 'bg1', 24, true); // Nombre de la animación y prefijo de los frames
+        }
+
+        backgroundImage.animation.play(nombreFondo);
 		backgroundImage.scrollFactor.set(0, yScroll);
 		backgroundImage.setGraphicSize(Std.int(backgroundImage.width * 1.235));
 		backgroundImage.updateHitbox();
 		backgroundImage.screenCenter();
+		add(backgroundImage);
 
 	
 		var intRandom:Int = FlxG.random.int(0, 5);
