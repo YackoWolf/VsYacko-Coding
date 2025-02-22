@@ -71,14 +71,18 @@ class MainMenuState extends MusicBeatState
 
 		persistentUpdate = persistentDraw = true;
 
-		var yScroll:Float = 0.25;
+		var yScroll:Float = 0.01;
 
 		foregroundImage.frames = Paths.getSparrowAtlas('MenuStuff/MainMenu/PantallaSprite/pantalla');
 		foregroundImage.animation.addByPrefix('pantalla', 'pantalla', 24, true);
 		add(foregroundImage);
 		foregroundImage.animation.play("pantalla");
 		foregroundImage.updateHitbox();
-		foregroundImage.screenCenter();
+		foregroundImage.setGraphicSize(Std.int(foregroundImage.width * 1.235));
+		foregroundImage.x = 0;
+		foregroundImage.y = 0;
+		foregroundImage.scrollFactor.set(0, 0);
+		//foregroundImage.screenCenter();
 
 		// Background image with random selection
 		var intRandom:Int = FlxG.random.int(0, 1);
@@ -125,17 +129,30 @@ class MainMenuState extends MusicBeatState
 
 		for (num => option in optionShit)
 		{
-			var item:FlxSprite = createMenuItem(option, 0, (num * 140) + 90);
+			var item:FlxSprite = createMenuItem(option, 0, (num * 80) + 90);
 			item.y += (4 - optionShit.length) * -35; // Offsets for when you have anything other than 4 items
 			item.screenCenter(X);
-			item.x += 370;
+			item.scrollFactor.set(0, yScroll);
+			item.x -= 385;
+			item.scale.set(1.2, 1.2);
+			switch (option)
+			{
+				case "story_mode":
+					item.x = 140; // Posición original para "Story Mode"
+				case "freeplay":
+					item.x = 170; // Posición más a la derecha para "Freeplay"
+				case "mods":
+					item.x = 195;
+			}
 		}
 
 		if (leftOption != null)
-			leftItem = createMenuItem(leftOption, 930, 510);
+			leftItem = createMenuItem(leftOption, 300, 350);
+			leftItem.scrollFactor.set(0, yScroll);
 		if (rightOption != null)
 		{
-		rightItem = createMenuItem(rightOption, FlxG.width - 60, 510);
+		rightItem = createMenuItem(rightOption, FlxG.width - 820, 290);
+		rightItem.scrollFactor.set(0, yScroll);
 		}
 
 		var modVer:FlxText = new FlxText(12, FlxG.height - 64, 0, "VsYacko v" + psychEngineVersion, 12);
