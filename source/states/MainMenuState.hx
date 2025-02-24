@@ -95,7 +95,7 @@ class MainMenuState extends MusicBeatState
                 backgroundImage.animation.addByPrefix('bg0', 'bg0', 24, true); // Nombre de la animación y prefijo de los frames
             case "bg1":
                 backgroundImage.frames = Paths.getSparrowAtlas('MenuStuff/MainMenu/backgrounds/bg1'); // Ruta al atlas de sprites de bg1
-                backgroundImage.animation.addByPrefix('bg1', 'bg1', 24, true); // Nombre de la animación y prefijo de los frames
+                backgroundImage.animation.addByPrefix('bg1', 'bg1', 6, true); // Nombre de la animación y prefijo de los frames
         }
 
         backgroundImage.animation.play(nombreFondo);
