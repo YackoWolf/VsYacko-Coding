@@ -16,13 +16,15 @@ enum GameModes {
     FREEPLAY;
     MODS;
     OPTIONS;
+	GALERIA;
 }
 
 var gameModes:Array<GameModes> = [
     GameModes.STORY_MODE,
     GameModes.FREEPLAY,
     GameModes.MODS,
-    GameModes.OPTIONS
+    GameModes.OPTIONS,
+	GameModes.GALERIA
 ];
 
 class MainMenuState extends MusicBeatState
@@ -40,7 +42,8 @@ class MainMenuState extends MusicBeatState
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
-		'mods'
+		'galeria'
+		//'mods'
 		//#if MODS_ALLOWED 'mods', #end
 	];
 	
@@ -141,7 +144,7 @@ class MainMenuState extends MusicBeatState
 					item.x = 140; // Posición original para "Story Mode"
 				case "freeplay":
 					item.x = 170; // Posición más a la derecha para "Freeplay"
-				case "mods":
+				case "galeria":
 					item.x = 195;
 			}
 		}
@@ -384,6 +387,8 @@ class MainMenuState extends MusicBeatState
 							MusicBeatState.switchState(new StoryMenuState());
 						case 'freeplay':
 							MusicBeatState.switchState(new FreeplayState());
+						case 'galeria':
+							MusicBeatState.switchState(new states.GalleryState());
 
 						#if MODS_ALLOWED
 						case 'mods':
