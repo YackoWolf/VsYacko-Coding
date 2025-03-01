@@ -13,6 +13,7 @@ class GalleryState extends FlxState
 {
     private var imagenes:Array<FlxSprite>;
     private var indiceActual:Int = 0;
+    private var textoEncabezado:FlxText;
 
     var sonicSpines:FlxSprite;
     var sonicSpines2:FlxSprite;
@@ -56,6 +57,10 @@ class GalleryState extends FlxState
         // Muestra el cursor explícitamente
         FlxG.mouse.visible = true; // Corrección aquí
 
+        textoEncabezado = new FlxText(0, 100, FlxG.width, "");
+        textoEncabezado.setFormat(Paths.font("NiseSegaSonic.ttf"), 32, FlxColor.WHITE, CENTER);
+        add(textoEncabezado);
+
         // Carga las imágenes
         imagenes = [];
         for (i in 0...18) // Itera de 0 a 7 (18 iteraciones)
@@ -86,16 +91,35 @@ class GalleryState extends FlxState
         add(botonAnterior);
         add(botonSiguiente);
         add(botonSalir);
+
+        actualizarTextoEncabezado();
     }
 
     override public function update(elapsed:Float)
     {
         super.update(elapsed);
+
+        if (FlxG.keys.justPressed.LEFT || FlxG.keys.justPressed.A)
+        {
+            onAnterior(); // Llama a la función onAnterior()
+        }
+
+        if (FlxG.keys.justPressed.RIGHT || FlxG.keys.justPressed.D)
+        {
+            onSiguiente(); // Llama a la función onSiguiente()
+        }
+
+        if (FlxG.keys.justPressed.ESCAPE)
+        {
+            FlxG.switchState(new MainMenuState());
+        }
     
         if (FlxG.keys.justPressed.ESCAPE)
         {
             FlxG.switchState(new MainMenuState());
         }
+
+        actualizarTextoEncabezado();
     }
 
     private function onAnterior():Void
@@ -107,6 +131,8 @@ class GalleryState extends FlxState
             indiceActual = imagenes.length - 1;
         }
         imagenes[indiceActual].visible = true;
+
+        actualizarTextoEncabezado();
     }
 
     private function onSiguiente():Void
@@ -118,6 +144,53 @@ class GalleryState extends FlxState
             indiceActual = 0;
         }
         imagenes[indiceActual].visible = true;
+
+        actualizarTextoEncabezado();
+    }
+
+    private function actualizarTextoEncabezado():Void
+    {
+        switch (indiceActual)
+        {
+            case 0:
+                textoEncabezado.text = "Concepto del inicio xd";
+            case 1:
+                textoEncabezado.text = "ULTRA viejo logo del mod";
+            case 2:
+                textoEncabezado.text = "Si herobrine estuviera en el mod";
+            case 3:
+                textoEncabezado.text = "Conceptos del yacko sprite";
+            case 4:
+                textoEncabezado.text = "Primera fase descartada de noxfang";
+            case 5:
+                textoEncabezado.text = "Fase faker descartada";
+            case 6:
+                textoEncabezado.text = "Concepto del storyMode";
+            case 7:
+                textoEncabezado.text = "Concepto del sus xd";
+            case 8:
+                textoEncabezado.text = "Viejo story Mode xd";
+            case 9:
+                textoEncabezado.text = "El anterior logo del mod";
+            case 10:
+                textoEncabezado.text = "Viejo inicio";
+            case 11:
+                textoEncabezado.text = "Concepto del freeplay";
+            case 12:
+                textoEncabezado.text = "Anterior Concepto del freeplay";
+            case 13:
+                textoEncabezado.text = "Concepto del menu de pausa";
+            case 14:
+                textoEncabezado.text = "JEFE FINAL VERDADERO";
+            case 15:
+                textoEncabezado.text = "Gracias ChatGPT";
+            case 16:
+                textoEncabezado.text = "PERO QUE XDDDD";
+            case 17:
+                textoEncabezado.text = "MEME MUERTO XD";
+            default:
+                textoEncabezado.text = "";
+        }
     }
 
     private function onSalir():Void
