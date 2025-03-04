@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="cyan.png">
+<SubTexture name="cyan idle0000" x="0" y="785" width="304" height="222" frameX="-51" frameY="-46" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan idle0001" x="814" y="0" width="302" height="225" frameX="-51" frameY="-43" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan idle0002" x="294" y="557" width="300" height="226" frameX="-52" frameY="-41" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan idle0003" x="0" y="557" width="294" height="228" frameX="-56" frameY="-39" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan idle0004" x="0" y="557" width="294" height="228" frameX="-56" frameY="-39" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan up0000" x="0" y="0" width="407" height="280" frameX="-34" frameY="-300" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan up0001" x="407" y="0" width="407" height="277" frameX="-34" frameY="-303" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan up0002" x="0" y="280" width="407" height="277" frameX="-34" frameY="-303" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan up0003" x="407" y="280" width="407" height="277" frameX="-34" frameY="-303" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan up0004" x="407" y="280" width="407" height="277" frameX="-34" frameY="-303" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan left0000" x="0" y="1007" width="296" height="221" frameX="-566" frameY="-311" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan left0001" x="296" y="1007" width="297" height="221" frameX="-565" frameY="-311" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan left0002" x="296" y="1007" width="297" height="221" frameX="-565" frameY="-311" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan left0003" x="814" y="225" width="299" height="222" frameX="-560" frameY="-310" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan left0004" x="593" y="1007" width="300" height="221" frameX="-562" frameY="-311" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan right0000" x="814" y="447" width="279" height="222" frameX="-415" frameY="-48" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan right0001" x="304" y="785" width="276" height="222" frameX="-415" frameY="-48" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan right0002" x="580" y="785" width="275" height="222" frameX="-416" frameY="-48" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan right0003" x="1116" y="0" width="277" height="222" frameX="-414" frameY="-48" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan right0004" x="1116" y="0" width="277" height="222" frameX="-414" frameY="-48" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan down0000" x="1393" y="406" width="338" height="198" frameX="-771" frameY="-76" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan down0001" x="893" y="1007" width="338" height="203" frameX="-771" frameY="-71" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan down0002" x="1393" y="0" width="338" height="203" frameX="-771" frameY="-71" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan down0003" x="1393" y="203" width="338" height="203" frameX="-771" frameY="-71" frameWidth="1280" frameHeight="720" />
+<SubTexture name="cyan down0004" x="1393" y="203" width="338" height="203" frameX="-771" frameY="-71" frameWidth="1280" frameHeight="720" />
+</TextureAtlas>

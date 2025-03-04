@@ -112,6 +112,7 @@ class MainMenuState extends MusicBeatState
 		var intRandom:Int = FlxG.random.int(0, 5);
 	
 		// supongo que el BG ya fue creado previamente en el state
+		// viejo codigo de aleatoridad del fondo
 		// bg.loadGraphic(Paths.image('backgrounds/bg' + intRandom));
 
 		camFollow = new FlxObject(0, 0, 1, 1);
