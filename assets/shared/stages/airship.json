@@ -1,0 +1,113 @@
+{
+	"camera_boyfriend": [
+		-50,
+		0
+	],
+	"_editorMeta": {
+		"boyfriend": "bf",
+		"dad": "cyan",
+		"gf": "gf"
+	},
+	"stageUI": "normal",
+	"boyfriend": [
+		1730,
+		380
+	],
+	"girlfriend": [
+		960,
+		290
+	],
+	"defaultZoom": 1,
+	"objects": [
+		{
+			"x": -404,
+			"y": -305,
+			"scale": [
+				2,
+				2
+			],
+			"image": "sussus/air",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "sprite1",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1.05,
+				1.05
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"x": -404,
+			"y": -305,
+			"scale": [
+				2,
+				2
+			],
+			"image": "sussus/fondi",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "sprite2",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"x": -404,
+			"y": -305,
+			"scale": [
+				2,
+				2
+			],
+			"image": "sussus/piso",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "sprite3",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"type": "gf"
+		},
+		{
+			"type": "dad"
+		},
+		{
+			"type": "boyfriend"
+		}
+	],
+	"camera_girlfriend": [
+		0,
+		0
+	],
+	"camera_speed": 1,
+	"directory": "",
+	"opponent": [
+		380,
+		345
+	],
+	"camera_opponent": [
+		100,
+		0
+	],
+	"hide_girlfriend": false
+}
