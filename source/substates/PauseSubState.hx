@@ -9,9 +9,17 @@ import flixel.util.FlxStringUtil;
 import states.StoryMenuState;
 import states.FreeplayState;
 import options.OptionsState;
-
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.text.FlxText;
+import flixel.util.FlxColor;
+import flixel.util.FlxAxes;
+import states.PlayState; // Importa PlayState para acceder a los personajes
 class PauseSubState extends MusicBeatSubstate
 {
+	var bfImage:FlxSprite;
+    var opponentImage:FlxSprite;
+
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
 	var menuItems:Array<String> = [];
@@ -35,8 +43,10 @@ class PauseSubState extends MusicBeatSubstate
 
 	public static var songName:String = null;
 
-	override function create()
-	{
+	override public function create()
+    {
+        super.create();
+
 		if(Difficulty.list.length < 2) menuItemsOG.remove('Change Difficulty'); //No need to change difficulty if there is only one!
 
 		if(PlayState.chartingMode)
@@ -165,7 +175,27 @@ class PauseSubState extends MusicBeatSubstate
 		cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
 
 		super.create();
+		loadCharacterImages();
 	}
+
+	function loadCharacterImages()
+    {
+        // Obtiene los nombres de los personajes de PlayState
+        var bfCharacter:String = PlayState.instance.boyfriend.curCharacter;
+        var opponentCharacter:String = PlayState.instance.dad.curCharacter;
+
+        // Carga las imágenes del Boyfriend
+        bfImage = new FlxSprite(FlxG.width - 400, 100); // Ajusta las coordenadas según sea necesario
+        bfImage.loadGraphic(Paths.image('MenuStuff/PauseMenu/char/bf_' + bfCharacter));
+        bfImage.scale.set(0.8, 0.8); // Ajusta la escala si es necesario
+        add(bfImage);
+
+        // Carga las imágenes del oponente
+        opponentImage = new FlxSprite(0, 80); // Ajusta las coordenadas según sea necesario
+        opponentImage.loadGraphic(Paths.image('MenuStuff/PauseMenu/char/opponent_' + opponentCharacter));
+        opponentImage.scale.set(0.8, 0.8); // Ajusta la escala si es necesario
+        add(opponentImage);
+    }
 	
 	function getPauseSong()
 	{
