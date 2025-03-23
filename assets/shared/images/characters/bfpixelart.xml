@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="bfpixelart.png">
+<SubTexture name="bfpixelart idle0000" x="346" y="138" width="118" height="136" frameX="-42" frameY="-78" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart idle0001" x="124" y="278" width="118" height="136" frameX="-46" frameY="-78" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart idle0002" x="228" y="0" width="118" height="138" frameX="-46" frameY="-74" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart idle0003" x="346" y="138" width="118" height="136" frameX="-42" frameY="-78" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart idle0004" x="346" y="138" width="118" height="136" frameX="-42" frameY="-78" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart idle0005" x="346" y="138" width="118" height="136" frameX="-42" frameY="-78" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart left0000" x="0" y="140" width="124" height="138" frameX="-40" frameY="-76" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart left0001" x="124" y="140" width="128" height="138" frameX="-36" frameY="-76" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart left0002" x="124" y="140" width="128" height="138" frameX="-36" frameY="-76" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart left0003" x="124" y="140" width="128" height="138" frameX="-36" frameY="-76" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart right0000" x="242" y="278" width="122" height="134" frameX="-44" frameY="-80" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart right0001" x="466" y="0" width="124" height="134" frameX="-42" frameY="-80" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart right0002" x="466" y="0" width="124" height="134" frameX="-42" frameY="-80" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart right0003" x="466" y="0" width="124" height="134" frameX="-42" frameY="-80" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart down0000" x="466" y="134" width="116" height="134" frameX="-46" frameY="-80" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart down0001" x="116" y="416" width="128" height="128" frameX="-40" frameY="-86" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart down0002" x="116" y="416" width="128" height="128" frameX="-40" frameY="-86" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart down0003" x="116" y="416" width="128" height="128" frameX="-40" frameY="-86" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart up0000" x="0" y="0" width="114" height="140" frameX="-48" frameY="-76" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart up0001" x="346" y="0" width="120" height="138" frameX="-48" frameY="-78" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart up0002" x="346" y="0" width="120" height="138" frameX="-48" frameY="-78" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart up0003" x="346" y="0" width="120" height="138" frameX="-48" frameY="-78" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart l miss0000" x="0" y="278" width="124" height="138" frameX="-40" frameY="-76" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart l miss0001" x="0" y="278" width="124" height="138" frameX="-40" frameY="-76" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart l miss0002" x="0" y="278" width="124" height="138" frameX="-40" frameY="-76" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart l miss0003" x="0" y="278" width="124" height="138" frameX="-40" frameY="-76" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart r miss0000" x="466" y="268" width="122" height="134" frameX="-44" frameY="-80" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart r miss0001" x="466" y="268" width="122" height="134" frameX="-44" frameY="-80" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart r miss0002" x="466" y="268" width="122" height="134" frameX="-44" frameY="-80" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart r miss0003" x="466" y="268" width="122" height="134" frameX="-44" frameY="-80" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart d miss0000" x="0" y="416" width="116" height="134" frameX="-46" frameY="-80" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart d miss0001" x="0" y="416" width="116" height="134" frameX="-46" frameY="-80" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart d miss0002" x="0" y="416" width="116" height="134" frameX="-46" frameY="-80" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart d miss0003" x="0" y="416" width="116" height="134" frameX="-46" frameY="-80" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart u miss0000" x="114" y="0" width="114" height="140" frameX="-48" frameY="-76" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart u miss0001" x="114" y="0" width="114" height="140" frameX="-48" frameY="-76" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart u miss0002" x="114" y="0" width="114" height="140" frameX="-48" frameY="-76" frameWidth="200" frameHeight="240" />
+<SubTexture name="bfpixelart u miss0003" x="114" y="0" width="114" height="140" frameX="-48" frameY="-76" frameWidth="200" frameHeight="240" />
+</TextureAtlas>

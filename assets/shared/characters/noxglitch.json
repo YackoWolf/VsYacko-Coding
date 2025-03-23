@@ -1,0 +1,55 @@
+{
+	"animations": [
+		{
+			"offsets": [11, -286],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "naxx left"
+		},
+		{
+			"offsets": [2, -286],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "naxx up"
+		},
+		{
+			"offsets": [2, -286],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "naxx down"
+		},
+		{
+			"offsets": [-18, -286],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "naxx right"
+		},
+		{
+			"offsets": [2, -286],
+			"indices": [],
+			"fps": 21,
+			"anim": "idle",
+			"loop": false,
+			"name": "naxx idle"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": true,
+	"image": "characters/naxx",
+	"position": [110, 60],
+	"healthicon": "naxx",
+	"flip_x": false,
+	"healthbar_colors": [0, 255, 222],
+	"camera_position": [-300, 70],
+	"sing_duration": 6.1,
+	"scale": 3.4,
+	"_editor_isPlayer": false
+}

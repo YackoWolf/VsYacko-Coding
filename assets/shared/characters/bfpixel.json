@@ -1,0 +1,87 @@
+{
+	"animations": [
+		{
+			"offsets": [20, 0],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "bfpixelart left"
+		},
+		{
+			"offsets": [7, 0],
+			"loop": false,
+			"fps": 10,
+			"anim": "idle",
+			"indices": [],
+			"name": "bfpixelart idle"
+		},
+		{
+			"offsets": [0, 10],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "bfpixelart up"
+		},
+		{
+			"offsets": [-30, 0],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "bfpixelart right"
+		},
+		{
+			"offsets": [0, 0],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "bfpixelart down"
+		},
+		{
+			"loop": false,
+			"offsets": [20, 0],
+			"anim": "singLEFTmiss",
+			"fps": 24,
+			"name": "bfpixelart l miss",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [0, 10],
+			"anim": "singUPmiss",
+			"fps": 24,
+			"name": "bfpixelart u miss",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-30, 0],
+			"anim": "singRIGHTmiss",
+			"fps": 24,
+			"name": "bfpixelart r miss",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [0, 0],
+			"anim": "singDOWNmiss",
+			"fps": 24,
+			"name": "bfpixelart d miss",
+			"indices": []
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": true,
+	"image": "characters/bfPixelart",
+	"position": [0, 350],
+	"healthicon": "bf-pixel",
+	"flip_x": true,
+	"healthbar_colors": [123, 214, 246],
+	"camera_position": [130, -130],
+	"sing_duration": 4,
+	"scale": 3,
+	"_editor_isPlayer": true
+}

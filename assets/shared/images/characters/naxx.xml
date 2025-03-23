@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="naxx.png">
+<SubTexture name="naxx idle0000" x="258" y="148" width="100" height="126" frameX="-14" frameY="-32" frameWidth="140" frameHeight="180" />
+<SubTexture name="naxx idle0001" x="128" y="282" width="106" height="124" frameX="-10" frameY="-34" frameWidth="140" frameHeight="180" />
+<SubTexture name="naxx idle0002" x="234" y="282" width="118" height="122" frameX="-10" frameY="-36" frameWidth="140" frameHeight="180" />
+<SubTexture name="naxx idle0003" x="0" y="282" width="128" height="126" frameX="-8" frameY="-32" frameWidth="140" frameHeight="180" />
+<SubTexture name="naxx idle0004" x="378" y="132" width="100" height="126" frameX="-14" frameY="-32" frameWidth="140" frameHeight="180" />
+<SubTexture name="naxx up0000" x="0" y="0" width="118" height="148" frameX="-2" frameY="-10" frameWidth="140" frameHeight="180" />
+<SubTexture name="naxx up0001" x="118" y="0" width="120" height="148" frameX="0" frameY="-10" frameWidth="140" frameHeight="180" />
+<SubTexture name="naxx up0002" x="118" y="0" width="120" height="148" frameX="0" frameY="-10" frameWidth="140" frameHeight="180" />
+<SubTexture name="naxx up0003" x="118" y="0" width="120" height="148" frameX="0" frameY="-10" frameWidth="140" frameHeight="180" />
+<SubTexture name="naxx down0000" x="352" y="282" width="118" height="120" frameX="-12" frameY="-40" frameWidth="140" frameHeight="180" />
+<SubTexture name="naxx down0001" x="518" y="0" width="130" height="120" frameX="-8" frameY="-40" frameWidth="140" frameHeight="180" />
+<SubTexture name="naxx down0002" x="518" y="0" width="130" height="120" frameX="-8" frameY="-40" frameWidth="140" frameHeight="180" />
+<SubTexture name="naxx down0003" x="518" y="0" width="130" height="120" frameX="-8" frameY="-40" frameWidth="140" frameHeight="180" />
+<SubTexture name="naxx left0000" x="132" y="148" width="126" height="132" frameX="-2" frameY="-26" frameWidth="140" frameHeight="180" />
+<SubTexture name="naxx left0001" x="378" y="0" width="140" height="132" frameX="0" frameY="-26" frameWidth="140" frameHeight="180" />
+<SubTexture name="naxx left0002" x="378" y="0" width="140" height="132" frameX="0" frameY="-26" frameWidth="140" frameHeight="180" />
+<SubTexture name="naxx left0003" x="378" y="0" width="140" height="132" frameX="0" frameY="-26" frameWidth="140" frameHeight="180" />
+<SubTexture name="naxx right0000" x="238" y="0" width="140" height="134" frameX="0" frameY="-24" frameWidth="140" frameHeight="180" />
+<SubTexture name="naxx right0001" x="0" y="148" width="132" height="134" frameX="-8" frameY="-24" frameWidth="140" frameHeight="180" />
+<SubTexture name="naxx right0002" x="0" y="148" width="132" height="134" frameX="-8" frameY="-24" frameWidth="140" frameHeight="180" />
+<SubTexture name="naxx right0003" x="0" y="148" width="132" height="134" frameX="-8" frameY="-24" frameWidth="140" frameHeight="180" />
+</TextureAtlas>

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="nox.png">
+<SubTexture name="nox idle0000" x="346" y="0" width="100" height="126" frameX="-14" frameY="-32" frameWidth="140" frameHeight="180" />
+<SubTexture name="nox idle0001" x="0" y="286" width="102" height="124" frameX="-14" frameY="-34" frameWidth="140" frameHeight="180" />
+<SubTexture name="nox idle0002" x="102" y="286" width="104" height="122" frameX="-14" frameY="-36" frameWidth="140" frameHeight="180" />
+<SubTexture name="nox idle0003" x="346" y="0" width="100" height="126" frameX="-14" frameY="-32" frameWidth="140" frameHeight="180" />
+<SubTexture name="nox idle0004" x="346" y="0" width="100" height="126" frameX="-14" frameY="-32" frameWidth="140" frameHeight="180" />
+<SubTexture name="nox up0000" x="112" y="0" width="116" height="148" frameX="-4" frameY="-10" frameWidth="140" frameHeight="180" />
+<SubTexture name="nox up0001" x="0" y="0" width="112" height="152" frameX="-10" frameY="-6" frameWidth="140" frameHeight="180" />
+<SubTexture name="nox up0002" x="0" y="0" width="112" height="152" frameX="-10" frameY="-6" frameWidth="140" frameHeight="180" />
+<SubTexture name="nox up0003" x="0" y="0" width="112" height="152" frameX="-10" frameY="-6" frameWidth="140" frameHeight="180" />
+<SubTexture name="nox down0000" x="314" y="286" width="102" height="120" frameX="-18" frameY="-40" frameWidth="140" frameHeight="180" />
+<SubTexture name="nox down0001" x="206" y="286" width="108" height="122" frameX="-14" frameY="-38" frameWidth="140" frameHeight="180" />
+<SubTexture name="nox down0002" x="206" y="286" width="108" height="122" frameX="-14" frameY="-38" frameWidth="140" frameHeight="180" />
+<SubTexture name="nox down0003" x="206" y="286" width="108" height="122" frameX="-14" frameY="-38" frameWidth="140" frameHeight="180" />
+<SubTexture name="nox left0000" x="224" y="152" width="114" height="132" frameX="-2" frameY="-26" frameWidth="140" frameHeight="180" />
+<SubTexture name="nox left0001" x="228" y="0" width="118" height="134" frameX="0" frameY="-24" frameWidth="140" frameHeight="180" />
+<SubTexture name="nox left0002" x="228" y="0" width="118" height="134" frameX="0" frameY="-24" frameWidth="140" frameHeight="180" />
+<SubTexture name="nox left0003" x="228" y="0" width="118" height="134" frameX="0" frameY="-24" frameWidth="140" frameHeight="180" />
+<SubTexture name="nox right0000" x="0" y="152" width="110" height="134" frameX="-24" frameY="-24" frameWidth="140" frameHeight="180" />
+<SubTexture name="nox right0001" x="110" y="152" width="114" height="134" frameX="-22" frameY="-24" frameWidth="140" frameHeight="180" />
+<SubTexture name="nox right0002" x="110" y="152" width="114" height="134" frameX="-22" frameY="-24" frameWidth="140" frameHeight="180" />
+<SubTexture name="nox right0003" x="110" y="152" width="114" height="134" frameX="-22" frameY="-24" frameWidth="140" frameHeight="180" />
+</TextureAtlas>
