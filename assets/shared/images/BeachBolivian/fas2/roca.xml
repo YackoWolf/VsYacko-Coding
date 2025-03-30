@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="roca.png">
+<SubTexture name="roca0000" x="648" y="0" width="324" height="368" frameX="0" frameY="-326" frameWidth="1280" frameHeight="720" />
+<SubTexture name="roca0001" x="324" y="0" width="324" height="381" frameX="0" frameY="-313" frameWidth="1280" frameHeight="720" />
+<SubTexture name="roca0002" x="0" y="0" width="324" height="387" frameX="0" frameY="-307" frameWidth="1280" frameHeight="720" />
+</TextureAtlas>

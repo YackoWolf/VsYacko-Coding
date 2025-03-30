@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="pasto.png">
+<SubTexture name="pasto0000" x="1920" y="0" width="1920" height="751" frameX="0" frameY="-329" frameWidth="1920" frameHeight="1080" />
+<SubTexture name="pasto0001" x="0" y="776" width="1920" height="766" frameX="0" frameY="-314" frameWidth="1920" frameHeight="1080" />
+<SubTexture name="pasto0002" x="0" y="0" width="1920" height="776" frameX="0" frameY="-304" frameWidth="1920" frameHeight="1080" />
+</TextureAtlas>

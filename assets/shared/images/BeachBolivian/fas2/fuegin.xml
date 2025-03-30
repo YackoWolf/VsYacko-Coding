@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="fuegin.png">
+<SubTexture name="fuegin0000" x="0" y="599" width="1280" height="234" frameX="0" frameY="-267" frameWidth="1280" frameHeight="720" />
+<SubTexture name="fuegin0001" x="0" y="309" width="1280" height="290" frameX="0" frameY="-218" frameWidth="1280" frameHeight="720" />
+<SubTexture name="fuegin0002" x="0" y="0" width="1280" height="309" frameX="0" frameY="-199" frameWidth="1280" frameHeight="720" />
+</TextureAtlas>
