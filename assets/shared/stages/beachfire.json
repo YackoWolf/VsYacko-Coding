@@ -5,33 +5,34 @@
 	],
 	"_editorMeta": {
 		"boyfriend": "bf",
-		"dad": "noxfang",
-		"gf": "gf"
+		"gf": "gf",
+		"dad": "noxfang"
 	},
+	"boyfriend": [
+		1055,
+		85
+	],
 	"girlfriend": [
 		465,
 		10
 	],
 	"stageUI": "normal",
-	"boyfriend": [
-		1055,
-		85
-	],
 	"defaultZoom": 0.6,
 	"objects": [
 		{
-			"x": -1174,
-			"y": -710,
+			"x": -1169,
+			"y": -715,
 			"scale": [
 				3.25,
 				2.7
 			],
-			"image": "BeachBolivian/fog",
+			"image": "BeachBolivian/fas2/fog",
 			"flipX": false,
 			"filters": 3,
 			"color": "FFFFFF",
 			"angle": 0,
-			"name": "sprite3",
+			"name": "sprite6",
+			"firstAnimation": "lucesita",
 			"antialiasing": true,
 			"flipY": false,
 			"scroll": [
@@ -39,7 +40,17 @@
 				1
 			],
 			"alpha": 1,
-			"type": "sprite"
+			"animations": [
+				{
+					"offsets": null,
+					"indices": [],
+					"fps": 8,
+					"anim": "lucesita",
+					"loop": true,
+					"name": "fog"
+				}
+			],
+			"type": "animatedSprite"
 		},
 		{
 			"x": -1167,
@@ -86,12 +97,12 @@
 			"alpha": 1,
 			"animations": [
 				{
-					"offsets": null,
-					"indices": [],
-					"fps": 8,
-					"anim": "fuegin",
 					"loop": true,
-					"name": "fuegin"
+					"offsets": null,
+					"anim": "fuegin",
+					"fps": 8,
+					"name": "fuegin",
+					"indices": []
 				}
 			],
 			"type": "animatedSprite"
@@ -141,12 +152,12 @@
 			"alpha": 1,
 			"animations": [
 				{
-					"loop": true,
 					"offsets": null,
-					"anim": "roca",
+					"loop": true,
 					"fps": 6,
-					"name": "roca",
-					"indices": []
+					"anim": "roca",
+					"indices": [],
+					"name": "roca"
 				}
 			],
 			"type": "animatedSprite"
@@ -183,12 +194,12 @@
 			"alpha": 1,
 			"animations": [
 				{
-					"offsets": null,
-					"indices": [],
-					"fps": 8,
-					"anim": "palmerafiu",
 					"loop": true,
-					"name": "palmera"
+					"offsets": null,
+					"anim": "palmerafiu",
+					"fps": 8,
+					"name": "palmera",
+					"indices": []
 				}
 			],
 			"type": "animatedSprite"
@@ -220,15 +231,15 @@
 		150,
 		-250
 	],
-	"camera_speed": 1,
-	"directory": "",
 	"opponent": [
 		-75,
 		45
 	],
+	"directory": "",
+	"camera_speed": 1,
+	"hide_girlfriend": false,
 	"camera_opponent": [
 		0,
 		-100
-	],
-	"hide_girlfriend": false
+	]
 }
