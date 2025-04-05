@@ -1,0 +1,245 @@
+{
+	"camera_boyfriend": [
+		-50,
+		0
+	],
+	"_editorMeta": {
+		"boyfriend": "bf",
+		"gf": "gf",
+		"dad": "noxfang"
+	},
+	"boyfriend": [
+		1055,
+		85
+	],
+	"girlfriend": [
+		465,
+		10
+	],
+	"stageUI": "normal",
+	"defaultZoom": 0.6,
+	"objects": [
+		{
+			"x": -1169,
+			"y": -715,
+			"scale": [
+				3.25,
+				2.7
+			],
+			"image": "BeachBolivian/fas2/fog",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "sprite6",
+			"firstAnimation": "lucesita",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"animations": [
+				{
+					"offsets": null,
+					"indices": [],
+					"fps": 8,
+					"anim": "lucesita",
+					"loop": true,
+					"name": "fog"
+				}
+			],
+			"type": "animatedSprite"
+		},
+		{
+			"x": -1167,
+			"y": -707,
+			"scale": [
+				3.25,
+				2.7
+			],
+			"image": "BeachBolivian/fas2/palmsombra",
+			"flipX": false,
+			"filters": 2,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "palmerin",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"x": -1169,
+			"y": -740,
+			"scale": [
+				3.25,
+				2.7
+			],
+			"image": "BeachBolivian/fas2/fuegin",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "sprite2",
+			"firstAnimation": "fuegin",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"animations": [
+				{
+					"loop": true,
+					"offsets": null,
+					"anim": "fuegin",
+					"fps": 8,
+					"name": "fuegin",
+					"indices": []
+				}
+			],
+			"type": "animatedSprite"
+		},
+		{
+			"x": -1167,
+			"y": -722,
+			"scale": [
+				3.25,
+				2.7
+			],
+			"image": "BeachBolivian/fas2/playa",
+			"flipX": false,
+			"filters": 2,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "sprite1",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"x": -1169,
+			"y": -695,
+			"scale": [
+				3.25,
+				2.7
+			],
+			"image": "BeachBolivian/fas2/roca",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "sprite4",
+			"firstAnimation": "roca",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"animations": [
+				{
+					"offsets": null,
+					"loop": true,
+					"fps": 6,
+					"anim": "roca",
+					"indices": [],
+					"name": "roca"
+				}
+			],
+			"type": "animatedSprite"
+		},
+		{
+			"type": "gf"
+		},
+		{
+			"type": "dad"
+		},
+		{
+			"type": "boyfriend"
+		},
+		{
+			"x": -924,
+			"y": -635,
+			"scale": [
+				2.6,
+				2.5
+			],
+			"image": "BeachBolivian/fas2/palmera",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "prime",
+			"firstAnimation": "palmerafiu",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"animations": [
+				{
+					"loop": true,
+					"offsets": null,
+					"anim": "palmerafiu",
+					"fps": 8,
+					"name": "palmera",
+					"indices": []
+				}
+			],
+			"type": "animatedSprite"
+		},
+		{
+			"x": -1244,
+			"y": -720,
+			"scale": [
+				3.35,
+				2.75
+			],
+			"image": "BeachBolivian/fas2/filtro",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "sprite5",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 0.3,
+			"type": "sprite"
+		}
+	],
+	"camera_girlfriend": [
+		150,
+		-250
+	],
+	"opponent": [
+		-75,
+		45
+	],
+	"directory": "",
+	"camera_speed": 1,
+	"hide_girlfriend": false,
+	"camera_opponent": [
+		0,
+		-100
+	]
+}

@@ -1,113 +1,31 @@
 {
-	"camera_boyfriend": [
-		-50,
-		0
-	],
-	"_editorMeta": {
-		"boyfriend": "bf",
-		"dad": "noxfang",
-		"gf": "gf"
-	},
-	"stageUI": "normal",
-	"boyfriend": [
-		1055,
-		85
-	],
-	"girlfriend": [
-		465,
-		10
-	],
-	"defaultZoom": 0.6,
-	"objects": [
-		{
-			"x": -1174,
-			"y": -710,
-			"scale": [
-				3.25,
-				2.7
-			],
-			"image": "BeachBolivian/fog",
-			"flipX": false,
-			"filters": 3,
-			"color": "FFFFFF",
-			"angle": 0,
-			"name": "sprite3",
-			"antialiasing": true,
-			"flipY": false,
-			"scroll": [
-				1,
-				1
-			],
-			"alpha": 1,
-			"type": "sprite"
-		},
-		{
-			"x": -1167,
-			"y": -727,
-			"scale": [
-				3.25,
-				2.7
-			],
-			"image": "BeachBolivian/playa",
-			"flipX": false,
-			"filters": 3,
-			"color": "FFFFFF",
-			"angle": 0,
-			"name": "sprite1",
-			"antialiasing": true,
-			"flipY": false,
-			"scroll": [
-				1,
-				1
-			],
-			"alpha": 1,
-			"type": "sprite"
-		},
-		{
-			"type": "gf"
-		},
-		{
-			"type": "dad"
-		},
-		{
-			"type": "boyfriend"
-		},
-		{
-			"x": -921,
-			"y": -648,
-			"scale": [
-				2.6,
-				2.5
-			],
-			"image": "BeachBolivian/palmeras",
-			"flipX": false,
-			"filters": 3,
-			"color": "FFFFFF",
-			"angle": 0,
-			"name": "sprite2",
-			"antialiasing": true,
-			"flipY": false,
-			"scroll": [
-				1,
-				1
-			],
-			"alpha": 1,
-			"type": "sprite"
-		}
-	],
-	"camera_girlfriend": [
-		150,
-		-250
-	],
-	"camera_speed": 1,
-	"directory": "",
-	"opponent": [
-		-75,
-		45
-	],
-	"camera_opponent": [
-		0,
-		-100
-	],
-	"hide_girlfriend": false
+    "directory": "",
+    "defaultZoom": 0.6,
+    "isPixelStage": false,
+    "boyfriend": [
+        1055,
+        85
+    ],
+    "girlfriend": [
+        465,
+        10
+    ],
+    "opponent": [
+        -75,
+        45
+    ],
+    "hide_girlfriend": false,
+    "camera_boyfriend": [
+        -50,
+        0
+    ],
+    "camera_opponent": [
+        0,
+        -100
+    ],
+    "camera_girlfriend": [
+        150,
+        -250
+    ],
+    "camera_speed": 1
 }

@@ -1,113 +1,31 @@
 {
-	"objects": [
-		{
-			"x": -774,
-			"y": -365,
-			"scale": [
-				1.5,
-				1.5
-			],
-			"image": "BeachBolivian/fasfinal/loli",
-			"flipX": false,
-			"filters": 3,
-			"color": "FFFFFF",
-			"angle": 0,
-			"name": "sprite1",
-			"firstAnimation": "loli",
-			"antialiasing": true,
-			"flipY": false,
-			"scroll": [
-				1,
-				1
-			],
-			"alpha": 1,
-			"animations": [
-				{
-					"offsets": null,
-					"indices": [],
-					"fps": 7,
-					"anim": "loli",
-					"loop": true,
-					"name": "idle"
-				}
-			],
-			"type": "animatedSprite"
-		},
-		{
-			"x": -774,
-			"y": -365,
-			"scale": [
-				1.5,
-				1.5
-			],
-			"image": "BeachBolivian/fasfinal/pasto",
-			"flipX": false,
-			"filters": 3,
-			"color": "FFFFFF",
-			"angle": 0,
-			"name": "sprite2",
-			"firstAnimation": "calvicia",
-			"antialiasing": true,
-			"flipY": false,
-			"scroll": [
-				1,
-				1
-			],
-			"alpha": 1,
-			"animations": [
-				{
-					"offsets": null,
-					"indices": [],
-					"fps": 7,
-					"anim": "calvicia",
-					"loop": true,
-					"name": "pasto"
-				}
-			],
-			"type": "animatedSprite"
-		},
-		{
-			"type": "gf"
-		},
-		{
-			"type": "dad"
-		},
-		{
-			"type": "boyfriend"
-		}
-	],
-	"camera_opponent": [
-		0,
-		0
-	],
-	"girlfriend": [
-		400,
-		130
-	],
-	"_editorMeta": {
-		"boyfriend": "bf",
-		"gf": "gf",
-		"dad": "noxfang"
-	},
-	"camera_girlfriend": [
-		0,
-		0
-	],
-	"boyfriend": [
-		1430,
-		500
-	],
-	"opponent": [
-		-40,
-		100
-	],
-	"hide_girlfriend": true,
-	"directory": "",
-	"camera_speed": 1,
-	"defaultZoom": 0.9,
-	"stageUI": "normal",
-	"camera_boyfriend": [
-		0,
-		0
-	]
+    "directory": "",
+    "defaultZoom": 0.9,
+    "isPixelStage": false,
+    "boyfriend": [
+        1430,
+        500
+    ],
+    "girlfriend": [
+        400,
+        130
+    ],
+    "opponent": [
+        -40,
+        100
+    ],
+    "hide_girlfriend": true,
+    "camera_boyfriend": [
+        0,
+        0
+    ],
+    "camera_opponent": [
+        0,
+        0
+    ],
+    "camera_girlfriend": [
+        0,
+        0
+    ],
+    "camera_speed": 1
 }
