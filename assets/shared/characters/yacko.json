@@ -1,0 +1,55 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [423, -855],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "yacko right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [470, -245],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "yacko down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-475, -232],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "yacko up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-707, -845],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "yacko left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [88, -248],
+			"anim": "idle",
+			"fps": 15,
+			"name": "yacko idle",
+			"indices": []
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": true,
+	"image": "characters/yacko",
+	"position": [-630, -460],
+	"healthicon": "yacko",
+	"flip_x": false,
+	"healthbar_colors": [0, 255, 215],
+	"camera_position": [-430, 260],
+	"sing_duration": 4,
+	"scale": 1.8,
+	"_editor_isPlayer": false
+}
