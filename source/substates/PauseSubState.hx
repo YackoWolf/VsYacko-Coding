@@ -185,13 +185,13 @@ class PauseSubState extends MusicBeatSubstate
         var opponentCharacter:String = PlayState.instance.dad.curCharacter;
 
         // Carga las imágenes del Boyfriend
-        bfImage = new FlxSprite(FlxG.width - 400, 100); // Ajusta las coordenadas según sea necesario
+        bfImage  = new FlxSprite(200, 80); // Ajusta las coordenadas según sea necesario
         bfImage.loadGraphic(Paths.image('MenuStuff/PauseMenu/char/bf_' + bfCharacter));
         bfImage.scale.set(0.8, 0.8); // Ajusta la escala si es necesario
         add(bfImage);
 
         // Carga las imágenes del oponente
-        opponentImage = new FlxSprite(0, 80); // Ajusta las coordenadas según sea necesario
+        opponentImage = new FlxSprite(-130, 80); // Ajusta las coordenadas según sea necesario
         opponentImage.loadGraphic(Paths.image('MenuStuff/PauseMenu/char/opponent_' + opponentCharacter));
         opponentImage.scale.set(0.8, 0.8); // Ajusta la escala si es necesario
         add(opponentImage);
