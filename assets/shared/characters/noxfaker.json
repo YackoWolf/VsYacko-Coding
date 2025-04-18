@@ -1,43 +1,43 @@
 {
 	"animations": [
 		{
-			"offsets": [-588, -615],
-			"indices": [],
+			"offsets": [-639, -635],
+			"loop": false,
 			"fps": 24,
 			"anim": "idle",
-			"loop": false,
+			"indices": [],
 			"name": "noxfaker idle"
 		},
 		{
-			"offsets": [-592, -615],
-			"indices": [],
+			"offsets": [-662, -616],
+			"loop": false,
 			"fps": 24,
 			"anim": "singRIGHT",
-			"loop": false,
+			"indices": [],
 			"name": "noxfaker right"
 		},
 		{
-			"offsets": [-588, -615],
-			"indices": [],
+			"offsets": [-616, -630],
+			"loop": false,
 			"fps": 24,
 			"anim": "singUP",
-			"loop": false,
+			"indices": [],
 			"name": "noxfaker up"
 		},
 		{
-			"offsets": [-556, -615],
-			"indices": [],
+			"offsets": [-606, -635],
+			"loop": false,
 			"fps": 24,
 			"anim": "singLEFT",
-			"loop": false,
+			"indices": [],
 			"name": "noxfaker left"
 		},
 		{
-			"offsets": [-578, -615],
-			"indices": [],
+			"offsets": [-618, -685],
+			"loop": false,
 			"fps": 24,
 			"anim": "singDOWN",
-			"loop": false,
+			"indices": [],
 			"name": "noxfaker down"
 		}
 	],
@@ -45,7 +45,7 @@
 	"no_antialiasing": false,
 	"image": "characters/noxfaker",
 	"position": [-630, -460],
-	"healthicon": "scrimbo",
+	"healthicon": "fakerexe",
 	"flip_x": false,
 	"healthbar_colors": [60, 60, 255],
 	"camera_position": [420, 530],

@@ -1,8 +1,55 @@
-<?xml version='1.0' encoding='utf-8'?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="noxfaker.png">
-<SubTexture name="noxfaker down0000" x="338" y="520" width="380" height="447" frameX="-20" frameY="-82" frameWidth="400" frameHeight="560" />
-<SubTexture name="noxfaker up0000" x="0" y="0" width="328" height="520" frameX="-32" frameY="-10" frameWidth="400" frameHeight="560" />
-<SubTexture name="noxfaker right0000" x="328" y="0" width="350" height="489" frameX="-41" frameY="-40" frameWidth="400" frameHeight="560" />
-<SubTexture name="noxfaker left0000" x="678" y="0" width="379" height="478" frameX="-21" frameY="-51" frameWidth="400" frameHeight="560" />
-<SubTexture name="noxfaker idle0000" x="0" y="520" width="338" height="478" frameX="-41" frameY="-51" frameWidth="400" frameHeight="560" />
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="noxfaker down0000" x="0" y="0" width="387" height="451"/>
+	<SubTexture name="noxfaker down0001" x="387" y="0" width="387" height="451"/>
+	<SubTexture name="noxfaker down0002" x="774" y="0" width="387" height="451"/>
+	<SubTexture name="noxfaker down0003" x="1161" y="0" width="387" height="451"/>
+	<SubTexture name="noxfaker down0004" x="1548" y="0" width="387" height="451"/>
+	<SubTexture name="noxfaker down0005" x="1548" y="0" width="387" height="451"/>
+	<SubTexture name="noxfaker down0006" x="1548" y="0" width="387" height="451"/>
+	<SubTexture name="noxfaker down0007" x="1548" y="0" width="387" height="451"/>
+	<SubTexture name="noxfaker down0008" x="1548" y="0" width="387" height="451"/>
+	<SubTexture name="noxfaker down0009" x="1548" y="0" width="387" height="451"/>
+	<SubTexture name="noxfaker idle0000" x="1935" y="0" width="373" height="487"/>
+	<SubTexture name="noxfaker idle0001" x="2308" y="0" width="373" height="487"/>
+	<SubTexture name="noxfaker idle0002" x="2681" y="0" width="373" height="487"/>
+	<SubTexture name="noxfaker idle0003" x="3054" y="0" width="373" height="487"/>
+	<SubTexture name="noxfaker idle0004" x="3427" y="0" width="373" height="487"/>
+	<SubTexture name="noxfaker idle0005" x="0" y="487" width="373" height="487"/>
+	<SubTexture name="noxfaker idle0006" x="373" y="487" width="373" height="487"/>
+	<SubTexture name="noxfaker idle0007" x="373" y="487" width="373" height="487"/>
+	<SubTexture name="noxfaker idle0008" x="373" y="487" width="373" height="487"/>
+	<SubTexture name="noxfaker idle0009" x="373" y="487" width="373" height="487"/>
+	<SubTexture name="noxfaker left0000" x="746" y="487" width="387" height="487"/>
+	<SubTexture name="noxfaker left0001" x="1133" y="487" width="387" height="487"/>
+	<SubTexture name="noxfaker left0002" x="1520" y="487" width="387" height="487"/>
+	<SubTexture name="noxfaker left0003" x="1907" y="487" width="387" height="487"/>
+	<SubTexture name="noxfaker left0004" x="2294" y="487" width="387" height="487"/>
+	<SubTexture name="noxfaker left0005" x="2294" y="487" width="387" height="487"/>
+	<SubTexture name="noxfaker left0006" x="2294" y="487" width="387" height="487"/>
+	<SubTexture name="noxfaker left0007" x="2294" y="487" width="387" height="487"/>
+	<SubTexture name="noxfaker left0008" x="2294" y="487" width="387" height="487"/>
+	<SubTexture name="noxfaker left0009" x="2294" y="487" width="387" height="487"/>
+	<SubTexture name="noxfaker right0000" x="2681" y="487" width="373" height="494"/>
+	<SubTexture name="noxfaker right0001" x="3054" y="487" width="373" height="494"/>
+	<SubTexture name="noxfaker right0002" x="3427" y="487" width="373" height="494"/>
+	<SubTexture name="noxfaker right0003" x="0" y="981" width="373" height="494"/>
+	<SubTexture name="noxfaker right0004" x="373" y="981" width="373" height="494"/>
+	<SubTexture name="noxfaker right0005" x="373" y="981" width="373" height="494"/>
+	<SubTexture name="noxfaker right0006" x="373" y="981" width="373" height="494"/>
+	<SubTexture name="noxfaker right0007" x="373" y="981" width="373" height="494"/>
+	<SubTexture name="noxfaker right0008" x="373" y="981" width="373" height="494"/>
+	<SubTexture name="noxfaker right0009" x="373" y="981" width="373" height="494"/>
+	<SubTexture name="noxfaker up0000" x="746" y="981" width="373" height="487"/>
+	<SubTexture name="noxfaker up0001" x="1119" y="981" width="373" height="487"/>
+	<SubTexture name="noxfaker up0002" x="1492" y="981" width="373" height="487"/>
+	<SubTexture name="noxfaker up0003" x="1865" y="981" width="373" height="487"/>
+	<SubTexture name="noxfaker up0004" x="2238" y="981" width="373" height="487"/>
+	<SubTexture name="noxfaker up0005" x="2238" y="981" width="373" height="487"/>
+	<SubTexture name="noxfaker up0006" x="2238" y="981" width="373" height="487"/>
+	<SubTexture name="noxfaker up0007" x="2238" y="981" width="373" height="487"/>
+	<SubTexture name="noxfaker up0008" x="2238" y="981" width="373" height="487"/>
+	<SubTexture name="noxfaker up0009" x="2238" y="981" width="373" height="487"/>
 </TextureAtlas>

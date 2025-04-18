@@ -1,51 +1,51 @@
 {
 	"animations": [
 		{
+			"offsets": [-657, -615],
 			"loop": false,
-			"offsets": [-547, -615],
-			"anim": "idle",
 			"fps": 24,
-			"name": "noxfang idle",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [-567, -615],
 			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "noxfang right",
-			"indices": []
+			"indices": [],
+			"name": "noxfang right"
 		},
 		{
+			"offsets": [-588, -755],
 			"loop": false,
-			"offsets": [-578, -615],
+			"fps": 24,
 			"anim": "singDOWN",
-			"fps": 24,
-			"name": "noxfang down",
-			"indices": []
+			"indices": [],
+			"name": "noxfang down"
 		},
 		{
+			"offsets": [-554, -485],
 			"loop": false,
-			"offsets": [-564, -615],
+			"fps": 24,
 			"anim": "singUP",
-			"fps": 24,
-			"name": "noxfang up",
-			"indices": []
+			"indices": [],
+			"name": "noxfang up"
 		},
 		{
+			"offsets": [-467, -646],
 			"loop": false,
-			"offsets": [-537, -615],
-			"anim": "singLEFT",
 			"fps": 24,
-			"name": "noxfang left",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "noxfang left"
+		},
+		{
+			"offsets": [-627, -615],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": false,
+			"name": "noxfang idle"
 		}
 	],
 	"vocals_file": "",
 	"no_antialiasing": false,
 	"image": "characters/noxfang",
 	"position": [-630, -460],
-	"healthicon": "scrimbo",
+	"healthicon": "exe",
 	"flip_x": false,
 	"healthbar_colors": [76, 0, 255],
 	"camera_position": [420, 530],

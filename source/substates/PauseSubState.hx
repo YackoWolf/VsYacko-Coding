@@ -14,6 +14,7 @@ import flixel.FlxSprite;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.util.FlxAxes;
+import flixel.addons.display.FlxBackdrop; 
 import states.PlayState; // Importa PlayState para acceder a los personajes
 class PauseSubState extends MusicBeatSubstate
 {
@@ -28,6 +29,8 @@ class PauseSubState extends MusicBeatSubstate
 	var curSelected:Int = 0;
 	var moveX:Float;
 
+	var bar1:FlxSprite;
+	var bar2:FlxSprite;
 	var cuadro:FlxSprite;
 	var names:FlxSprite;
 	var pase:FlxSprite;
@@ -91,6 +94,24 @@ class PauseSubState extends MusicBeatSubstate
 		bg.scrollFactor.set();
 		add(bg);
 
+		bar1 = new FlxBackdrop().loadGraphic(Paths.image("MenuStuff/PauseMenu/bar1"));
+		bar1.antialiasing = ClientPrefs.data.antialiasing;
+		bar1.updateHitbox();
+		bar1.scrollFactor.set();
+		bar1.velocity.x = -40;
+		bar1.active = true;
+		add(bar1);
+		bar1.screenCenter();
+
+		bar2 = new FlxBackdrop().loadGraphic(Paths.image("MenuStuff/PauseMenu/bar2"));
+		bar2.antialiasing = ClientPrefs.data.antialiasing;
+		bar2.updateHitbox();
+		bar2.scrollFactor.set();
+		bar2.velocity.x = 40;
+		bar2.active = true;
+		add(bar2);
+		bar2.screenCenter();
+
 		cuadro = new FlxSprite().loadGraphic(Paths.image("MenuStuff/PauseMenu/box"));
 		cuadro.antialiasing = ClientPrefs.data.antialiasing;
 		add(cuadro);
@@ -116,21 +137,21 @@ class PauseSubState extends MusicBeatSubstate
 		levelInfo.x += moveX;
 		add(levelInfo);
 
-		var levelDifficulty:FlxText = new FlxText(20, 15 + 32, 0, Difficulty.getString().toUpperCase(), 32);
+		var levelDifficulty:FlxText = new FlxText(20, 50 + 32, 0, Difficulty.getString().toUpperCase(), 32);
 		levelDifficulty.scrollFactor.set();
-		levelDifficulty.setFormat(Paths.font('vcr.ttf'), 32);
+		levelDifficulty.setFormat(Paths.font('PhantomMuff.ttf'), 32);
 		levelDifficulty.updateHitbox();
 		add(levelDifficulty);
 
-		var blueballedTxt:FlxText = new FlxText(20, 15 + 64, 0, Language.getPhrase("blueballed", "Blueballed: {1}", [PlayState.deathCounter]), 32);
+		var blueballedTxt:FlxText = new FlxText(20, 50 + 64, 0, Language.getPhrase("blueballed", "Blueballed: {1}", [PlayState.deathCounter]), 32);
 		blueballedTxt.scrollFactor.set();
-		blueballedTxt.setFormat(Paths.font('vcr.ttf'), 32);
+		blueballedTxt.setFormat(Paths.font('PhantomMuff.ttf'), 32);
 		blueballedTxt.updateHitbox();
 		add(blueballedTxt);
 
 		practiceText = new FlxText(20, 15 + 101, 0, Language.getPhrase("Practice Mode").toUpperCase(), 32);
 		practiceText.scrollFactor.set();
-		practiceText.setFormat(Paths.font('vcr.ttf'), 32);
+		practiceText.setFormat(Paths.font('PhantomMuff.ttf'), 32);
 		practiceText.x = FlxG.width - (practiceText.width + 20);
 		practiceText.updateHitbox();
 		practiceText.visible = PlayState.instance.practiceMode;
