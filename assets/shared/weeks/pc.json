@@ -1,0 +1,27 @@
+{
+	"songs": [
+		[
+			"keepfire",
+			"exe",
+			[
+				215,
+				13,
+				155
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "noxfang",
+	"difficulties": "",
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"storyName": "the fire awaits",
+	"weekName": "exe",
+	"hideStoryMode": false,
+	"weekBefore": "tutorial",
+	"startUnlocked": true
+}
