@@ -1,0 +1,87 @@
+{
+	"animations": [
+		{
+			"offsets": [352, 249],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "BF Final Idle"
+		},
+		{
+			"offsets": [423, 310],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "BF Final Left"
+		},
+		{
+			"offsets": [378, 295],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "BF Final Down"
+		},
+		{
+			"offsets": [386, 454],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "BF Final Up"
+		},
+		{
+			"offsets": [403, 279],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "BF Final Right"
+		},
+		{
+			"offsets": [407, 303],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFTmiss",
+			"indices": [],
+			"name": "BF Final Miss Left"
+		},
+		{
+			"offsets": [392, 274],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "BF Final Miss Right"
+		},
+		{
+			"offsets": [383, 286],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWNmiss",
+			"indices": [],
+			"name": "BF Final Miss Down"
+		},
+		{
+			"offsets": [384, 449],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUPmiss",
+			"indices": [],
+			"name": "BF Final Miss Up"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "characters/bfire",
+	"position": [260, 510],
+	"healthicon": "bf",
+	"flip_x": true,
+	"healthbar_colors": [49, 176, 209],
+	"camera_position": [700, -420],
+	"sing_duration": 4,
+	"scale": 1.1,
+	"_editor_isPlayer": true
+}

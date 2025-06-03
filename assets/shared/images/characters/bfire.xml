@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bfire.png">
+	<!-- Created with Adobe Animate version 23.0.1.70 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="BF Final Down0000" x="0" y="0" width="515" height="499"/>
+	<SubTexture name="BF Final Down0001" x="515" y="0" width="515" height="499"/>
+	<SubTexture name="BF Final Down0002" x="1030" y="0" width="515" height="499"/>
+	<SubTexture name="BF Final Down0003" x="1545" y="0" width="515" height="499"/>
+	<SubTexture name="BF Final Down0004" x="1545" y="0" width="515" height="499"/>
+	<SubTexture name="BF Final Down0005" x="1545" y="0" width="515" height="499"/>
+	<SubTexture name="BF Final Down0006" x="1545" y="0" width="515" height="499"/>
+	<SubTexture name="BF Final Down0007" x="1545" y="0" width="515" height="499"/>
+	<SubTexture name="BF Final Down0008" x="1545" y="0" width="515" height="499"/>
+	<SubTexture name="BF Final Down0009" x="1545" y="0" width="515" height="499"/>
+	<SubTexture name="BF Final Down0010" x="1545" y="0" width="515" height="499"/>
+	<SubTexture name="BF Final Down0011" x="1545" y="0" width="515" height="499"/>
+	<SubTexture name="BF Final Down0012" x="1545" y="0" width="515" height="499"/>
+	<SubTexture name="BF Final Down0013" x="1545" y="0" width="515" height="499"/>
+	<SubTexture name="BF Final Idle0000" x="2060" y="0" width="415" height="434"/>
+	<SubTexture name="BF Final Idle0001" x="2475" y="0" width="415" height="434"/>
+	<SubTexture name="BF Final Idle0002" x="2890" y="0" width="415" height="434"/>
+	<SubTexture name="BF Final Idle0003" x="3305" y="0" width="415" height="434"/>
+	<SubTexture name="BF Final Idle0004" x="0" y="499" width="415" height="434"/>
+	<SubTexture name="BF Final Idle0005" x="415" y="499" width="415" height="434"/>
+	<SubTexture name="BF Final Idle0006" x="830" y="499" width="415" height="434"/>
+	<SubTexture name="BF Final Idle0007" x="830" y="499" width="415" height="434"/>
+	<SubTexture name="BF Final Idle0008" x="830" y="499" width="415" height="434"/>
+	<SubTexture name="BF Final Idle0009" x="830" y="499" width="415" height="434"/>
+	<SubTexture name="BF Final Idle0010" x="830" y="499" width="415" height="434"/>
+	<SubTexture name="BF Final Idle0011" x="830" y="499" width="415" height="434"/>
+	<SubTexture name="BF Final Idle0012" x="830" y="499" width="415" height="434"/>
+	<SubTexture name="BF Final Idle0013" x="830" y="499" width="415" height="434"/>
+	<SubTexture name="BF Final Left0000" x="1245" y="499" width="447" height="484" frameX="0" frameY="0" frameWidth="450" frameHeight="484"/>
+	<SubTexture name="BF Final Left0001" x="1692" y="499" width="447" height="484" frameX="0" frameY="0" frameWidth="450" frameHeight="484"/>
+	<SubTexture name="BF Final Left0002" x="2139" y="499" width="447" height="484" frameX="0" frameY="0" frameWidth="450" frameHeight="484"/>
+	<SubTexture name="BF Final Left0003" x="2586" y="499" width="448" height="484" frameX="0" frameY="0" frameWidth="450" frameHeight="484"/>
+	<SubTexture name="BF Final Left0004" x="2586" y="499" width="448" height="484" frameX="0" frameY="0" frameWidth="450" frameHeight="484"/>
+	<SubTexture name="BF Final Left0005" x="2586" y="499" width="448" height="484" frameX="0" frameY="0" frameWidth="450" frameHeight="484"/>
+	<SubTexture name="BF Final Left0006" x="2586" y="499" width="448" height="484" frameX="0" frameY="0" frameWidth="450" frameHeight="484"/>
+	<SubTexture name="BF Final Left0007" x="2586" y="499" width="448" height="484" frameX="0" frameY="0" frameWidth="450" frameHeight="484"/>
+	<SubTexture name="BF Final Left0008" x="2586" y="499" width="448" height="484" frameX="0" frameY="0" frameWidth="450" frameHeight="484"/>
+	<SubTexture name="BF Final Left0009" x="2586" y="499" width="448" height="484" frameX="0" frameY="0" frameWidth="450" frameHeight="484"/>
+	<SubTexture name="BF Final Left0010" x="2586" y="499" width="448" height="484" frameX="0" frameY="0" frameWidth="450" frameHeight="484"/>
+	<SubTexture name="BF Final Left0011" x="2586" y="499" width="448" height="484" frameX="0" frameY="0" frameWidth="450" frameHeight="484"/>
+	<SubTexture name="BF Final Left0012" x="2586" y="499" width="448" height="484" frameX="0" frameY="0" frameWidth="450" frameHeight="484"/>
+	<SubTexture name="BF Final Left0013" x="2586" y="499" width="448" height="484" frameX="0" frameY="0" frameWidth="450" frameHeight="484"/>
+	<SubTexture name="BF Final Miss Down0000" x="0" y="0" width="515" height="499"/>
+	<SubTexture name="BF Final Miss Down0001" x="3034" y="499" width="515" height="499"/>
+	<SubTexture name="BF Final Miss Down0002" x="3549" y="499" width="515" height="499"/>
+	<SubTexture name="BF Final Miss Down0003" x="0" y="998" width="515" height="499"/>
+	<SubTexture name="BF Final Miss Down0004" x="515" y="998" width="515" height="499"/>
+	<SubTexture name="BF Final Miss Down0005" x="0" y="998" width="515" height="499"/>
+	<SubTexture name="BF Final Miss Down0006" x="515" y="998" width="515" height="499"/>
+	<SubTexture name="BF Final Miss Down0007" x="0" y="998" width="515" height="499"/>
+	<SubTexture name="BF Final Miss Down0008" x="515" y="998" width="515" height="499"/>
+	<SubTexture name="BF Final Miss Down0009" x="0" y="998" width="515" height="499"/>
+	<SubTexture name="BF Final Miss Down0010" x="515" y="998" width="515" height="499"/>
+	<SubTexture name="BF Final Miss Down0011" x="0" y="998" width="515" height="499"/>
+	<SubTexture name="BF Final Miss Down0012" x="515" y="998" width="515" height="499"/>
+	<SubTexture name="BF Final Miss Down0013" x="0" y="998" width="515" height="499"/>
+	<SubTexture name="BF Final Miss Left0000" x="1245" y="499" width="447" height="484" frameX="0" frameY="0" frameWidth="450" frameHeight="484"/>
+	<SubTexture name="BF Final Miss Left0001" x="1030" y="998" width="443" height="484"/>
+	<SubTexture name="BF Final Miss Left0002" x="1473" y="998" width="443" height="484"/>
+	<SubTexture name="BF Final Miss Left0003" x="1916" y="998" width="443" height="484"/>
+	<SubTexture name="BF Final Miss Left0004" x="2359" y="998" width="443" height="484"/>
+	<SubTexture name="BF Final Miss Left0005" x="1916" y="998" width="443" height="484"/>
+	<SubTexture name="BF Final Miss Left0006" x="2359" y="998" width="443" height="484"/>
+	<SubTexture name="BF Final Miss Left0007" x="1916" y="998" width="443" height="484"/>
+	<SubTexture name="BF Final Miss Left0008" x="2359" y="998" width="443" height="484"/>
+	<SubTexture name="BF Final Miss Left0009" x="1916" y="998" width="443" height="484"/>
+	<SubTexture name="BF Final Miss Left0010" x="2359" y="998" width="443" height="484"/>
+	<SubTexture name="BF Final Miss Left0011" x="1916" y="998" width="443" height="484"/>
+	<SubTexture name="BF Final Miss Left0012" x="2359" y="998" width="443" height="484"/>
+	<SubTexture name="BF Final Miss Left0013" x="1916" y="998" width="443" height="484"/>
+	<SubTexture name="BF Final Miss Right0000" x="2802" y="998" width="562" height="483"/>
+	<SubTexture name="BF Final Miss Right0001" x="3364" y="998" width="562" height="483"/>
+	<SubTexture name="BF Final Miss Right0002" x="0" y="1497" width="562" height="483"/>
+	<SubTexture name="BF Final Miss Right0003" x="562" y="1497" width="562" height="483"/>
+	<SubTexture name="BF Final Miss Right0004" x="1124" y="1497" width="562" height="483"/>
+	<SubTexture name="BF Final Miss Right0005" x="562" y="1497" width="562" height="483"/>
+	<SubTexture name="BF Final Miss Right0006" x="1124" y="1497" width="562" height="483"/>
+	<SubTexture name="BF Final Miss Right0007" x="562" y="1497" width="562" height="483"/>
+	<SubTexture name="BF Final Miss Right0008" x="1124" y="1497" width="562" height="483"/>
+	<SubTexture name="BF Final Miss Right0009" x="562" y="1497" width="562" height="483"/>
+	<SubTexture name="BF Final Miss Right0010" x="1124" y="1497" width="562" height="483"/>
+	<SubTexture name="BF Final Miss Right0011" x="562" y="1497" width="562" height="483"/>
+	<SubTexture name="BF Final Miss Right0012" x="1124" y="1497" width="562" height="483"/>
+	<SubTexture name="BF Final Miss Right0013" x="562" y="1497" width="562" height="483"/>
+	<SubTexture name="BF Final Miss Up0000" x="1686" y="1497" width="515" height="640"/>
+	<SubTexture name="BF Final Miss Up0001" x="2201" y="1497" width="515" height="640"/>
+	<SubTexture name="BF Final Miss Up0002" x="2716" y="1497" width="515" height="640"/>
+	<SubTexture name="BF Final Miss Up0003" x="3231" y="1497" width="515" height="640"/>
+	<SubTexture name="BF Final Miss Up0004" x="0" y="2137" width="515" height="640"/>
+	<SubTexture name="BF Final Miss Up0005" x="3231" y="1497" width="515" height="640"/>
+	<SubTexture name="BF Final Miss Up0006" x="0" y="2137" width="515" height="640"/>
+	<SubTexture name="BF Final Miss Up0007" x="3231" y="1497" width="515" height="640"/>
+	<SubTexture name="BF Final Miss Up0008" x="0" y="2137" width="515" height="640"/>
+	<SubTexture name="BF Final Miss Up0009" x="3231" y="1497" width="515" height="640"/>
+	<SubTexture name="BF Final Miss Up0010" x="0" y="2137" width="515" height="640"/>
+	<SubTexture name="BF Final Miss Up0011" x="3231" y="1497" width="515" height="640"/>
+	<SubTexture name="BF Final Miss Up0012" x="0" y="2137" width="515" height="640"/>
+	<SubTexture name="BF Final Miss Up0013" x="3231" y="1497" width="515" height="640"/>
+	<SubTexture name="BF Final Right0000" x="2802" y="998" width="562" height="483"/>
+	<SubTexture name="BF Final Right0001" x="515" y="2137" width="562" height="483"/>
+	<SubTexture name="BF Final Right0002" x="1077" y="2137" width="562" height="483"/>
+	<SubTexture name="BF Final Right0003" x="1639" y="2137" width="562" height="483"/>
+	<SubTexture name="BF Final Right0004" x="1639" y="2137" width="562" height="483"/>
+	<SubTexture name="BF Final Right0005" x="1639" y="2137" width="562" height="483"/>
+	<SubTexture name="BF Final Right0006" x="1639" y="2137" width="562" height="483"/>
+	<SubTexture name="BF Final Right0007" x="1639" y="2137" width="562" height="483"/>
+	<SubTexture name="BF Final Right0008" x="1639" y="2137" width="562" height="483"/>
+	<SubTexture name="BF Final Right0009" x="1639" y="2137" width="562" height="483"/>
+	<SubTexture name="BF Final Right0010" x="1639" y="2137" width="562" height="483"/>
+	<SubTexture name="BF Final Right0011" x="1639" y="2137" width="562" height="483"/>
+	<SubTexture name="BF Final Right0012" x="1639" y="2137" width="562" height="483"/>
+	<SubTexture name="BF Final Right0013" x="1639" y="2137" width="562" height="483"/>
+	<SubTexture name="BF Final Up0000" x="1686" y="1497" width="515" height="640"/>
+	<SubTexture name="BF Final Up0001" x="2201" y="2137" width="515" height="640"/>
+	<SubTexture name="BF Final Up0002" x="2716" y="2137" width="515" height="640"/>
+	<SubTexture name="BF Final Up0003" x="3231" y="2137" width="515" height="640"/>
+	<SubTexture name="BF Final Up0004" x="3231" y="2137" width="515" height="640"/>
+	<SubTexture name="BF Final Up0005" x="3231" y="2137" width="515" height="640"/>
+	<SubTexture name="BF Final Up0006" x="3231" y="2137" width="515" height="640"/>
+	<SubTexture name="BF Final Up0007" x="3231" y="2137" width="515" height="640"/>
+	<SubTexture name="BF Final Up0008" x="3231" y="2137" width="515" height="640"/>
+	<SubTexture name="BF Final Up0009" x="3231" y="2137" width="515" height="640"/>
+	<SubTexture name="BF Final Up0010" x="3231" y="2137" width="515" height="640"/>
+	<SubTexture name="BF Final Up0011" x="3231" y="2137" width="515" height="640"/>
+	<SubTexture name="BF Final Up0012" x="3231" y="2137" width="515" height="640"/>
+	<SubTexture name="BF Final Up0013" x="3231" y="2137" width="515" height="640"/>
+</TextureAtlas>

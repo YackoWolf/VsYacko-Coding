@@ -1,0 +1,43 @@
+{
+	"events": [
+		[
+			15113.6363636364,
+			[
+				["Change Character", "Dad", "noxfang"]
+			]
+		],
+		[
+			111704.545454546,
+			[
+				["Change Character", "BF", "bfpixel"],
+				["Change Character", "Dad", "nax"]
+			]
+		],
+		[
+			142840.909090909,
+			[
+				["Change Character", "Dad", "noxglitch"]
+			]
+		],
+		[
+			144545.454545455,
+			[
+				["Change Character", "Dad", "nax"]
+			]
+		],
+		[
+			146363.636363637,
+			[
+				["Change Character", "Dad", "noxglitch"]
+			]
+		],
+		[
+			171022.727272727,
+			[
+				["Change Character", "Dad", "noxend"],
+				["Change Character", "BF", "bfire"]
+			]
+		]
+	],
+	"format": "psych_v1"
+}

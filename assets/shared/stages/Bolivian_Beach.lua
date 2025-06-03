@@ -1,7 +1,14 @@
 local currentSprites 
 
 function onCreate()
-luaDebugMode = true
+luaDebugMode = false
+addCharacterToList('noxfaker', 'dad')
+addCharacterToList('noxfang', 'dad')
+addCharacterToList('nax', 'dad')
+addCharacterToList('noxend', 'dad')
+addCharacterToList('bfpixel', 'boyfriend')
+addCharacterToList('bfire', 'boyfriend')
+addCharacterToList('bf-dead', 'boyfriend')
 precacheImage("BeachBolivian/fog")
 precacheImage("BeachBolivian/playa")
 precacheImage("BeachBolivian/palmeras")
@@ -34,7 +41,9 @@ function beach()
     addLuaSprite("palms", true)
     currentSprites = {'fog', 'beach', 'palms'}
 end
-
+function onStartCountdown()
+triggerEvent('Change Character', '1', 'noxfaker')
+end
 function beachfire()
 for i = 1, #currentSprites do removeLuaSprite(currentSprites[i]) end
     makeAnimatedLuaSprite("fogAnim", "BeachBolivian/fas2/fog", -1169, -715)
@@ -73,6 +82,10 @@ for i = 1, #currentSprites do removeLuaSprite(currentSprites[i]) end
     for i = 1, #x do
     table.insert(currentSprites, x[i])
     end
+
+getstageData('beachfire')
+triggerEvent('Change Character', '1', 'noxfang')
+getstageData('beachfire')
 end
 
 function pixelbeach()
@@ -96,6 +109,14 @@ for i = 1, #currentSprites do removeLuaSprite(currentSprites[i]) end
     for i = 1, #x do
     table.insert(currentSprites, x[i])
     end
+getstageData('pixelbeach')
+triggerEvent('Change Character', '1', 'nax')
+triggerEvent('Change Character', '0', 'bfpixel')
+setPropertyFromClass('substates.GameOverSubstate', 'characterName', 'bf-pixel-dead')
+setPropertyFromClass('substates.GameOverSubstate','deathSoundName', 'fnf_loss_sfx-pixel')
+setPropertyFromClass('substates.GameOverSubstate','loopSoundName', 'gameOver-pixel')
+setPropertyFromClass('substates.GameOverSubstate','endSoundName', 'gameOverEnd-pixel')
+getstageData('pixelbeach')
 end
 
 function beachend()
@@ -113,25 +134,30 @@ for i = 1, #currentSprites do removeLuaSprite(currentSprites[i]) end
     for i = 1, #x do
     table.insert(currentSprites, x[i])
     end
+getstageData('beachend')
+triggerEvent('Change Character', '1', 'noxend')
+triggerEvent('Change Character', '0', 'bfire')
+setPropertyFromClass('substates.GameOverSubstate', 'characterName', 'bf-keepfire-dead')
+setPropertyFromClass('substates.GameOverSubstate','deathSoundName', 'fnf_loss_sfx')
+setPropertyFromClass('substates.GameOverSubstate','loopSoundName', 'gameOver')
+setPropertyFromClass('substates.GameOverSubstate','endSoundName', 'gameOverEnd')
+getstageData('beachend')
 end
 
 --1:01, fuego = 61000 ms == step 618
 --1:51, pixel = 111000 ms == step 1110
 --2:50, final = 170000 ms == step 1708
 function onStepHit()
-if curStep == 406 then
+if curStep == 537 then
 cameraFlash('other', 'FFFFFF', 0.5)
-getstageData('beachfire')
 beachfire()
 end
-if curStep == 745 then
+if curStep == 974 then
 cameraFlash('other', 'FFFFFF', 0.5)
-getstageData('pixelbeach')
 pixelbeach()
 end
-if curStep == 1145 then
+if curStep == 1509 then
 cameraFlash('other', 'FFFFFF', 0.5)
-getstageData('beachend')
 beachend()
 end
 end
@@ -177,7 +203,6 @@ function getstageData(stage)
 	json = json:gsub('camera_girlfriend', 'camGF')
 	json = json:gsub('camera_opponent', 'camDAD')
 	
-		saveFile('../test2.txt', json)
     for dZ in string.gmatch(json, "defaultZoom%(%s*['\"](.-)['\"]") do
         stageData.defaultZoom = tonumber(dZ)
     end
