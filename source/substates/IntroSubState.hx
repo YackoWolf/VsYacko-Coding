@@ -15,7 +15,7 @@ class IntroSubState extends MusicBeatSubstate
     // Rutas de las imágenes
     var dialogueData:Array<Dynamic> = [
         { image: 'MenuStuff/M4X/d1', charAnim: 'm4x nTalk', charIdle: 'm4x nIdle', duration: 1.0 },
-        { image: 'MenuStuff/M4X/d2', charAnim: 'm4x eTalk', charIdle: 'm4x eIdle', duration: 3.0 },
+        { image: 'MenuStuff/M4X/d2', charAnim: 'm4x eTalk', charIdle: 'm4x eIdle', duration: 1.5 },
         { image: 'MenuStuff/M4X/d3', charAnim: 'm4x idle', charIdle: 'm4x idle', duration: 0.0 }
     ];
     var currentStep:Int = 0;

@@ -141,6 +141,7 @@ class PlayState extends MusicBeatState
 
 	public static var SONG:SwagSong = null;
 	public static var isStoryMode:Bool = false;
+	public static var maxCombo:Int = 0;
 	public static var storyWeek:Int = 0;
 	public static var storyPlaylist:Array<String> = [];
 	public static var storyDifficulty:Int = 1;
@@ -2025,30 +2026,27 @@ class PlayState extends MusicBeatState
 				boyfriend.stunned = true;
 				deathCounter++;
 
+				// 1. CONGELAR PERSONAJES en el cuadro actual
 				var BIG_TIMER:Float = 1000000;
 
 				if (boyfriend != null) {
 					boyfriend.holdTimer = BIG_TIMER; 
-					// Opcional: si la animación es de baile (danceLeft/Right), podemos forzarla a detenerse
 					if (StringTools.startsWith(boyfriend.animation.name, 'dance') && boyfriend.animation.finishCallback == null) {
 						boyfriend.animation.finishCallback = function(name:String) { boyfriend.animation.finishCallback = null; };
 					}
 				}
-
 				if (dad != null) {
 					dad.holdTimer = BIG_TIMER;
 					if (StringTools.startsWith(dad.animation.name, 'dance') && dad.animation.finishCallback == null) {
 						dad.animation.finishCallback = function(name:String) { dad.animation.finishCallback = null; };
 					}
 				}
-
 				if (gf != null) {
 					gf.holdTimer = BIG_TIMER;
 					if (StringTools.startsWith(gf.animation.name, 'dance') && gf.animation.finishCallback == null) {
 						gf.animation.finishCallback = function(name:String) { gf.animation.finishCallback = null; };
 					}
 				}
-				// --------------------------------------------------
 
 				paused = true;
 				canResync = false;
@@ -2061,85 +2059,84 @@ class PlayState extends MusicBeatState
 				}
 				#end
 
-				// Detenemos la lógica, pero mantenemos el dibujado (persistentDraw) activo para ver la animación.
 				persistentUpdate = false; 
 				
-				// Los clears globales deben ir después, en el timer.
+				// Variables de Control de Tiempo
+				var SLOWDOWN_DURATION:Float = 1.8; 
+				var POST_SLOWDOWN_DELAY:Float = 0.2; 
+				var TWEEN_DURATION:Float = 0.6; 
 
-				// --- INICIO DE TU CÓDIGO DE TRANSICIÓN EFICIENTE ---
-			
-				// 1. DETENER MÚSICA DE LA CANCIÓN
-				FlxG.sound.music.stop(); 
-				vocals.stop(); 
-				opponentVocals.stop(); 
+				// 2. RALENTIZACIÓN DE LA MÚSICA, VOCES Y ANIMACIÓN
+				
+				// A. Ralentizamos el motor de Flixel.
+				FlxTween.tween(FlxG, { animationTimeScale: 0 }, SLOWDOWN_DURATION, { ease: FlxEase.cubeOut });
 
-				// 2. CAÍDA DEL HUD COMPLETO CON ROTACIÓN (Secuencia de Rebote)
-				var TWEEN_DURATION:Float = 1.5;
-				var REBOUND_DURATION:Float = 0.3; // Duración del rebote (rápido)
-				var REBOUND_AMOUNT:Float = 20;    // Cantidad de píxeles que sube
+				// B. Ralentizamos la música y voces usando PITCH (frecuencia) en lugar de timeScale
+				// pitch = 1.0 es normal, pitch = 0.0 es detenido y muy grave.
+				FlxTween.tween(FlxG.sound.music, { pitch: 0.0 }, SLOWDOWN_DURATION, { ease: FlxEase.cubeOut });
+				if (vocals != null) FlxTween.tween(vocals, { pitch: 0.0 }, SLOWDOWN_DURATION, { ease: FlxEase.cubeOut });
+				if (opponentVocals != null) FlxTween.tween(opponentVocals, { pitch: 0.0 }, SLOWDOWN_DURATION, { ease: FlxEase.cubeOut });
 
-				if (camHUD != null) {
-					// --- PRIMER TWEEN: SUBIR UN POCO (Rebote) ---
-					FlxTween.tween(camHUD, 
-						{ 
-							y: camHUD.y - REBOUND_AMOUNT // Subir 20 píxeles
-						}, 
-						REBOUND_DURATION, 
-						{ 
-							ease: FlxEase.quadOut, // Un rebote rápido y suave hacia arriba
-							onComplete: function(twn:FlxTween) {
-								// --- SEGUNDO TWEEN: CAÍDA TOTAL CON ROTACIÓN ---
-								FlxTween.tween(camHUD, 
-									{ 
-										y: FlxG.height + 300, // Lo mueve fuera de la pantalla
-										angle: 40 // Lo rota 5 grados a la derecha
-									}, 
-									TWEEN_DURATION, 
-									{ 
-										// Inicia lento y termina rápido (aceleración de la caída)
-										ease: FlxEase.cubeOut 
-									}
-								);
+				
+				// --- 3. DESVINCULAR Y ANIMAR HUD Y NOTAS ---
+				var DISPERSION_X:Float = 150; 
+				var ROTATION:Float = 15; 
+				
+				var strumsToFix:Array<FlxTypedGroup<Dynamic>> = [playerStrums, opponentStrums];
+
+				// C. DESVINCULAR NOTAS
+				for (strums in strumsToFix) {
+					if (strums != null) {
+						remove(strums, true); // Remover de PlayState
+						
+						// La propiedad scrollFactor debe aplicarse a CADA elemento, no al grupo.
+						strums.forEachAlive(function(strumNote:FlxSprite) {
+							strumNote.scrollFactor.set(0, 0); // Desvincular de la cámara
+						});
+					}
+				}
+
+				// D. TWEEN del HUD PRINCIPAL (Score y Barra de Vida)
+				if (healthBar != null) FlxTween.tween(healthBar, { y: FlxG.height + 200, alpha: 0 }, TWEEN_DURATION, { ease: FlxEase.quadOut });
+				if (scoreTxt != null) FlxTween.tween(scoreTxt, { y: FlxG.height + 200, alpha: 0 }, TWEEN_DURATION, { ease: FlxEase.quadOut });
+
+				// E. DISPERSIÓN, ROTACIÓN y FADE de las FLECHAS
+				for (strums in strumsToFix) {
+					if (strums != null) {
+						strums.forEachAlive(function(strumNote:FlxSprite) {
+							var targetX:Float = strumNote.x;
+							var targetY:Float = strumNote.y + 200; 
+				
+							if (strumNote.ID == 0 || strumNote.ID == 1) { // Izquierda (LEFT, DOWN)
+								targetX -= DISPERSION_X; 
+								FlxTween.tween(strumNote, { x: targetX, y: targetY, angle: -ROTATION, alpha: 0 }, TWEEN_DURATION, { ease: FlxEase.quadOut });
+							} else { // Derecha (UP, RIGHT)
+								targetX += DISPERSION_X; 
+								FlxTween.tween(strumNote, { x: targetX, y: targetY, angle: ROTATION, alpha: 0 }, TWEEN_DURATION, { ease: FlxEase.quadOut });
 							}
-						}
-					);
+						});
+					}
 				}
 
-				// 3. AUDIO DE TRANSICIÓN Y AJUSTE DE TIEMPO
-				var rayadoSound:FlxSound = FlxG.sound.play(Paths.sound('discoRayado'), 1);
-				var totalDelay:Float = 1.5; // Tiempo de espera de respaldo
+				// 4. TEMPORIZADOR FINAL Y TRANSICIÓN
+				var totalDelay:Float = SLOWDOWN_DURATION + POST_SLOWDOWN_DELAY;
 
-				// Retraso adicional después de que el audio termine (en segundos)
-				var POST_AUDIO_DELAY:Float = 0.2; 
+				FlxTimer.globalManager.clear();
+				// FlxTween.globalManager.clear(); // Se queda comentado para que no detenga el tween de pitch
 
-				if (rayadoSound != null && rayadoSound.time > 0)
-				{
-					// Sumamos el tiempo de duración del audio MÁS el retraso de 0.2 segundos.
-					totalDelay = rayadoSound.time + POST_AUDIO_DELAY; 
-				}
-
-
-				// 4. TEMPORIZADOR PARA LA TRANSICIÓN FINAL
 				gameOverTimer = new FlxTimer().start(totalDelay, function(_)
 				{
-					// Ocultamos el dibujado (la pantalla se pone negra, incluyendo el camHUD si no terminó de caer)
+					// Aseguramos que el audio se detenga y la escala de tiempo vuelva a la normalidad
+					FlxG.sound.music.stop(); 
+					FlxG.sound.music.pitch = 1.0; 
+					FlxG.animationTimeScale = 1; 
+					
 					persistentDraw = false; 
-
-					// Limpiamos los managers de animaciones y filtros (opcionalmente)
-					FlxTimer.globalManager.clear();
-					FlxTween.globalManager.clear();
-					FlxG.camera.setFilters([]);
-
-					// Iniciamos el Game Over Substate
 					openSubState(new GameOverSubstate(boyfriend));
 					gameOverTimer = null;
 				});
-				// --- FIN DE TU CÓDIGO DE TRANSICIÓN ---
 				
-				// MusicBeatState.switchState(new GameOverState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
-
 				#if DISCORD_ALLOWED
-				// Game Over doesn't get his its variable because it's only used here
 				if(autoUpdateRPC) DiscordClient.changePresence("Game Over - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 				#end
 				isDead = true;
@@ -2616,8 +2613,6 @@ class PlayState extends MusicBeatState
 				));
 			}
 			
-			// La música y la bandera de dificultad se aplican para ambos casos:
-			FlxG.sound.playMusic(Paths.music('freakyMenu'));
 			changedDifficulty = false;
 			
 			transitioning = true;
@@ -3207,6 +3202,13 @@ class PlayState extends MusicBeatState
 			{
 				combo++;
 				if(combo > 9999) combo = 9999;
+				
+				// 🏆 CORRECCIÓN: Usa PlayState.maxCombo (la variable estática)
+				if (combo > PlayState.maxCombo) // <-- CORREGIDO
+				{
+					PlayState.maxCombo = combo; // <-- CORREGIDO
+				}
+				
 				popUpScore(note);
 			}
 			var gainHealth:Bool = true; // prevent health gain, *if* sustains are treated as a singular note
