@@ -3,6 +3,9 @@ package options;
 import states.MainMenuState;
 import backend.StageData;
 
+import flixel.addons.display.FlxBackdrop;
+import flixel.graphics.frames.FlxAtlasFrames;
+
 class OptionsState extends MusicBeatState
 {
 	var options:Array<String> = [
@@ -18,6 +21,10 @@ class OptionsState extends MusicBeatState
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
 	public static var onPlayState:Bool = false;
+
+	var bg:FlxSprite;
+	var pensamiento:FlxSprite = new FlxSprite();
+	var titulo:FlxSprite;
 
 	function openSelectedSubstate(label:String) {
 		switch(label)
@@ -48,22 +55,61 @@ class OptionsState extends MusicBeatState
 		DiscordClient.changePresence("Options Menu", null);
 		#end
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		bg.antialiasing = ClientPrefs.data.antialiasing;
-		bg.color = 0xFFea71fd;
-		bg.updateHitbox();
+		//var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		//bg.antialiasing = ClientPrefs.data.antialiasing;
+		//bg.color = 0xFFea71fd;
+		//bg.updateHitbox();
 
-		bg.screenCenter();
+		//bg.screenCenter();
+		//add(bg);
+
+		bg = new FlxBackdrop().loadGraphic(Paths.image("bgCredits"));
+		bg.antialiasing = ClientPrefs.data.antialiasing;
+		bg.color = 0xff0004ff;
+		bg.updateHitbox();
+		bg.scrollFactor.set();
+		bg.velocity.y = -40;
+		bg.velocity.x = -40;
+		bg.scale.x = 1.8;
+		bg.scale.y = 1.8;
+		bg.active = true;
 		add(bg);
+		bg.screenCenter();
+
+		titulo = new FlxSprite().loadGraphic(Paths.image("MenuStuff/Options/tittle"));
+		titulo.antialiasing = ClientPrefs.data.antialiasing;
+		add(titulo);
+		titulo.screenCenter();
+
+		pensamiento.frames = Paths.getSparrowAtlas('MenuStuff/Options/yacko');
+		pensamiento.animation.addByPrefix('piensa', 'yacko', 2, true);
+		pensamiento.x =0;
+		pensamiento.y =0;
+		//pensamiento.scale.x = 1.2;
+		//pensamiento.scale.y = 1.2;
+		add(pensamiento);
+		pensamiento.animation.play("piensa");
+		pensamiento.updateHitbox();
+
 
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
 
 		for (num => option in options)
 		{
+			// 1. CREACIÓN BÁSICA: Se mantiene en (0, 0)
 			var optionText:Alphabet = new Alphabet(0, 0, Language.getPhrase('options_$option', option), true);
-			optionText.screenCenter();
+			
+			// 2. RECUPERAR POSICIÓN Y: Usamos screenCenter() para obtener la Y central correcta.
+			// ¡Esto es lo que arregla el scroll Y!
+			optionText.screenCenter(); 
+			
+			// 3. SE MANTIENE EL OFFSET Y: Se aplica la lógica de desplazamiento vertical del menú.
 			optionText.y += (92 * (num - (options.length / 2))) + 45;
+			
+			// 4. FORZAR POSICIÓN X: Sobrescribimos la posición X para alinear a la izquierda (100px).
+			optionText.x = 100;
+
 			grpOptions.add(optionText);
 		}
 
@@ -116,12 +162,15 @@ class OptionsState extends MusicBeatState
 		for (num => item in grpOptions.members)
 		{
 			item.targetY = num - curSelected;
+			//item.x = FlxG.width - item.width - RIGHT_MARGIN;
 			item.alpha = 0.6;
 			if (item.targetY == 0)
 			{
 				item.alpha = 1;
-				selectorLeft.x = item.x - 63;
+				// 5. Posicionamiento de Selectores: Usamos item.x (que es 100) como ancla.
+				selectorLeft.x = item.x - 60; 
 				selectorLeft.y = item.y;
+				
 				selectorRight.x = item.x + item.width + 15;
 				selectorRight.y = item.y;
 			}

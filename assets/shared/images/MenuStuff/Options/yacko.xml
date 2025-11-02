@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="yacko.png">
+<SubTexture name="yacko piensa0000" x="0" y="0" width="703" height="594" frameX="-574" frameY="-126" frameWidth="1280" frameHeight="720" />
+<SubTexture name="yacko piensa0001" x="703" y="0" width="705" height="594" frameX="-575" frameY="-126" frameWidth="1280" frameHeight="720" />
+</TextureAtlas>

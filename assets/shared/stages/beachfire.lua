@@ -1,7 +1,7 @@
 function onCreate()
     -- Animated Sprite: sprite6
     makeAnimatedLuaSprite("sprite6", "BeachBolivian/fas2/fog", -1169, -715)
-    addAnimationByPrefix("sprite6", "lucesita", "fog", 8, true)
+    addAnimationByPrefix("sprite6", "lucesita", "fog", 9, true)
     scaleObject("sprite6", 3.25, 2.7)
     addLuaSprite("sprite6")
     -- Sprite: palmerin
@@ -10,7 +10,7 @@ function onCreate()
     addLuaSprite("palmerin")
     -- Animated Sprite: sprite2
     makeAnimatedLuaSprite("sprite2", "BeachBolivian/fas2/fuegin", -1169, -740)
-    addAnimationByPrefix("sprite2", "fuegin", "fuegin", 8, true)
+    addAnimationByPrefix("sprite2", "fuegin", "fuegin", 10, true)
     scaleObject("sprite2", 3.25, 2.7)
     addLuaSprite("sprite2")
     -- Sprite: sprite1
@@ -19,12 +19,12 @@ function onCreate()
     addLuaSprite("sprite1")
     -- Animated Sprite: sprite4
     makeAnimatedLuaSprite("sprite4", "BeachBolivian/fas2/roca", -1169, -695)
-    addAnimationByPrefix("sprite4", "roca", "roca", 6, true)
+    addAnimationByPrefix("sprite4", "roca", "roca", 10, true)
     scaleObject("sprite4", 3.25, 2.7)
     addLuaSprite("sprite4")
     -- Animated Sprite: prime
     makeAnimatedLuaSprite("prime", "BeachBolivian/fas2/palmera", -924, -635)
-    addAnimationByPrefix("prime", "palmerafiu", "palmera", 8, true)
+    addAnimationByPrefix("prime", "palmerafiu", "palmera", 10, true)
     scaleObject("prime", 2.6, 2.5)
     addLuaSprite("prime")
     -- Sprite: sprite5

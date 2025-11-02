@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <TextureAtlas imagePath="disk.png">
-<SubTexture name="disk idle0000" x="0" y="0" width="271" height="260" frameX="0" frameY="-40" frameWidth="300" frameHeight="300" />
-<SubTexture name="disk idle0001" x="271" y="0" width="271" height="260" frameX="0" frameY="-40" frameWidth="300" frameHeight="300" />
-<SubTexture name="disk idle0002" x="0" y="260" width="271" height="260" frameX="0" frameY="-40" frameWidth="300" frameHeight="300" />
+<SubTexture name="disk idle0000" x="0" y="0" width="406" height="406" frameX="-123" frameY="-123" frameWidth="640" frameHeight="640" />
+<SubTexture name="disk idle0001" x="406" y="0" width="406" height="406" frameX="-123" frameY="-123" frameWidth="640" frameHeight="640" />
+<SubTexture name="disk idle0002" x="0" y="406" width="406" height="406" frameX="-123" frameY="-123" frameWidth="640" frameHeight="640" />
 </TextureAtlas>

@@ -1,9 +1,33 @@
 {
 	"events": [
 		[
+			12366.4772727273,
+			[
+				["playVideo", "reve", ""]
+			]
+		],
+		[
+			14886.3636363636,
+			[
+				["Flash", "4", "0.2"]
+			]
+		],
+		[
 			15113.6363636364,
 			[
 				["Change Character", "Dad", "noxfang"]
+			]
+		],
+		[
+			60909.0909090909,
+			[
+				["Flash", "4", "0.2"]
+			]
+		],
+		[
+			80000,
+			[
+				["Flash", "4", "0.2"]
 			]
 		],
 		[
@@ -20,7 +44,7 @@
 			]
 		],
 		[
-			144545.454545455,
+			143636.363636364,
 			[
 				["Change Character", "Dad", "nax"]
 			]
@@ -32,10 +56,76 @@
 			]
 		],
 		[
-			171022.727272727,
+			147272.727272727,
+			[
+				["Change Character", "Dad", "nax"]
+			]
+		],
+		[
+			155681.818181818,
+			[
+				["Change Character", "Dad", "noxglitch"]
+			]
+		],
+		[
+			156363.636363637,
+			[
+				["Change Character", "Dad", "nax"]
+			]
+		],
+		[
+			157272.727272727,
+			[
+				["Change Character", "Dad", "noxglitch"]
+			]
+		],
+		[
+			158181.818181818,
+			[
+				["Change Character", "Dad", "nax"]
+			]
+		],
+		[
+			159318.181818182,
+			[
+				["Change Character", "Dad", "noxglitch"]
+			]
+		],
+		[
+			160000,
+			[
+				["Change Character", "Dad", "nax"]
+			]
+		],
+		[
+			161136.363636364,
+			[
+				["Change Character", "Dad", "noxglitch"]
+			]
+		],
+		[
+			161818.181818182,
+			[
+				["Change Character", "Dad", "nax"]
+			]
+		],
+		[
+			170085.227272727,
+			[
+				["playVideo", "laug", ""]
+			]
+		],
+		[
+			170089.962121212,
 			[
 				["Change Character", "Dad", "noxend"],
 				["Change Character", "BF", "bfire"]
+			]
+		],
+		[
+			171818.181818182,
+			[
+				["Flash", "4", "0.2"]
 			]
 		]
 	],

@@ -5,7 +5,7 @@ local file = fileExists and 'logos/'..songPath or 'logoBumpin'
 local anim = fileExists and 'idle' or 'logo bumpin'
 
 quickSprite(true, 'songLogo', file, 0, 0, 'other', true)
-addAnimationByPrefix('songLogo', 'idle', anim, 24, true)
+addAnimationByPrefix('songLogo', 'idle', anim, 8, true)
 screenCenter('songLogo')
 coolY = getProperty('songLogo.y')
 setProperty('songLogo.y', -screenHeight)

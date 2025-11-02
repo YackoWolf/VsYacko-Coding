@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="m4x.png">
+<SubTexture name="m4x idle0000" x="246" y="688" width="246" height="253" frameX="-46" frameY="-475" frameWidth="1280" frameHeight="720" />
+<SubTexture name="m4x idle0001" x="875" y="260" width="246" height="254" frameX="-46" frameY="-474" frameWidth="1280" frameHeight="720" />
+<SubTexture name="m4x eTalk0000" x="629" y="0" width="246" height="268" frameX="-46" frameY="-460" frameWidth="1280" frameHeight="720" />
+<SubTexture name="m4x eTalk0001" x="492" y="420" width="246" height="260" frameX="-46" frameY="-468" frameWidth="1280" frameHeight="720" />
+<SubTexture name="m4x eTalk0002" x="0" y="688" width="246" height="253" frameX="-46" frameY="-475" frameWidth="1280" frameHeight="720" />
+<SubTexture name="m4x eTalk0003" x="0" y="688" width="246" height="253" frameX="-46" frameY="-475" frameWidth="1280" frameHeight="720" />
+<SubTexture name="m4x eTalk0004" x="629" y="0" width="246" height="268" frameX="-46" frameY="-460" frameWidth="1280" frameHeight="720" />
+<SubTexture name="m4x nTalk0000" x="0" y="420" width="246" height="268" frameX="-46" frameY="-460" frameWidth="1280" frameHeight="720" />
+<SubTexture name="m4x nTalk0001" x="875" y="0" width="246" height="260" frameX="-46" frameY="-468" frameWidth="1280" frameHeight="720" />
+<SubTexture name="m4x nTalk0002" x="492" y="688" width="246" height="253" frameX="-46" frameY="-475" frameWidth="1280" frameHeight="720" />
+<SubTexture name="m4x nTalk0003" x="492" y="688" width="246" height="253" frameX="-46" frameY="-475" frameWidth="1280" frameHeight="720" />
+<SubTexture name="m4x nTalk0004" x="246" y="420" width="246" height="264" frameX="-46" frameY="-464" frameWidth="1280" frameHeight="720" />
+<SubTexture name="m4x eIdle0000" x="0" y="688" width="246" height="253" frameX="-46" frameY="-475" frameWidth="1280" frameHeight="720" />
+<SubTexture name="m4x nIdle0000" x="492" y="688" width="246" height="253" frameX="-46" frameY="-475" frameWidth="1280" frameHeight="720" />
+<SubTexture name="m4x faltaRango0000" x="0" y="0" width="314" height="420" frameX="-45" frameY="-308" frameWidth="1280" frameHeight="720" />
+<SubTexture name="m4x faltaRango0001" x="314" y="0" width="315" height="420" frameX="-45" frameY="-308" frameWidth="1280" frameHeight="720" />
+</TextureAtlas>

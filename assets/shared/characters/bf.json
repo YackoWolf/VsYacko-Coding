@@ -2,7 +2,7 @@
 	"animations": [
 		{
 			"loop": false,
-			"offsets": [328, 0],
+			"offsets": [333, 46],
 			"anim": "idle",
 			"fps": 24,
 			"name": "BF idle dance",
@@ -10,7 +10,7 @@
 		},
 		{
 			"loop": false,
-			"offsets": [1, -14],
+			"offsets": [12, 30],
 			"anim": "singLEFT",
 			"fps": 24,
 			"name": "BF NOTE LEFT0",
@@ -26,7 +26,7 @@
 		},
 		{
 			"loop": false,
-			"offsets": [-30, 25],
+			"offsets": [-29, 104],
 			"anim": "singUP",
 			"fps": 24,
 			"name": "BF NOTE UP0",
@@ -34,7 +34,7 @@
 		},
 		{
 			"loop": false,
-			"offsets": [-39, -1],
+			"offsets": [-33, 46],
 			"anim": "singRIGHT",
 			"fps": 24,
 			"name": "BF NOTE RIGHT0",
@@ -42,7 +42,7 @@
 		},
 		{
 			"loop": false,
-			"offsets": [17, 5],
+			"offsets": [26, 35],
 			"anim": "singLEFTmiss",
 			"fps": 24,
 			"name": "BF NOTE LEFT MISS",
@@ -50,7 +50,7 @@
 		},
 		{
 			"loop": false,
-			"offsets": [-25, -33],
+			"offsets": [-13, -34],
 			"anim": "singDOWNmiss",
 			"fps": 24,
 			"name": "BF NOTE DOWN MISS",
@@ -58,7 +58,7 @@
 		},
 		{
 			"loop": false,
-			"offsets": [-32, 26],
+			"offsets": [-25, 106],
 			"anim": "singUPmiss",
 			"fps": 24,
 			"name": "BF NOTE UP MISS",
@@ -66,7 +66,7 @@
 		},
 		{
 			"loop": false,
-			"offsets": [-31, 11],
+			"offsets": [-27, 45],
 			"anim": "singRIGHTmiss",
 			"fps": 24,
 			"name": "BF NOTE RIGHT MISS",
@@ -74,7 +74,7 @@
 		},
 		{
 			"loop": false,
-			"offsets": [2, 7],
+			"offsets": [13, 50],
 			"anim": "hey",
 			"fps": 24,
 			"name": "BF HEY",
@@ -82,7 +82,7 @@
 		},
 		{
 			"loop": false,
-			"offsets": [20, -2],
+			"offsets": [25, 46],
 			"anim": "hurt",
 			"fps": 24,
 			"name": "BF hit",
@@ -90,7 +90,7 @@
 		},
 		{
 			"loop": true,
-			"offsets": [-3, -1],
+			"offsets": [25, 1],
 			"anim": "scared",
 			"fps": 24,
 			"name": "BF idle shaking",
@@ -98,7 +98,7 @@
 		},
 		{
 			"loop": false,
-			"offsets": [-10, -16],
+			"offsets": [13, -31],
 			"anim": "dodge",
 			"fps": 24,
 			"name": "boyfriend dodge",
@@ -106,7 +106,7 @@
 		},
 		{
 			"loop": false,
-			"offsets": [294, 267],
+			"offsets": [308, 253],
 			"anim": "attack",
 			"fps": 24,
 			"name": "boyfriend attack",
@@ -114,7 +114,7 @@
 		},
 		{
 			"loop": false,
-			"offsets": [-40, -40],
+			"offsets": [-25, -52],
 			"anim": "pre-attack",
 			"fps": 24,
 			"name": "bf pre attack",

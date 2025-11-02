@@ -177,8 +177,8 @@ class PlayState extends MusicBeatState
 	public var combo:Int = 0;
 
 	public var healthBar:Bar;
-	public var timeBar:Bar;
-	var songPercent:Float = 0;
+	//public var timeBar:Bar;
+	//var songPercent:Float = 0;
 
 	public var ratingsData:Array<Rating> = Rating.loadDefault();
 
@@ -213,6 +213,7 @@ class PlayState extends MusicBeatState
 	public var songHits:Int = 0;
 	public var songMisses:Int = 0;
 	public var scoreTxt:FlxText;
+	var timeBg:FlxSprite = new FlxSprite();
 	var timeTxt:FlxText;
 	var scoreTxtTween:FlxTween;
 
@@ -479,21 +480,49 @@ class PlayState extends MusicBeatState
 
 		Conductor.songPosition = -Conductor.crochet * 5 + Conductor.offset;
 		var showTime:Bool = (ClientPrefs.data.timeBarType != 'Disabled');
-		timeTxt = new FlxText(STRUM_X + (FlxG.width / 2) - 248, 19, 400, "", 32);
-		timeTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		timeTxt = new FlxText(0, 0, 0, "", 32);
+		timeTxt.setFormat(Paths.font("Yacko-Regular.ttf"), 40, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.WHITE);
+		timeTxt.borderSize = 1;
+		timeTxt.x = timeBg.x + (timeBg.width / 2);
+		timeTxt.y = timeBg.y + (timeBg.height / 2);
+		timeTxt.x = 590; // <--- AJUSTA ESTE VALOR (resta para mover a la izquierda, suma para mover a la derecha)
+		timeTxt.y = 80; // aumenta este valor para mover hacia abajo, resta para mover hacia arriba xd
 		timeTxt.scrollFactor.set();
 		timeTxt.alpha = 0;
-		timeTxt.borderSize = 2;
 		timeTxt.visible = updateTime = showTime;
-		if(ClientPrefs.data.downScroll) timeTxt.y = FlxG.height - 44;
+		if(ClientPrefs.data.downScroll) timeTxt.y = FlxG.height - 114;
 		if(ClientPrefs.data.timeBarType == 'Song Name') timeTxt.text = SONG.song;
 
-		timeBar = new Bar(0, timeTxt.y + (timeTxt.height / 4), 'timeBar', function() return songPercent, 0, 1);
-		timeBar.scrollFactor.set();
-		timeBar.screenCenter(X);
-		timeBar.alpha = 0;
-		timeBar.visible = showTime;
-		uiGroup.add(timeBar);
+		timeBg = new FlxSprite();
+		timeBg.frames = Paths.getSparrowAtlas('timebg'); // Carga el atlas XML/JSON
+		timeBg.animation.addByPrefix('idle', 'timebg idle', 6, true);
+		timeBg.animation.play('idle'); // Inicia la animación 'idle'
+		timeBg.scale.set(0.4, 0.4); // Establece la escala a la mitad
+		timeBg.updateHitbox(); // Actualiza el hitbox después de cambiar la escala
+		timeBg.scrollFactor.set(); // No se mueve con la cámara del juego.
+		timeBg.x = (FlxG.width / 2) - (timeBg.width / 2) - 10; // Centra horizontalmente.
+		
+		// --- ¡EL CAMBIO AQUÍ! Aplica la lógica de downscroll a timeBg ---
+        if(ClientPrefs.data.downScroll) {
+            timeBg.y = FlxG.height - 200; // <--- AJUSTA ESTE VALOR (80) para que timeBg baje.
+                                       // Cuanto MENOR sea el número, MÁS ABAJO estará.
+                                       // Si timeTxt se va a FlxG.height - 44, timeBg debería estar
+                                       // un poco más arriba, digamos FlxG.height - (44 + altura_del_sprite_mas_margen)
+                                       // Un 80 es un buen punto de partida.
+        } else {
+            timeBg.y = 0; // <--- Este es el Y cuando downscroll está DESACTIVADO (arriba).
+                          // Si lo quieres un poco más abajo del borde superior, cámbialo a 50, 100, etc.
+        }
+
+		timeBg.visible = showTime; // Oculta si el tiempo está deshabilitado.
+		uiGroup.add(timeBg); // Agrega el sprite animado al grupo de la UI
+
+		//timeBar = new Bar(0, timeTxt.y + (timeTxt.height / 4), 'timeBar', function() return songPercent, 0, 1);
+		//timeBar.scrollFactor.set();
+		//timeBar.screenCenter(X);
+		//timeBar.alpha = 0;
+		//timeBar.visible = showTime;
+		//uiGroup.add(timeBar);
 		uiGroup.add(timeTxt);
 
 		noteGroup.add(strumLineNotes);
@@ -1261,7 +1290,8 @@ class PlayState extends MusicBeatState
 
 		// Song duration in a float, useful for the time left feature
 		songLength = FlxG.sound.music.length;
-		FlxTween.tween(timeBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
+		//FlxTween.tween(timeBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
+		FlxTween.tween(timeBg, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 		FlxTween.tween(timeTxt, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 
 		#if DISCORD_ALLOWED
@@ -1746,7 +1776,7 @@ class PlayState extends MusicBeatState
 		else if (!paused && updateTime)
 		{
 			var curTime:Float = Math.max(0, Conductor.songPosition - ClientPrefs.data.noteOffset);
-			songPercent = (curTime / songLength);
+			//songPercent = (curTime / songLength);
 
 			var songCalc:Float = (songLength - curTime);
 			if(ClientPrefs.data.timeBarType == 'Time Elapsed') songCalc = curTime;
@@ -1984,7 +2014,8 @@ class PlayState extends MusicBeatState
 
 	public var isDead:Bool = false; //Don't mess with this on Lua!!!
 	public var gameOverTimer:FlxTimer;
-	function doDeathCheck(?skipHealthCheck:Bool = false) {
+	function doDeathCheck(?skipHealthCheck:Bool = false)
+	{
 		if (((skipHealthCheck && instakillOnMiss) || health <= 0) && !practiceMode && !isDead && gameOverTimer == null)
 		{
 			var ret:Dynamic = callOnScripts('onGameOver', null, true);
@@ -1993,6 +2024,31 @@ class PlayState extends MusicBeatState
 				FlxG.animationTimeScale = 1;
 				boyfriend.stunned = true;
 				deathCounter++;
+
+				var BIG_TIMER:Float = 1000000;
+
+				if (boyfriend != null) {
+					boyfriend.holdTimer = BIG_TIMER; 
+					// Opcional: si la animación es de baile (danceLeft/Right), podemos forzarla a detenerse
+					if (StringTools.startsWith(boyfriend.animation.name, 'dance') && boyfriend.animation.finishCallback == null) {
+						boyfriend.animation.finishCallback = function(name:String) { boyfriend.animation.finishCallback = null; };
+					}
+				}
+
+				if (dad != null) {
+					dad.holdTimer = BIG_TIMER;
+					if (StringTools.startsWith(dad.animation.name, 'dance') && dad.animation.finishCallback == null) {
+						dad.animation.finishCallback = function(name:String) { dad.animation.finishCallback = null; };
+					}
+				}
+
+				if (gf != null) {
+					gf.holdTimer = BIG_TIMER;
+					if (StringTools.startsWith(gf.animation.name, 'dance') && gf.animation.finishCallback == null) {
+						gf.animation.finishCallback = function(name:String) { gf.animation.finishCallback = null; };
+					}
+				}
+				// --------------------------------------------------
 
 				paused = true;
 				canResync = false;
@@ -2005,31 +2061,81 @@ class PlayState extends MusicBeatState
 				}
 				#end
 
-				persistentUpdate = false;
-				persistentDraw = false;
-				FlxTimer.globalManager.clear();
-				FlxTween.globalManager.clear();
-				FlxG.camera.setFilters([]);
+				// Detenemos la lógica, pero mantenemos el dibujado (persistentDraw) activo para ver la animación.
+				persistentUpdate = false; 
+				
+				// Los clears globales deben ir después, en el timer.
 
-				if(GameOverSubstate.deathDelay > 0)
-				{
-					gameOverTimer = new FlxTimer().start(GameOverSubstate.deathDelay, function(_)
-					{
-						vocals.stop();
-						opponentVocals.stop();
-						FlxG.sound.music.stop();
-						openSubState(new GameOverSubstate(boyfriend));
-						gameOverTimer = null;
-					});
+				// --- INICIO DE TU CÓDIGO DE TRANSICIÓN EFICIENTE ---
+			
+				// 1. DETENER MÚSICA DE LA CANCIÓN
+				FlxG.sound.music.stop(); 
+				vocals.stop(); 
+				opponentVocals.stop(); 
+
+				// 2. CAÍDA DEL HUD COMPLETO CON ROTACIÓN (Secuencia de Rebote)
+				var TWEEN_DURATION:Float = 1.5;
+				var REBOUND_DURATION:Float = 0.3; // Duración del rebote (rápido)
+				var REBOUND_AMOUNT:Float = 20;    // Cantidad de píxeles que sube
+
+				if (camHUD != null) {
+					// --- PRIMER TWEEN: SUBIR UN POCO (Rebote) ---
+					FlxTween.tween(camHUD, 
+						{ 
+							y: camHUD.y - REBOUND_AMOUNT // Subir 20 píxeles
+						}, 
+						REBOUND_DURATION, 
+						{ 
+							ease: FlxEase.quadOut, // Un rebote rápido y suave hacia arriba
+							onComplete: function(twn:FlxTween) {
+								// --- SEGUNDO TWEEN: CAÍDA TOTAL CON ROTACIÓN ---
+								FlxTween.tween(camHUD, 
+									{ 
+										y: FlxG.height + 300, // Lo mueve fuera de la pantalla
+										angle: 40 // Lo rota 5 grados a la derecha
+									}, 
+									TWEEN_DURATION, 
+									{ 
+										// Inicia lento y termina rápido (aceleración de la caída)
+										ease: FlxEase.cubeOut 
+									}
+								);
+							}
+						}
+					);
 				}
-				else
+
+				// 3. AUDIO DE TRANSICIÓN Y AJUSTE DE TIEMPO
+				var rayadoSound:FlxSound = FlxG.sound.play(Paths.sound('discoRayado'), 1);
+				var totalDelay:Float = 1.5; // Tiempo de espera de respaldo
+
+				// Retraso adicional después de que el audio termine (en segundos)
+				var POST_AUDIO_DELAY:Float = 0.2; 
+
+				if (rayadoSound != null && rayadoSound.time > 0)
 				{
-					vocals.stop();
-					opponentVocals.stop();
-					FlxG.sound.music.stop();
+					// Sumamos el tiempo de duración del audio MÁS el retraso de 0.2 segundos.
+					totalDelay = rayadoSound.time + POST_AUDIO_DELAY; 
+				}
+
+
+				// 4. TEMPORIZADOR PARA LA TRANSICIÓN FINAL
+				gameOverTimer = new FlxTimer().start(totalDelay, function(_)
+				{
+					// Ocultamos el dibujado (la pantalla se pone negra, incluyendo el camHUD si no terminó de caer)
+					persistentDraw = false; 
+
+					// Limpiamos los managers de animaciones y filtros (opcionalmente)
+					FlxTimer.globalManager.clear();
+					FlxTween.globalManager.clear();
+					FlxG.camera.setFilters([]);
+
+					// Iniciamos el Game Over Substate
 					openSubState(new GameOverSubstate(boyfriend));
-				}
-
+					gameOverTimer = null;
+				});
+				// --- FIN DE TU CÓDIGO DE TRANSICIÓN ---
+				
 				// MusicBeatState.switchState(new GameOverState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 
 				#if DISCORD_ALLOWED
@@ -2420,7 +2526,8 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		timeBar.visible = false;
+		//timeBar.visible = false;
+		timeBg.visible = false;
 		timeTxt.visible = false;
 		canPause = false;
 		endingSong = true;
@@ -2452,62 +2559,67 @@ class PlayState extends MusicBeatState
 				return false;
 			}
 
+			// --- LECTURA Y CÁLCULO DE ESTADÍSTICAS (Aplicado para ambos modos) ---
+			var totalNotasGolpeadas:Int = Std.int(this.totalNotesHit); 
+			var sicks:Int = Std.int(ratingsData[0].hits);
+			var goods:Int = Std.int(ratingsData[1].hits);
+			var bads:Int = Std.int(ratingsData[2].hits);
+			var misses:Int = Std.int(songMisses); 
+			
+			var totalNotasDisplay:Int = totalNotasGolpeadas + misses;
+			// Asumiendo que has implementado 'maxCombo' como variable de clase, si no, déjala en 0.
+			var maxComboDisplay:Int = 0; // Cambiar a 'this.maxCombo' si está implementado.
+
 			if (isStoryMode)
 			{
+				// LÓGICA DE ACUMULACIÓN Y FLUJO DE LA WBDA (Se mantiene la preparación del flujo)
 				campaignScore += songScore;
 				campaignMisses += songMisses;
 
-				storyPlaylist.remove(storyPlaylist[0]);
+				// CRUCIAL: Eliminar la canción actual para que ResultsScreenState sepa el siguiente paso.
+				storyPlaylist.remove(storyPlaylist[0]); 
+				
+				// Reemplazamos toda la lógica de 'switchState' del Story Mode por ResultsScreenState.
 
-				if (storyPlaylist.length <= 0)
-				{
-					Mods.loadTopMod();
-					FlxG.sound.playMusic(Paths.music('freakyMenu'));
-					#if DISCORD_ALLOWED DiscordClient.resetClientID(); #end
-
-					canResync = false;
-					MusicBeatState.switchState(new StoryMenuState());
-
-					// if ()
-					if(!ClientPrefs.getGameplaySetting('practice') && !ClientPrefs.getGameplaySetting('botplay')) {
-						StoryMenuState.weekCompleted.set(WeekData.weeksList[storyWeek], true);
-						Highscore.saveWeekScore(WeekData.getWeekFileName(), campaignScore, storyDifficulty);
-
-						FlxG.save.data.weekCompleted = StoryMenuState.weekCompleted;
-						FlxG.save.flush();
-					}
-					changedDifficulty = false;
-				}
-				else
-				{
-					var difficulty:String = Difficulty.getFilePath();
-
-					trace('LOADING NEXT SONG');
-					trace(Paths.formatToSongPath(PlayState.storyPlaylist[0]) + difficulty);
-
-					FlxTransitionableState.skipNextTransIn = true;
-					FlxTransitionableState.skipNextTransOut = true;
-					prevCamFollow = camFollow;
-
-					Song.loadFromJson(PlayState.storyPlaylist[0] + difficulty, PlayState.storyPlaylist[0]);
-					FlxG.sound.music.stop();
-
-					canResync = false;
-					LoadingState.prepareToSong();
-					LoadingState.loadAndSwitchState(new PlayState(), false, false);
-				}
+				MusicBeatState.switchState(new ResultsScreenState(
+					campaignScore, 	 	// 1. Puntuación total (acumulada)
+					totalNotasDisplay, 	// 2. Total de notas
+					maxComboDisplay, 	// 3. Combo Máximo
+					sicks, 		 	// 4. Sicks
+					goods, 		 	// 5. Goods
+					bads, 		 	// 6. Bads
+					misses, 		// 7. Misses
+					Song.loadedSongName,
+					PlayState.storyDifficulty
+				));
 			}
 			else
 			{
+				// Freeplay
 				trace('WENT BACK TO FREEPLAY??');
 				Mods.loadTopMod();
 				#if DISCORD_ALLOWED DiscordClient.resetClientID(); #end
 
 				canResync = false;
-				MusicBeatState.switchState(new FreeplayState());
-				FlxG.sound.playMusic(Paths.music('freakyMenu'));
-				changedDifficulty = false;
+				
+				// Reemplazamos la transición de Freeplay por ResultsScreenState.
+				MusicBeatState.switchState(new ResultsScreenState(
+					this.songScore, 	// 1. Puntuación total (individual)
+					totalNotasDisplay, 	// 2. Total de notas
+					maxComboDisplay, 	// 3. Combo Máximo
+					sicks, 		 	// 4. Sicks
+					goods, 		 	// 5. Goods
+					bads, 		 	// 6. Bads
+					misses, 		// 7. Misses
+					Song.loadedSongName,
+					PlayState.storyDifficulty
+				));
 			}
+			
+			// La música y la bandera de dificultad se aplican para ambos casos:
+			FlxG.sound.playMusic(Paths.music('freakyMenu'));
+			changedDifficulty = false;
+			
 			transitioning = true;
 		}
 		return true;

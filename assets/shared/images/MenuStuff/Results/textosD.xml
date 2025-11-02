@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="textosD.png">
+<SubTexture name="textosD aparece0000" x="0" y="0" width="1280" height="720" frameX="0" frameY="0" frameWidth="1280" frameHeight="720" />
+<SubTexture name="textosD aparece0001" x="0" y="720" width="353" height="388" frameX="-1" frameY="-140" frameWidth="1280" frameHeight="720" />
+<SubTexture name="textosD aparece0002" x="353" y="720" width="342" height="374" frameX="-6" frameY="-145" frameWidth="1280" frameHeight="720" />
+<SubTexture name="textosD aparece0003" x="695" y="720" width="338" height="365" frameX="-8" frameY="-147" frameWidth="1280" frameHeight="720" />
+<SubTexture name="textosD aparece0004" x="1280" y="0" width="324" height="357" frameX="-14" frameY="-149" frameWidth="1280" frameHeight="720" />
+<SubTexture name="textosD aparece0005" x="1280" y="357" width="249" height="325" frameX="-51" frameY="-162" frameWidth="1280" frameHeight="720" />
+<SubTexture name="textosD aparece0006" x="1280" y="357" width="249" height="325" frameX="-51" frameY="-162" frameWidth="1280" frameHeight="720" />
+<SubTexture name="textosD idle0000" x="1280" y="357" width="249" height="325" frameX="-51" frameY="-162" frameWidth="1280" frameHeight="720" />
+<SubTexture name="textosD idle0001" x="1280" y="357" width="249" height="325" frameX="-51" frameY="-162" frameWidth="1280" frameHeight="720" />
+</TextureAtlas>

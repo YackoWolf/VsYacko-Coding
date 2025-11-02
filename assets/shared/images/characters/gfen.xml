@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="gfen.png">
+<SubTexture name="gfen dance right0000" x="2386" y="0" width="630" height="909" frameX="-184" frameY="-307" frameWidth="840" frameHeight="1200" />
+<SubTexture name="gfen dance right0001" x="0" y="1852" width="637" height="905" frameX="-168" frameY="-311" frameWidth="840" frameHeight="1200" />
+<SubTexture name="gfen dance right0002" x="598" y="931" width="619" height="919" frameX="-156" frameY="-297" frameWidth="840" frameHeight="1200" />
+<SubTexture name="gfen dance right0003" x="603" y="0" width="609" height="928" frameX="-142" frameY="-288" frameWidth="840" frameHeight="1200" />
+<SubTexture name="gfen dance right0004" x="0" y="931" width="598" height="921" frameX="-139" frameY="-295" frameWidth="840" frameHeight="1200" />
+<SubTexture name="gfen dance left0000" x="2386" y="909" width="570" height="895" frameX="-131" frameY="-321" frameWidth="840" frameHeight="1200" />
+<SubTexture name="gfen dance left0001" x="1217" y="931" width="572" height="914" frameX="-141" frameY="-302" frameWidth="840" frameHeight="1200" />
+<SubTexture name="gfen dance left0002" x="1804" y="0" width="582" height="922" frameX="-145" frameY="-294" frameWidth="840" frameHeight="1200" />
+<SubTexture name="gfen dance left0003" x="1212" y="0" width="592" height="926" frameX="-145" frameY="-290" frameWidth="840" frameHeight="1200" />
+<SubTexture name="gfen dance left0004" x="0" y="0" width="603" height="931" frameX="-142" frameY="-285" frameWidth="840" frameHeight="1200" />
+</TextureAtlas>

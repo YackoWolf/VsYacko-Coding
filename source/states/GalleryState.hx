@@ -2,14 +2,13 @@ package states;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.FlxState;
 import flixel.ui.FlxButton;
 import flixel.util.FlxColor;
 
 import flixel.addons.display.FlxBackdrop;
 import flixel.animation.FlxAnimation;
 
-class GalleryState extends FlxState
+class GalleryState extends MusicBeatState
 {
     private var imagenes:Array<FlxSprite>;
     private var indiceActual:Int = 0;

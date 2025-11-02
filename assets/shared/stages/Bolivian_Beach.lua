@@ -47,7 +47,7 @@ end
 function beachfire()
 for i = 1, #currentSprites do removeLuaSprite(currentSprites[i]) end
     makeAnimatedLuaSprite("fogAnim", "BeachBolivian/fas2/fog", -1169, -715)
-    addAnimationByPrefix("fogAnim", "lucesita", "fog", 8, true)
+    addAnimationByPrefix("fogAnim", "lucesita", "fog", 9, true)
     scaleObject("fogAnim", 3.25, 2.7)
     addLuaSprite("fogAnim")
 
@@ -56,7 +56,7 @@ for i = 1, #currentSprites do removeLuaSprite(currentSprites[i]) end
     addLuaSprite("palmerin")
 
     makeAnimatedLuaSprite("fuegin", "BeachBolivian/fas2/fuegin", -1169, -740)
-    addAnimationByPrefix("fuegin", "fuegin", "fuegin", 8, true)
+    addAnimationByPrefix("fuegin", "fuegin", "fuegin", 10, true)
     scaleObject("fuegin", 3.25, 2.7)
     addLuaSprite("fuegin")
 
@@ -65,12 +65,12 @@ for i = 1, #currentSprites do removeLuaSprite(currentSprites[i]) end
     addLuaSprite("beach2")
 
     makeAnimatedLuaSprite("rocks", "BeachBolivian/fas2/roca", -1169, -695)
-    addAnimationByPrefix("rocks", "roca", "roca", 6, true)
+    addAnimationByPrefix("rocks", "roca", "roca", 10, true)
     scaleObject("rocks", 3.25, 2.7)
     addLuaSprite("rocks")
 
     makeAnimatedLuaSprite("prime", "BeachBolivian/fas2/palmera", -924, -635)
-    addAnimationByPrefix("prime", "palmerafiu", "palmera", 8, true)
+    addAnimationByPrefix("prime", "palmerafiu", "palmera", 10, true)
     scaleObject("prime", 2.6, 2.5)
     addLuaSprite("prime", true)
 

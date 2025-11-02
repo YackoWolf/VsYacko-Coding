@@ -3,8 +3,15 @@ package backend;
 import flixel.FlxState;
 import backend.PsychCamera;
 
+import openfl.display.StageDisplayState; // Necesaria para el enum FULL_SCREEN_INTERACTIVE
+import openfl.Lib; // ¡CRÍTICO! Soluciona 'Type not found : Lib'
+import openfl.events.Event;
+import flixel.FlxG; // Asegúrate que FlxG esté importado
+
 class MusicBeatState extends FlxState
 {
+	var isF11Cooldown:Bool = false;
+
 	private var curSection:Int = 0;
 	private var stepsToDo:Int = 0;
 
@@ -81,6 +88,20 @@ class MusicBeatState extends FlxState
 		});
 
 		super.update(elapsed);
+		// LÓGICA DE F11: Alternar Pantalla Completa
+		if (FlxG.keys.justPressed.F11 && !isF11Cooldown)
+		{
+			// 1. Activa el Cooldown 
+			isF11Cooldown = true; 
+
+			// 2. Ejecuta la acción de cambiar la pantalla completa (Simple toggle, es el más fiable)
+			FlxG.fullscreen = !FlxG.fullscreen; 
+			
+			// 4. Establece un temporizador para levantar el Cooldown (0.2 segundos)
+			new FlxTimer().start(0.2, function(tmr:FlxTimer) {
+				isF11Cooldown = false;
+			});
+		}
 	}
 
 	private function updateSection():Void

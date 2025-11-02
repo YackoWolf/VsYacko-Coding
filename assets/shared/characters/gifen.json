@@ -1,0 +1,46 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 14,
+			"anim": "danceRight",
+			"indices": [],
+			"name": "gfen dance right"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 12,
+			"anim": "danceLeft",
+			"indices": [],
+			"name": "gfen dance left"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/gfen",
+	"position": [
+		90,
+		-220
+	],
+	"healthicon": "gf",
+	"flip_x": false,
+	"healthbar_colors": [
+		165,
+		0,
+		77
+	],
+	"camera_position": [
+		10,
+		300
+	],
+	"sing_duration": 4,
+	"scale": 0.63,
+	"_editor_isPlayer": false
+}

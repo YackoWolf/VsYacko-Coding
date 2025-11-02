@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="scoren.png">
+<SubTexture name="scoren 00000" x="0" y="0" width="132" height="177" frameX="-37" frameY="-6" frameWidth="200" frameHeight="200" />
+<SubTexture name="scoren 10000" x="132" y="0" width="116" height="179" frameX="-34" frameY="-5" frameWidth="200" frameHeight="200" />
+<SubTexture name="scoren 20000" x="248" y="0" width="138" height="175" frameX="-30" frameY="-13" frameWidth="200" frameHeight="200" />
+<SubTexture name="scoren 30000" x="386" y="0" width="122" height="177" frameX="-36" frameY="-10" frameWidth="200" frameHeight="200" />
+<SubTexture name="scoren 40000" x="0" y="179" width="129" height="178" frameX="-39" frameY="-9" frameWidth="200" frameHeight="200" />
+<SubTexture name="scoren 50000" x="129" y="179" width="129" height="162" frameX="-43" frameY="-20" frameWidth="200" frameHeight="200" />
+<SubTexture name="scoren 60000" x="258" y="179" width="94" height="167" frameX="-54" frameY="-17" frameWidth="200" frameHeight="200" />
+<SubTexture name="scoren 70000" x="352" y="179" width="121" height="151" frameX="-43" frameY="-24" frameWidth="200" frameHeight="200" />
+<SubTexture name="scoren 80000" x="0" y="357" width="120" height="167" frameX="-42" frameY="-14" frameWidth="200" frameHeight="200" />
+<SubTexture name="scoren 90000" x="120" y="357" width="105" height="165" frameX="-51" frameY="-12" frameWidth="200" frameHeight="200" />
+<SubTexture name="scoren %0000" x="225" y="357" width="145" height="160" frameX="-28" frameY="-7" frameWidth="200" frameHeight="200" />
+<SubTexture name="scoren .0000" x="370" y="357" width="33" height="32" frameX="-89" frameY="-143" frameWidth="200" frameHeight="200" />
+</TextureAtlas>

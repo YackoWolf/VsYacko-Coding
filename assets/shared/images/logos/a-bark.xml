@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="a-bark.png">
+<SubTexture name="idle0000" x="423" y="0" width="412" height="377" frameX="-447" frameY="-115" frameWidth="1280" frameHeight="720" />
+<SubTexture name="idle0001" x="423" y="0" width="412" height="377" frameX="-447" frameY="-115" frameWidth="1280" frameHeight="720" />
+<SubTexture name="idle0002" x="0" y="0" width="423" height="394" frameX="-436" frameY="-95" frameWidth="1280" frameHeight="720" />
+<SubTexture name="idle0003" x="0" y="0" width="423" height="394" frameX="-436" frameY="-95" frameWidth="1280" frameHeight="720" />
+</TextureAtlas>

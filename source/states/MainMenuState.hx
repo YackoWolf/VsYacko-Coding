@@ -5,6 +5,7 @@ import flixel.effects.FlxFlicker;
 import lime.app.Application;
 import states.editors.MasterEditorMenu;
 import options.OptionsState;
+import shaders.ColorSwap;
 
 enum MainMenuColumn {
     LEFT;
@@ -91,6 +92,10 @@ class MainMenuState extends MusicBeatState
 		var intRandom:Int = FlxG.random.int(0, 1);
         var nombreFondo:String = "bg" + intRandom;
 
+		var foreImageColor:Int = FlxColor.WHITE; // Color del Foreground (por defecto: Blanco)
+    	var applyShader:Bool = false;           // Bandera para saber si aplicar el shader (por defecto: false)
+    	var menuHue:Float = 0.0;                // Valor de rotación del tono (por defecto: 0.0)
+
         switch (nombreFondo)
         {
             case "bg0":
@@ -99,6 +104,9 @@ class MainMenuState extends MusicBeatState
             case "bg1":
                 backgroundImage.frames = Paths.getSparrowAtlas('MenuStuff/MainMenu/backgrounds/bg1'); // Ruta al atlas de sprites de bg1
                 backgroundImage.animation.addByPrefix('bg1', 'bg1', 6, true); // Nombre de la animación y prefijo de los frames
+				foreImageColor = 0xFFFF0E00; // Rojo/Carmesí para el foreground
+				applyShader = true;
+				menuHue = 0.252;
         }
 
         backgroundImage.animation.play(nombreFondo);
@@ -171,6 +179,14 @@ class MainMenuState extends MusicBeatState
 		fnfVer.scrollFactor.set();
 		fnfVer.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(fnfVer);
+
+		// 1. Aplica el color al Foreground
+		foregroundImage.color = foreImageColor;
+
+		// 2. Ejecuta la lógica del shader UNA SOLA VEZ si se requiere
+		if (applyShader) {
+			applyMenuShader(menuHue);
+		}
 		changeItem();
 
 		#if ACHIEVEMENTS_ALLOWED
@@ -193,6 +209,47 @@ class MainMenuState extends MusicBeatState
 		#end
 
 		FlxG.camera.follow(camFollow, null, 0.15);
+	}
+
+	function applyMenuShader(hue:Float, saturation:Float = 0.0, brightness:Float = 0.0):Void
+	{
+		// --- LÓGICA DE SHADER CENTRALIZADA ---
+
+		// 1. Itera y aplica el shader al grupo principal
+		for (item in menuItems.members)
+		{
+			var itemSprite:FlxSprite = cast item;
+			
+			var swapShader:ColorSwap = new ColorSwap();
+			swapShader.hue = hue;
+			
+			// Asignamos solo si tienen un valor diferente al por defecto para evitar trabajo extra
+			if (saturation != 0.0)
+				swapShader.saturation = saturation;
+			if (brightness != 0.0)
+				swapShader.brightness = brightness;
+
+			itemSprite.shader = swapShader.shader;
+		}
+
+		// 2. Aplica el shader a los ítems laterales
+		if (leftItem != null)
+		{
+			var swapShaderLeft:ColorSwap = new ColorSwap();
+			swapShaderLeft.hue = hue;
+			if (saturation != 0.0) swapShaderLeft.saturation = saturation;
+			if (brightness != 0.0) swapShaderLeft.brightness = brightness;
+			leftItem.shader = swapShaderLeft.shader;
+		}
+
+		if (rightItem != null)
+		{
+			var swapShaderRight:ColorSwap = new ColorSwap();
+			swapShaderRight.hue = hue;
+			if (saturation != 0.0) swapShaderRight.saturation = saturation;
+			if (brightness != 0.0) swapShaderRight.brightness = brightness;
+			rightItem.shader = swapShaderRight.shader;
+		}
 	}
 
 	function createMenuItem(name:String, x:Float, y:Float):FlxSprite

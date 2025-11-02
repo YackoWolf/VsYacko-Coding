@@ -1,36 +1,38 @@
 local opponentFolder = 'op'
 local playerFolder = 'bf'
+
 function onCreatePost()
 setProperty('healthBar.visible', false)
 ----EMPTY BARS
 quickSprite(false, 'empty1', 'hpbars/keepfire/'..opponentFolder..'/hpempty', 0, 0, 'hud')
 scaleObject('empty1', 0.8, 0.8)
-setProperty('empty1.y', screenHeight - getProperty('empty1.height'))
+setProperty('empty1.y', downscroll and 0 or screenHeight - getProperty('empty1.height'))
 
 quickSprite(false, 'empty2', 'hpbars/keepfire/'..playerFolder..'/hpempty', 0, 0, 'hud')
 scaleObject('empty2', 0.8, 0.8)
-setProperty('empty2.y', screenHeight - getProperty('empty2.height'))
+setProperty('empty2.y', downscroll and 0 or screenHeight - getProperty('empty2.height'))
 setProperty('empty2.x', screenWidth - getProperty('empty2.width'))
 ----BARS
 quickSprite(false, 'bar1', 'hpbars/keepfire/'..opponentFolder..'/hp1', 0, 0, 'hud')
 scaleObject('bar1', 0.8, 0.8)
-setProperty('bar1.y', screenHeight - getProperty('bar1.height'))
+setProperty('bar1.y', downscroll and 0 or screenHeight - getProperty('bar1.height'))
 
 quickSprite(false, 'bar2', 'hpbars/keepfire/'..playerFolder..'/hp1', 0, 0, 'hud')
 scaleObject('bar2', 0.8, 0.8)
-setProperty('bar2.y', screenHeight - getProperty('bar2.height'))
+setProperty('bar2.y', downscroll and 0 or screenHeight - getProperty('bar2.height'))
 setProperty('bar2.x', screenWidth - getProperty('bar2.width'))
 ----FRAMES
 quickSprite(false, 'frame1', 'hpbars/keepfire/'..opponentFolder..'/hpframe', 0, 0, 'hud')
 scaleObject('frame1', 0.8, 0.8)
-setProperty('frame1.y', screenHeight - getProperty('frame1.height'))
+setProperty('frame1.y', downscroll and 0 or screenHeight - getProperty('frame1.height'))
 
 quickSprite(false, 'frame2', 'hpbars/keepfire/'..playerFolder..'/hpframe', 0, 0, 'hud')
 scaleObject('frame2', 0.8, 0.8)
-setProperty('frame2.y', screenHeight - getProperty('bar2.height'))
+setProperty('frame2.y', downscroll and 0 or screenHeight - getProperty('bar2.height'))
 setProperty('frame2.x', screenWidth - getProperty('bar2.width'))
 end
 
+--I don't give a fuck, he kept insisting with his bullshit about the folders, he wanted his stupid folders, deal with it
 function onUpdatePost()
 local hp = getProperty('healthBar.percent')
 if hp < 25 then
@@ -52,8 +54,8 @@ elseif hp > 95 then
 loadGraphic('bar1', 'hpbars/keepfire/'..opponentFolder..'/hp1')
 loadGraphic('bar2', 'hpbars/keepfire/'..playerFolder..'/hp6')
 end
-setProperty('iconP1.y', 540)
-setProperty('iconP2.y', 540)
+setProperty('iconP1.y', downscroll and 90 or 540)
+setProperty('iconP2.y', downscroll and 90 or 540)
 setProperty('iconP1.x', 1060)
 setProperty('iconP2.x', 60)
 if getHealth() < 0 then setHealth(0) end

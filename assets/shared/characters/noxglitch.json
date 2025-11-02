@@ -2,49 +2,49 @@
 	"animations": [
 		{
 			"offsets": [11, -286],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "singLEFT",
-			"loop": false,
+			"indices": [],
 			"name": "naxx left"
 		},
 		{
 			"offsets": [2, -286],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "singUP",
-			"loop": false,
+			"indices": [],
 			"name": "naxx up"
 		},
 		{
 			"offsets": [2, -286],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "singDOWN",
-			"loop": false,
+			"indices": [],
 			"name": "naxx down"
 		},
 		{
 			"offsets": [-18, -286],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "singRIGHT",
-			"loop": false,
+			"indices": [],
 			"name": "naxx right"
 		},
 		{
 			"offsets": [2, -286],
-			"indices": [],
+			"loop": false,
 			"fps": 21,
 			"anim": "idle",
-			"loop": false,
+			"indices": [],
 			"name": "naxx idle"
 		}
 	],
 	"vocals_file": "",
 	"no_antialiasing": true,
 	"image": "characters/naxx",
-	"position": [110, 60],
+	"position": [40, -10],
 	"healthicon": "naxx",
 	"flip_x": false,
 	"healthbar_colors": [0, 255, 222],
