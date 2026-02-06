@@ -1,0 +1,97 @@
+{
+	"camera_boyfriend": [
+		-250,
+		-300
+	],
+	"_editorMeta": {
+		"boyfriend": "bf",
+		"gf": "gf",
+		"dad": "reroys"
+	},
+	"preload": {
+		"images/stage_light": 2,
+		"images/stagecurtains": 2,
+		"images/stagefront": 3,
+		"images/stageback": 3
+	},
+	"girlfriend": [
+		280,
+		-80
+	],
+	"stageUI": "",
+	"boyfriend": [
+		1375,
+		580
+	],
+	"camera_girlfriend": [
+		0,
+		0
+	],
+	"defaultZoom": 0.55,
+	"objects": [
+		{
+			"x": -573,
+			"y": -136,
+			"scale": [
+				1.6,
+				1.6
+			],
+			"image": "RODENTRAP/cerro",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "sprite1",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"x": 5,
+			"y": 281,
+			"scale": [
+				0.45,
+				0.45
+			],
+			"image": "RODENTRAP/conquest",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "sprite2",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1.2,
+				1.1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"type": "gf"
+		},
+		{
+			"type": "dad"
+		},
+		{
+			"type": "boyfriend"
+		}
+	],
+	"camera_speed": 1,
+	"directory": "week1",
+	"opponent": [
+		110,
+		545
+	],
+	"camera_opponent": [
+		200,
+		-50
+	],
+	"hide_girlfriend": true
+}

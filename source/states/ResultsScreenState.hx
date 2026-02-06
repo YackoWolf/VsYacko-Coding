@@ -165,7 +165,7 @@ class ResultsScreenState extends MusicBeatState
         
         // --- 3. Inicio de Animación ---
         
-        FlxTween.tween(bar, {x: barTargetX}, 0.7, {
+        FlxTween.tween(bar, {x: barTargetX}, 0.5, {
             ease: flixel.tweens.FlxEase.quadOut,
             onComplete: function(twn:FlxTween) {
                 startMonitorTween();
@@ -173,11 +173,57 @@ class ResultsScreenState extends MusicBeatState
         });
 
         super.create();
+        
+        // 🎧 INICIO INMEDIATO DE LA MÚSICA (CUMPLIENDO CON "NOMAS ENTRAR AL STATE")
+        playResultsMusic(); 
     }
+    
+    // ----------------------------------------------------------------------
+    // --- FUNCIÓN PRINCIPAL: LÓGICA DE MÚSICA DE RESULTADOS (INTRO/LOOP) ---
+    // ----------------------------------------------------------------------
+    function playResultsMusic():Void
+    {
+        // 1. OBTENER RUTAS
+        var introMusic:Dynamic = Paths.music('intro'); // Busca la ruta del audio 'intro'
+        var loopMusic:Dynamic = Paths.music('plantilla'); // Busca la ruta del audio 'plantilla'
+        var freakyMenuFallback:Dynamic = Paths.music('freakyMenu');
+
+        FlxG.sound.music.stop(); // Detener cualquier música anterior
+        
+        // 2. LÓGICA DE REPRODUCCIÓN
+        // Usamos FlxG.sound.load para verificar si el archivo no solo tiene una ruta, sino que también se puede cargar.
+        if (introMusic != null && FlxG.sound.load(introMusic) != null) // **VERIFICACIÓN: ¿El intro existe?**
+        {
+            // Caso 1: Intro existe (lo reproduce y luego hace la transición al loop)
+            FlxG.sound.playMusic(introMusic, 1, false); // Reproducir una vez (false)
+            
+            // Callback: Lo que sucede cuando el intro termina
+            FlxG.sound.music.onComplete = function() {
+                if (loopMusic != null && FlxG.sound.load(loopMusic) != null) { // Verifica si Plantilla existe
+                    // Reproducir Plantilla en bucle al finalizar Intro
+                    FlxG.sound.playMusic(loopMusic, 1, true); 
+                } else {
+                    // Fallback a freakyMenu si no hay Plantilla
+                    FlxG.sound.playMusic(freakyMenuFallback, 1, true); 
+                }
+            }
+        }
+        else // **Caso 2: Intro NO existe o no se pudo cargar (Reproducir el loop directamente)**
+        {
+            if (loopMusic != null && FlxG.sound.load(loopMusic) != null) { // Verifica si Plantilla existe
+                // Reproducir Plantilla en bucle inmediatamente
+                FlxG.sound.playMusic(loopMusic, 1, true); 
+            } else {
+                // Fallback a freakyMenu si no hay Plantilla
+                FlxG.sound.playMusic(freakyMenuFallback, 1, true); 
+            }
+        }
+    }
+    // ----------------------------------------------------------------------
     
     function startMonitorTween():Void
     {
-        FlxTween.tween(monitor, {y: monitorTargetY}, 0.8, {
+        FlxTween.tween(monitor, {y: monitorTargetY}, 0.5, {
             ease: flixel.tweens.FlxEase.quadOut,
             onComplete: function(twn:FlxTween) {
                 startTitleTween();
@@ -205,9 +251,24 @@ class ResultsScreenState extends MusicBeatState
         // Cuando el sprite de "textosD" termina su animación de aparición:
         textosD.animation.callback = function(name:String, frame:Int, index:Int) {
             if (name == 'aparece' && frame == textosD.animation.curAnim.numFrames - 1) {
-                textosD.animation.play('idle', true);
                 
-                // LLAMAR A LAS FUNCIONES AL MISMO TIEMPO
+                // === FIX DE BUCLE FINAL: TIMING Y REINICIO FORZADO ===
+                
+                // 1. Detener la animación actual (aparece)
+                textosD.animation.stop();
+                
+                // 2. Usar un FlxTimer (0.001s) para iniciar el bucle.
+                // Esto asegura que el frame final de 'aparece' se haya renderizado
+                // antes de que la lógica de bucle intente reiniciar el contador.
+                new FlxTimer().start(0.001, function(tmr:FlxTimer) {
+                    
+                    // 3. Reiniciar el bucle, forzando el inicio desde el frame 1.
+                    // Si el parpadeo es el reinicio al frame 0, forzar el 1 lo evita.
+                    // El uso de play() con startFrame resuelve la mayoría de los casos.
+                    textosD.animation.play('idle', true, false, 1);
+                });
+
+                // LLAMAR A LAS FUNCIONES AL MISMO TIEMPO (mantenemos el retraso de 0.5s para las estadísticas)
                 new FlxTimer().start(0.5, function(tmr:FlxTimer) {
                     displayClearedDecimalPercentage(); 
                     animateStatsSequence(); 
@@ -320,7 +381,7 @@ class ResultsScreenState extends MusicBeatState
         var currentTextSprites:Array<FlxSprite> = [];
         
         // Inicia el Tween para el conteo de 0 al valor final
-        FlxTween.tween(animData, {value: finalValue}, 0.5, { 
+        FlxTween.tween(animData, {value: finalValue}, 0.3, { 
             ease: flixel.tweens.FlxEase.quadOut,
             onUpdate: function(twn:FlxTween) 
             {
@@ -348,50 +409,101 @@ class ResultsScreenState extends MusicBeatState
     // <-- FUNCIÓN: CONTAJE Y ANIMACIÓN DEL SCORE TOTAL (Usando sprites) -->
     function displayScorenScore():Void
     {
-        // **POSICIÓN PARA SCORE TOTAL**
-        var startX = 50;
-        var startY = FlxG.height - 115;
-        var scoreSpacingFactor = 3;
-        var finalScoreValue = finalScore;
+        // **VARIABLES DE CONFIGURACIÓN DEL SCORE**
+        var startX:Float = 50;
+        var startY:Float = FlxG.height - 115;
+        var scoreSpacingFactor:Float = 3;
+        var finalScoreValue:Int = finalScore;
         
-        // Objeto temporal que contiene el score actual
-        var scoreAnimData = {value: 0.0}; 
-        var currentScoreSprites:Array<FlxSprite> = []; // Array para los sprites del score
+        // Define la función interna que manejará cada pase de la animación (recurrencia)
+        function animateScorePass(pass:Int):Void
+        {
+            // Objetos y arrays necesarios para el conteo de esta pasada
+            var currentScoreSprites:Array<FlxSprite> = []; 
+            var scoreAnimData = {value: 0.0, lastDisplayedScore: -1}; 
+            
+            // Duración del Tween y Curva (Lógica de Shuffle / Conteo Final)
+            var tweenDuration:Float = (pass < 3) ? 0.3 : 1.0; 
+            var currentEase = (pass < 3) ? flixel.tweens.FlxEase.linear : flixel.tweens.FlxEase.quadOut;
 
-        FlxTween.tween(scoreAnimData, {value: finalScoreValue}, 1.0, { 
-            ease: flixel.tweens.FlxEase.quadOut,
-            onUpdate: function(twn:FlxTween) {
-                // Accede al valor directamente desde el objeto scoreAnimData
-                var valueToDisplay:Int = Std.int(scoreAnimData.value);
 
-                // 1. ELIMINAR los sprites anteriores
-                for (sprite in currentScoreSprites) remove(sprite, true);
-                currentScoreSprites = [];
+            FlxTween.tween(scoreAnimData, {value: finalScoreValue}, tweenDuration, { 
+                ease: currentEase,
+                onUpdate: function(twn:FlxTween) {
+                    
+                    var valueToDisplay:Int;
 
-                // 2. CREAR y añadir los nuevos sprites
-                addScorenNumber(valueToDisplay, startX, startY, SCORE_TOTAL_SIZE, 8, scoreSpacingFactor, null, currentScoreSprites);
-            },
-            onComplete: function(twn:FlxTween) {
-                // Asegura que el valor final sea el correcto
-                for (sprite in currentScoreSprites) remove(sprite, true);
-                currentScoreSprites = [];
-                addScorenNumber(finalScoreValue, startX, startY, SCORE_TOTAL_SIZE, 8, scoreSpacingFactor, null, currentScoreSprites);
+                    // Lógica de la animación de ruleta (Shuffle vs. Conteo)
+                    if (pass < 3) 
+                    {
+                        // Si no es el pase final, mostramos un número ALEATORIO grande (Shuffle)
+                        valueToDisplay = FlxG.random.int(0, finalScoreValue);
+                        if (valueToDisplay < 10) valueToDisplay = FlxG.random.int(0, 999); 
+                        
+                    } else {
+                        // Si es el pase final (pass == 3), mostramos el valor real del tween (conteo suave).
+                        valueToDisplay = Std.int(scoreAnimData.value);
+                    }
 
-                // 🔊 LÓGICA DE MÚSICA CORREGIDA CON FALLBACK:
-                // ⚠️ FIX DEL ERROR: La variable debe ser Dynamic, no String.
-                var resultsMusic:Dynamic = Paths.music('plantilla'); 
-                
-                if (resultsMusic != null) {
-                    // Si el objeto de sonido no es nulo (se encontró la música), lo reproducimos.
-                    FlxG.sound.music.stop(); 
-                    FlxG.sound.playMusic(resultsMusic);
-                } else {
-                    // Si el objeto es nulo (SOUND NOT FOUND), usamos freakyMenu como fallback.
-                    FlxG.sound.music.stop();
-                    FlxG.sound.playMusic(Paths.music('freakyMenu'));
+                    // 🔊 Lógica de sonido
+                    if (valueToDisplay != scoreAnimData.lastDisplayedScore) {
+                        FlxG.sound.play(Paths.sound('scrollMenu'), 0.4, false); 
+                        scoreAnimData.lastDisplayedScore = valueToDisplay;
+                    }
+
+                    // 1. ELIMINAR los sprites anteriores
+                    for (sprite in currentScoreSprites) remove(sprite, true);
+                    currentScoreSprites = [];
+
+                    // 2. CREAR y añadir los nuevos sprites
+                    addScorenNumber(valueToDisplay, startX, startY, SCORE_TOTAL_SIZE, 8, scoreSpacingFactor, null, currentScoreSprites);
+                },
+                onComplete: function(twn:FlxTween) {
+                    
+                    // --- 🚨 INICIO DEL FIX: Dibuja el valor final de la pasada ANTES de limpiar ---
+
+                    // 1. DIBUJA el valor final (finalScoreValue) para que el conteo se congele.
+                    // Es importante que este 'valueToDisplay' sea el valor máximo de la pasada.
+                    // Como el tween llega a 'finalScoreValue', simplemente usamos el valor final.
+                    
+                    // Asegurar que el último valor dibujado en el frame sea el valor final exacto.
+                    for (sprite in currentScoreSprites) remove(sprite, true);
+                    currentScoreSprites = [];
+                    addScorenNumber(finalScoreValue, startX, startY, SCORE_TOTAL_SIZE, 8, scoreSpacingFactor, null, currentScoreSprites);
+                    
+                    // --- 🚨 FIN DEL FIX ---
+
+
+                    if (pass < 3)
+                    {
+                        // Si no es el último pase, reinicia el contador y llama al siguiente pase.
+                        // El valor final queda dibujado durante este retraso de 0.2s.
+                        new FlxTimer().start(0.2, function(tmr:FlxTimer) { 
+                            
+                            // 2. ELIMINAR AHORA: Limpiamos los sprites CONGELADOS justo antes de que empiece el nuevo conteo.
+                            for (sprite in currentScoreSprites) remove(sprite, true);
+                            currentScoreSprites = [];
+                            
+                            animateScorePass(pass + 1); // Llamada recursiva
+                        });
+                    }
+                    else // pass == 3, RESULTADO FINAL
+                    {
+                        // 💥 FIX DEL FLASH: Flash de la cámara al mostrar el resultado final
+                        FlxG.camera.flash(FlxColor.WHITE, 0.1); // Flash blanco de 0.1 segundos
+
+                        // Muestra el resultado final (sin animación, solo el número)
+                        // (Ya fue dibujado en el paso 1 del FIX, pero lo redibujamos por seguridad)
+                        for (sprite in currentScoreSprites) remove(sprite, true);
+                        currentScoreSprites = [];
+                        addScorenNumber(finalScoreValue, startX, startY, SCORE_TOTAL_SIZE, 8, scoreSpacingFactor, null, currentScoreSprites);
+                    }
                 }
-            }
-        });
+            });
+        }
+
+        // 3. INICIA EL PROCESO: Comienza el primer pase (pass = 1)
+        animateScorePass(1);
     }
     
     // ----------------------------------------------------------------------
@@ -527,8 +639,7 @@ class ResultsScreenState extends MusicBeatState
                 {
                     // FIN DE SEMANA -> Volver al menú de la historia
                     Mods.loadTopMod();
-                    // ❌ ELIMINADA: FlxG.sound.playMusic(Paths.music('freakyMenu')); 
-                    // (Debe ser iniciada por StoryMenuState.hx/create())
+                    // (La música se iniciará en StoryMenuState.hx/create())
                     #if DISCORD_ALLOWED DiscordClient.resetClientID(); #end
 
                     // Lógica de guardado de semana
@@ -555,9 +666,6 @@ class ResultsScreenState extends MusicBeatState
                     Song.loadFromJson(PlayState.storyPlaylist[0] + difficulty, PlayState.storyPlaylist[0]);
                     // FlxG.sound.music.stop() ya se llamó al inicio de update()
 
-                    // ❌ ELIMINADA: FlxG.sound.playMusic(Paths.music('freakyMenu')); 
-                    // (Esta línea no iba aquí, interfería con la carga de la siguiente canción)
-
                     LoadingState.prepareToSong();
                     LoadingState.loadAndSwitchState(new PlayState(), false, false);
                 }
@@ -572,7 +680,7 @@ class ResultsScreenState extends MusicBeatState
                 
                 PlayState.changedDifficulty = false;
                 MusicBeatState.switchState(new FreeplayState());
-                // ⚠️ ¡NOTA! La música debe iniciarse ahora en FreeplayState.hx/create()
+                // ⚠️ ¡NOTA! La música de Freeplay debe iniciarse ahora en FreeplayState.hx/create()
             }
         }
         

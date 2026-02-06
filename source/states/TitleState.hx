@@ -15,6 +15,7 @@ import openfl.display.Bitmap;
 import openfl.display.BitmapData;
 
 import shaders.ColorSwap;
+import shaders.WiggleEffect;
 
 import states.StoryMenuState;
 import states.MainMenuState;
@@ -112,6 +113,8 @@ class TitleState extends MusicBeatState
 		#end
 	}
 
+	var bar1:FlxSprite;
+	var bar2:FlxSprite;
 	var skibidi:FlxSprite;
 	var port:FlxSprite;
 	var logoBl:FlxSprite;
@@ -119,6 +122,7 @@ class TitleState extends MusicBeatState
 	var danceLeft:Bool = false;
 	var titleText:FlxSprite;
 	var swagShader:ColorSwap = null;
+	var wiggleShade:WiggleEffect;
 
 	function startIntro()
 	{
@@ -137,10 +141,40 @@ class TitleState extends MusicBeatState
 		skibidi.velocity.y = -40;
 		skibidi.velocity.x = -40;
 		skibidi.active = true;
+		skibidi.screenCenter();
+
+		if (ClientPrefs.data.shaders) 
+		{
+			wiggleShade = new WiggleEffect();
+			wiggleShade.effectType = FLAG; // Activamos el modo solicitado
+			wiggleShade.waveSpeed = 2.0;    // Velocidad de la ondulación
+			wiggleShade.waveFrequency = 10; // Cantidad de ondas
+			wiggleShade.waveAmplitude = 0.015; // Fuerza del efecto
+			
+			skibidi.shader = wiggleShade.shader;
+		}
 		add(skibidi);
 		skibidi.screenCenter();
 
-		port = new FlxSprite(-80).loadGraphic(Paths.image('InicoBGs/portadeishon' + FlxG.random.int(0, 6)));
+		bar1 = new FlxBackdrop().loadGraphic(Paths.image("MenuStuff/INICIO/bar1"));
+		bar1.antialiasing = ClientPrefs.data.antialiasing;
+		bar1.updateHitbox();
+		bar1.scrollFactor.set();
+		bar1.velocity.x = -40;
+		bar1.active = true;
+		add(bar1);
+		bar1.screenCenter();
+
+		bar2 = new FlxBackdrop().loadGraphic(Paths.image("MenuStuff/INICIO/bar2"));
+		bar2.antialiasing = ClientPrefs.data.antialiasing;
+		bar2.updateHitbox();
+		bar2.scrollFactor.set();
+		bar2.velocity.x = 40;
+		bar2.active = true;
+		add(bar2);
+		bar2.screenCenter();
+
+		port = new FlxSprite(-80).loadGraphic(Paths.image('InicoBGs/portadeishon' + FlxG.random.int(0, 0)));
 		port.antialiasing = ClientPrefs.data.antialiasing;
 		port.screenCenter(X);
 		port.y = 80;
@@ -343,6 +377,11 @@ class TitleState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
+		if (wiggleShade != null && ClientPrefs.data.shaders)
+		{
+			wiggleShade.update(elapsed); // Esto hace que el uTime avance
+		}
+
 		if (FlxG.sound.music != null)
 			Conductor.songPosition = FlxG.sound.music.time;
 		// FlxG.watch.addQuick('amp', FlxG.sound.music.amplitude);

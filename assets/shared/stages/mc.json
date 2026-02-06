@@ -1,0 +1,119 @@
+{
+	"camera_boyfriend": [
+		-550,
+		-450
+	],
+	"_editorMeta": {
+		"boyfriend": "bf",
+		"gf": "gf",
+		"dad": "wither"
+	},
+	"preload": {
+		"images/stage_light": 2,
+		"images/stagecurtains": 2,
+		"images/stagefront": 3,
+		"images/stageback": 3
+	},
+	"girlfriend": [
+		371,
+		388
+	],
+	"stageUI": "",
+	"boyfriend": [
+		1412,
+		588
+	],
+	"objects": [
+		{
+			"type": "gf"
+		},
+		{
+			"x": -1228,
+			"y": -641,
+			"scale": [
+				1.1,
+				1.1
+			],
+			"image": "wither/sky",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "sprite1",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1.15,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"x": -1232,
+			"y": -651,
+			"scale": [
+				1,
+				1
+			],
+			"image": "wither/world",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "sprite2",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"type": "dad"
+		},
+		{
+			"x": -1222,
+			"y": -643,
+			"scale": [
+				1,
+				1
+			],
+			"image": "wither/grass",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "sprite3",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"type": "boyfriend"
+		}
+	],
+	"camera_girlfriend": [
+		0,
+		-150
+	],
+	"defaultZoom": 0.35,
+	"camera_speed": 1,
+	"directory": "week1",
+	"opponent": [
+		13,
+		-212
+	],
+	"camera_opponent": [
+		-1140,
+		-450
+	],
+	"hide_girlfriend": true
+}

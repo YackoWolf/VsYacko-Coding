@@ -1,0 +1,27 @@
+{
+	"songs": [
+		[
+			"tripulante",
+			"cyan",
+			[
+				0,
+				255,
+				215
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "tripulante",
+	"difficulties": "",
+	"weekCharacters": [
+		"sads",
+		"",
+		""
+	],
+	"storyName": "gloglosor",
+	"weekName": "sus",
+	"hideStoryMode": true,
+	"weekBefore": "tutorial",
+	"startUnlocked": true
+}

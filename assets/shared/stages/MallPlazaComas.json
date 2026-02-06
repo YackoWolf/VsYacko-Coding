@@ -3,31 +3,26 @@
 		0,
 		0
 	],
+	"preload": {
+		"images/stageback": 3,
+		"images/stagefront": 3,
+		"images/stagecurtains": 2,
+		"images/stage_light": 2
+	},
 	"_editorMeta": {
 		"boyfriend": "bf",
-		"gf": "gf",
-		"dad": "noxfaker"
+		"dad": "noxfaker",
+		"gf": "gf"
 	},
-	"preload": {
-		"images/stage_light": 2,
-		"images/stagecurtains": 2,
-		"images/stagefront": 3,
-		"images/stageback": 3
-	},
-	"girlfriend": [
-		600,
-		270
-	],
-	"stageUI": "",
 	"boyfriend": [
 		1330,
 		400
 	],
-	"camera_girlfriend": [
-		0,
-		0
+	"stageUI": "",
+	"girlfriend": [
+		540,
+		210
 	],
-	"defaultZoom": 0.75,
 	"objects": [
 		{
 			"x": -562,
@@ -83,15 +78,20 @@
 			"type": "boyfriend"
 		}
 	],
-	"camera_speed": 1,
-	"directory": "week1",
+	"camera_girlfriend": [
+		0,
+		0
+	],
+	"defaultZoom": 0.75,
 	"opponent": [
 		140,
 		360
 	],
+	"directory": "week1",
+	"camera_speed": 1,
+	"hide_girlfriend": false,
 	"camera_opponent": [
 		0,
 		0
-	],
-	"hide_girlfriend": false
+	]
 }

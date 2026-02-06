@@ -1,0 +1,212 @@
+{
+	"camera_boyfriend": [
+		0,
+		0
+	],
+	"_editorMeta": {
+		"boyfriend": "bf",
+		"gf": "gifen",
+		"dad": "noxfang"
+	},
+	"stageUI": "normal",
+	"boyfriend": [
+		1210,
+		320
+	],
+	"girlfriend": [
+		280,
+		170
+	],
+	"defaultZoom": 0.45,
+	"objects": [
+		{
+			"x": -1355,
+			"y": -739,
+			"scale": [
+				1,
+				1
+			],
+			"image": "BeachBolivian/fog",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "fog",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"x": -1355,
+			"y": -739,
+			"scale": [
+				1,
+				1
+			],
+			"image": "BeachBolivian/city",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "city",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"x": -1355,
+			"y": -739,
+			"scale": [
+				1,
+				1
+			],
+			"image": "BeachBolivian/cerros",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "cerros",
+			"firstAnimation": "idle",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"animations": [
+				{
+					"loop": true,
+					"offsets": null,
+					"anim": "idle",
+					"fps": 15,
+					"name": "cerros idle",
+					"indices": []
+				}
+			],
+			"type": "animatedSprite"
+		},
+		{
+			"x": -1355,
+			"y": -739,
+			"scale": [
+				1,
+				1
+			],
+			"image": "BeachBolivian/mar",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "mar",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"x": -1355,
+			"y": -739,
+			"scale": [
+				1,
+				1
+			],
+			"image": "BeachBolivian/palmeronas",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "palmeras",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"type": "gf"
+		},
+		{
+			"type": "dad"
+		},
+		{
+			"type": "boyfriend"
+		},
+		{
+			"x": -1355,
+			"y": -739,
+			"scale": [
+				1,
+				1
+			],
+			"image": "BeachBolivian/arbustos",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "arbustos",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"x": -1355,
+			"y": -739,
+			"scale": [
+				1,
+				1
+			],
+			"image": "BeachBolivian/hud",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "hojas",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		}
+	],
+	"camera_girlfriend": [
+		0,
+		0
+	],
+	"opponent": [
+		-110,
+		285
+	],
+	"directory": "",
+	"camera_speed": 1,
+	"hide_girlfriend": false,
+	"camera_opponent": [
+		0,
+		0
+	]
+}

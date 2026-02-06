@@ -6,6 +6,8 @@ import backend.WeekData;
 import backend.Song;
 import backend.Rating;
 
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
 import flixel.FlxBasic;
 import flixel.FlxObject;
 import flixel.FlxSubState;
@@ -90,6 +92,8 @@ class PlayState extends MusicBeatState
 	];
 
 	//event variables
+	var currentPitch:Float = 1.0;
+
 	private var isCameraOnForcedPos:Bool = false;
 
 	public var boyfriendMap:Map<String, Character> = new Map<String, Character>();
@@ -1708,6 +1712,15 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
+		// --- CÓDIGO NUEVO PARA EL PITCH DE AUDIO ---
+		// Solo aplica el pitch si estás en la fase de Game Over
+		if (isDead) 
+		{
+			if (FlxG.sound.music != null) FlxG.sound.music.pitch = currentPitch;
+			if (vocals != null) vocals.pitch = currentPitch;
+		}
+		// --- FIN CÓDIGO NUEVO ---
+
 		if(!inCutscene && !paused && !freezeCamera) {
 			FlxG.camera.followLerp = 0.04 * cameraSpeed * playbackRate;
 			var idleAnim:Bool = (boyfriend.getAnimationName().startsWith('idle') || boyfriend.getAnimationName().startsWith('danceLeft') || boyfriend.getAnimationName().startsWith('danceRight'));
@@ -2022,31 +2035,11 @@ class PlayState extends MusicBeatState
 			var ret:Dynamic = callOnScripts('onGameOver', null, true);
 			if(ret != LuaUtils.Function_Stop)
 			{
+				// ❌ NO SE ELIMINAN LOS FILTROS/SHADERS DE LA CÁMARA (LÍNEA ELIMINADA)
+
 				FlxG.animationTimeScale = 1;
 				boyfriend.stunned = true;
 				deathCounter++;
-
-				// 1. CONGELAR PERSONAJES en el cuadro actual
-				var BIG_TIMER:Float = 1000000;
-
-				if (boyfriend != null) {
-					boyfriend.holdTimer = BIG_TIMER; 
-					if (StringTools.startsWith(boyfriend.animation.name, 'dance') && boyfriend.animation.finishCallback == null) {
-						boyfriend.animation.finishCallback = function(name:String) { boyfriend.animation.finishCallback = null; };
-					}
-				}
-				if (dad != null) {
-					dad.holdTimer = BIG_TIMER;
-					if (StringTools.startsWith(dad.animation.name, 'dance') && dad.animation.finishCallback == null) {
-						dad.animation.finishCallback = function(name:String) { dad.animation.finishCallback = null; };
-					}
-				}
-				if (gf != null) {
-					gf.holdTimer = BIG_TIMER;
-					if (StringTools.startsWith(gf.animation.name, 'dance') && gf.animation.finishCallback == null) {
-						gf.animation.finishCallback = function(name:String) { gf.animation.finishCallback = null; };
-					}
-				}
 
 				paused = true;
 				canResync = false;
@@ -2059,83 +2052,85 @@ class PlayState extends MusicBeatState
 				}
 				#end
 
-				persistentUpdate = false; 
-				
-				// Variables de Control de Tiempo
-				var SLOWDOWN_DURATION:Float = 1.8; 
-				var POST_SLOWDOWN_DELAY:Float = 0.2; 
-				var TWEEN_DURATION:Float = 0.6; 
-
-				// 2. RALENTIZACIÓN DE LA MÚSICA, VOCES Y ANIMACIÓN
-				
-				// A. Ralentizamos el motor de Flixel.
-				FlxTween.tween(FlxG, { animationTimeScale: 0 }, SLOWDOWN_DURATION, { ease: FlxEase.cubeOut });
-
-				// B. Ralentizamos la música y voces usando PITCH (frecuencia) en lugar de timeScale
-				// pitch = 1.0 es normal, pitch = 0.0 es detenido y muy grave.
-				FlxTween.tween(FlxG.sound.music, { pitch: 0.0 }, SLOWDOWN_DURATION, { ease: FlxEase.cubeOut });
-				if (vocals != null) FlxTween.tween(vocals, { pitch: 0.0 }, SLOWDOWN_DURATION, { ease: FlxEase.cubeOut });
-				if (opponentVocals != null) FlxTween.tween(opponentVocals, { pitch: 0.0 }, SLOWDOWN_DURATION, { ease: FlxEase.cubeOut });
-
-				
-				// --- 3. DESVINCULAR Y ANIMAR HUD Y NOTAS ---
-				var DISPERSION_X:Float = 150; 
-				var ROTATION:Float = 15; 
-				
-				var strumsToFix:Array<FlxTypedGroup<Dynamic>> = [playerStrums, opponentStrums];
-
-				// C. DESVINCULAR NOTAS
-				for (strums in strumsToFix) {
-					if (strums != null) {
-						remove(strums, true); // Remover de PlayState
-						
-						// La propiedad scrollFactor debe aplicarse a CADA elemento, no al grupo.
-						strums.forEachAlive(function(strumNote:FlxSprite) {
-							strumNote.scrollFactor.set(0, 0); // Desvincular de la cámara
-						});
-					}
-				}
-
-				// D. TWEEN del HUD PRINCIPAL (Score y Barra de Vida)
-				if (healthBar != null) FlxTween.tween(healthBar, { y: FlxG.height + 200, alpha: 0 }, TWEEN_DURATION, { ease: FlxEase.quadOut });
-				if (scoreTxt != null) FlxTween.tween(scoreTxt, { y: FlxG.height + 200, alpha: 0 }, TWEEN_DURATION, { ease: FlxEase.quadOut });
-
-				// E. DISPERSIÓN, ROTACIÓN y FADE de las FLECHAS
-				for (strums in strumsToFix) {
-					if (strums != null) {
-						strums.forEachAlive(function(strumNote:FlxSprite) {
-							var targetX:Float = strumNote.x;
-							var targetY:Float = strumNote.y + 200; 
-				
-							if (strumNote.ID == 0 || strumNote.ID == 1) { // Izquierda (LEFT, DOWN)
-								targetX -= DISPERSION_X; 
-								FlxTween.tween(strumNote, { x: targetX, y: targetY, angle: -ROTATION, alpha: 0 }, TWEEN_DURATION, { ease: FlxEase.quadOut });
-							} else { // Derecha (UP, RIGHT)
-								targetX += DISPERSION_X; 
-								FlxTween.tween(strumNote, { x: targetX, y: targetY, angle: ROTATION, alpha: 0 }, TWEEN_DURATION, { ease: FlxEase.quadOut });
-							}
-						});
-					}
-				}
-
-				// 4. TEMPORIZADOR FINAL Y TRANSICIÓN
-				var totalDelay:Float = SLOWDOWN_DURATION + POST_SLOWDOWN_DELAY;
-
+				persistentUpdate = false;
+				persistentDraw = false;
 				FlxTimer.globalManager.clear();
-				// FlxTween.globalManager.clear(); // Se queda comentado para que no detenga el tween de pitch
-
-				gameOverTimer = new FlxTimer().start(totalDelay, function(_)
-				{
-					// Aseguramos que el audio se detenga y la escala de tiempo vuelva a la normalidad
-					FlxG.sound.music.stop(); 
-					FlxG.sound.music.pitch = 1.0; 
-					FlxG.animationTimeScale = 1; 
-					
-					persistentDraw = false; 
-					openSubState(new GameOverSubstate(boyfriend));
-					gameOverTimer = null;
-				});
+				FlxTween.globalManager.clear();
 				
+				// =====================================================================
+				// --- INICIO DE LA TRANSICIÓN CINEMÁTICA ---
+
+				var animationDuration:Float = 2.5; // Duración total de la caída forzada (larga)
+				var fadeDuration:Float = 1.0;      // Duración de la desaparición (rápida, como pediste)
+				var volumeTarget:Float = 0.0; 
+				var targetPitch:Float = 0.5;      // Valor usado para el pitch que se aplica en update()
+
+				// 1. CONTROL DE LA MÚSICA (USANDO TU LÓGICA DE PITCH Y VOLUME FADE)
+				// Se mantiene la lógica del pitch animado a 'currentPitch' que se aplica en update().
+				FlxTween.tween(this, {currentPitch: targetPitch}, animationDuration, { ease: FlxEase.quadOut });
+
+				// Animación de volumen (fade out)
+				FlxTween.tween(FlxG.sound.music, {volume: volumeTarget}, animationDuration, {
+					ease: FlxEase.cubeOut,
+					onComplete: function(tween:FlxTween)
+					{
+						vocals.stop();
+						opponentVocals.stop();
+						FlxG.sound.music.stop();
+
+						// Iniciar la Pantalla de Game Over
+						openSubState(new GameOverSubstate(boyfriend));
+						gameOverTimer = null;
+					}
+				});
+				FlxTween.tween(vocals, {volume: volumeTarget}, animationDuration, { ease: FlxEase.cubeOut });
+				opponentVocals.stop();
+
+				// 2. CAÍDA Y DESVANECIMIENTO de los Strums Estáticos
+				for (strum in strumLineNotes)
+				{
+					if (strum != null)
+					{
+						// Caída forzada (animationDuration)
+						FlxTween.tween(strum, {y: strum.y + 50}, animationDuration, { ease: FlxEase.quartIn });
+						// Desvanecimiento rápido (fadeDuration)
+						FlxTween.tween(strum, {alpha: 0}, fadeDuration, { ease: FlxEase.quartIn });
+					}
+				}
+				for (strum in opponentStrums)
+				{
+					if (strum != null)
+					{
+						// Caída forzada (animationDuration)
+						FlxTween.tween(strum, {y: strum.y + 50}, animationDuration, { ease: FlxEase.quartIn });
+						// Desvanecimiento rápido (fadeDuration)
+						FlxTween.tween(strum, {alpha: 0}, fadeDuration, { ease: FlxEase.quartIn });
+					}
+				}
+
+				// 3. CAÍDA Y DESVANECIMIENTO de las Notas Viajeras (Incoming Notes)
+				for (note in notes)
+				{
+					if (note != null && note.visible && !note.mustPress) 
+					{
+						// 🔒 Flags de seguridad para detener el movimiento del juego
+						note.canBeHit = false; 
+						note.active = false;
+						note.copyY = false;
+						note.noAnimation = true; 
+
+						// Caída forzada (strumTime) por 'animationDuration'
+						FlxTween.tween(note, {strumTime: note.strumTime + 10000}, animationDuration, { ease: FlxEase.quartOut });
+						
+						// Desvanecimiento rápido (fadeDuration)
+						FlxTween.tween(note, {alpha: 0.0}, fadeDuration, { ease: FlxEase.quartOut });
+					}
+				}
+
+				gameOverTimer = new FlxTimer();
+				// --- FIN DE LA TRANSICIÓN CINEMÁTICA ---
+				// =====================================================================
+
 				#if DISCORD_ALLOWED
 				if(autoUpdateRPC) DiscordClient.changePresence("Game Over - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 				#end
